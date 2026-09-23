@@ -1,0 +1,24 @@
+{
+  "internal": [
+    {
+      "assignee": "alice@example.com",
+      "due_date": "2026-09-20"
+    },
+    {
+      "assignee": "bob@example.com",
+      "due_date": "2026-09-21"
+    }
+  ],
+  "external": [
+    {
+      "assignee": null,
+      "task": "Send the checklist to [EMAIL].",
+      "due_date": "2026-09-20"
+    },
+    {
+      "assignee": null,
+      "task": "Prepare the test report.",
+      "due_date": "2026-09-21"
+    }
+  ]
+}

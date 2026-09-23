@@ -1,0 +1,185 @@
+WARNING: The directory '/Users/jeremysie/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Collecting annotated-doc==0.0.5
+  Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Collecting annotated-types==0.7.0
+  Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Collecting anyio==4.12.1
+  Downloading anyio-4.12.1-py3-none-any.whl (113 kB)
+Collecting blis==0.7.11
+  Downloading blis-0.7.11-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (1.7 MB)
+Collecting catalogue==2.0.10
+  Downloading catalogue-2.0.10-py3-none-any.whl (17 kB)
+Collecting certifi==2026.7.22
+  Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Collecting cffi==2.0.0
+  Downloading cffi-2.0.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (220 kB)
+Collecting charset-normalizer==3.5.1
+  Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (238 kB)
+Collecting click==8.2.1
+  Downloading click-8.2.1-py3-none-any.whl (102 kB)
+Collecting cloudpathlib==0.25.0
+  Downloading cloudpathlib-0.25.0-py3-none-any.whl (66 kB)
+Collecting confection==0.1.5
+  Downloading confection-0.1.5-py3-none-any.whl (35 kB)
+Collecting cryptography==44.0.3
+  Downloading cryptography-44.0.3-cp39-abi3-manylinux_2_28_aarch64.whl (4.0 MB)
+Collecting cymem==2.0.13
+  Downloading cymem-2.0.13-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (258 kB)
+Collecting exceptiongroup==1.3.1
+  Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+Collecting fastapi==0.128.8
+  Downloading fastapi-0.128.8-py3-none-any.whl (103 kB)
+Collecting filelock==3.19.1
+  Downloading filelock-3.19.1-py3-none-any.whl (15 kB)
+Collecting h11==0.16.0
+  Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting httpcore==1.0.9
+  Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Collecting httpx==0.28.1
+  Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Collecting idna==3.19
+  Downloading idna-3.19-py3-none-any.whl (68 kB)
+Collecting Jinja2==3.1.6
+  Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Collecting langcodes==3.5.1
+  Downloading langcodes-3.5.1-py3-none-any.whl (183 kB)
+Collecting markdown-it-py==3.0.0
+  Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Collecting MarkupSafe==3.0.3
+  Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (24 kB)
+Collecting mdurl==0.1.2
+  Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Collecting murmurhash==1.0.15
+  Downloading murmurhash-1.0.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (133 kB)
+Collecting numpy==1.26.4
+  Downloading numpy-1.26.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (13.9 MB)
+Collecting packaging==26.3
+  Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Collecting phonenumbers==9.0.39
+  Downloading phonenumbers-9.0.39-py2.py3-none-any.whl (2.6 MB)
+Collecting preshed==3.0.13
+  Downloading preshed-3.0.13-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (861 kB)
+Collecting presidio_analyzer==2.2.360
+  Downloading presidio_analyzer-2.2.360-py3-none-any.whl (128 kB)
+Collecting presidio_anonymizer==2.2.360
+  Downloading presidio_anonymizer-2.2.360-py3-none-any.whl (35 kB)
+Collecting pycparser==2.23
+  Downloading pycparser-2.23-py3-none-any.whl (118 kB)
+Collecting pydantic==2.13.5
+  Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+Collecting pydantic_core==2.46.5
+  Downloading pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.0 MB)
+Collecting Pygments==2.21.0
+  Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+Collecting PyYAML==6.0.3
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (775 kB)
+Collecting regex==2026.1.15
+  Downloading regex-2026.1.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (798 kB)
+Collecting requests==2.32.5
+  Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+Collecting requests-file==3.0.1
+  Downloading requests_file-3.0.1-py2.py3-none-any.whl (4.5 kB)
+Collecting rich==15.0.0
+  Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Collecting shellingham==1.5.4
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Collecting smart_open==7.5.0
+  Downloading smart_open-7.5.0-py3-none-any.whl (63 kB)
+Collecting spacy==3.7.5
+  Downloading spacy-3.7.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (6.1 MB)
+Collecting spacy-legacy==3.0.12
+  Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl (29 kB)
+Collecting spacy-loggers==1.0.5
+  Downloading spacy_loggers-1.0.5-py3-none-any.whl (22 kB)
+Collecting srsly==2.5.3
+  Downloading srsly-2.5.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (1.2 MB)
+Collecting starlette==0.49.3
+  Downloading starlette-0.49.3-py3-none-any.whl (74 kB)
+Collecting thinc==8.2.5
+  Downloading thinc-8.2.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (818 kB)
+Collecting tldextract==5.3.0
+  Downloading tldextract-5.3.0-py3-none-any.whl (107 kB)
+Collecting tqdm==4.70.1
+  Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Collecting typer==0.23.2
+  Downloading typer-0.23.2-py3-none-any.whl (56 kB)
+Collecting typer-slim==0.23.2
+  Downloading typer_slim-0.23.2-py3-none-any.whl (3.4 kB)
+Collecting typing-inspection==0.4.2
+  Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+Collecting typing_extensions==4.16.0
+  Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Collecting urllib3==2.6.3
+  Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+Collecting uvicorn==0.39.0
+  Downloading uvicorn-0.39.0-py3-none-any.whl (68 kB)
+Collecting wasabi==1.1.3
+  Downloading wasabi-1.1.3-py3-none-any.whl (27 kB)
+Collecting weasel==0.4.3
+  Downloading weasel-0.4.3-py3-none-any.whl (50 kB)
+Collecting wrapt==2.4.1
+  Downloading wrapt-2.4.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (237 kB)
+Collecting setuptools==80.9.0
+  Downloading setuptools-80.9.0-py3-none-any.whl (1.2 MB)
+Saved ./.local-wheelhouse/presidio/annotated_doc-0.0.5-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/annotated_types-0.7.0-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/anyio-4.12.1-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/blis-0.7.11-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+Saved ./.local-wheelhouse/presidio/catalogue-2.0.10-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/certifi-2026.7.22-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/cffi-2.0.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl
+Saved ./.local-wheelhouse/presidio/charset_normalizer-3.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl
+Saved ./.local-wheelhouse/presidio/click-8.2.1-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/cloudpathlib-0.25.0-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/confection-0.1.5-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/cryptography-44.0.3-cp39-abi3-manylinux_2_28_aarch64.whl
+Saved ./.local-wheelhouse/presidio/cymem-2.0.13-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl
+Saved ./.local-wheelhouse/presidio/exceptiongroup-1.3.1-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/fastapi-0.128.8-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/filelock-3.19.1-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/h11-0.16.0-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/httpcore-1.0.9-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/httpx-0.28.1-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/idna-3.19-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/jinja2-3.1.6-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/langcodes-3.5.1-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/markdown_it_py-3.0.0-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/markupsafe-3.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl
+Saved ./.local-wheelhouse/presidio/mdurl-0.1.2-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/murmurhash-1.0.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl
+Saved ./.local-wheelhouse/presidio/numpy-1.26.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+Saved ./.local-wheelhouse/presidio/packaging-26.3-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/phonenumbers-9.0.39-py2.py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/preshed-3.0.13-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl
+Saved ./.local-wheelhouse/presidio/presidio_analyzer-2.2.360-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/presidio_anonymizer-2.2.360-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/pycparser-2.23-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/pydantic-2.13.5-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+Saved ./.local-wheelhouse/presidio/pygments-2.21.0-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/pyyaml-6.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl
+Saved ./.local-wheelhouse/presidio/regex-2026.1.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl
+Saved ./.local-wheelhouse/presidio/requests-2.32.5-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/requests_file-3.0.1-py2.py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/rich-15.0.0-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/shellingham-1.5.4-py2.py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/smart_open-7.5.0-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/spacy-3.7.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+Saved ./.local-wheelhouse/presidio/spacy_legacy-3.0.12-py2.py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/spacy_loggers-1.0.5-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/srsly-2.5.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl
+Saved ./.local-wheelhouse/presidio/starlette-0.49.3-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/thinc-8.2.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+Saved ./.local-wheelhouse/presidio/tldextract-5.3.0-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/tqdm-4.70.1-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/typer-0.23.2-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/typer_slim-0.23.2-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/typing_inspection-0.4.2-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/typing_extensions-4.16.0-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/urllib3-2.6.3-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/uvicorn-0.39.0-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/wasabi-1.1.3-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/weasel-0.4.3-py3-none-any.whl
+Saved ./.local-wheelhouse/presidio/wrapt-2.4.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl
+Saved ./.local-wheelhouse/presidio/setuptools-80.9.0-py3-none-any.whl
+Successfully downloaded annotated-doc annotated-types anyio blis catalogue certifi cffi charset-normalizer click cloudpathlib confection cryptography cymem exceptiongroup fastapi filelock h11 httpcore httpx idna Jinja2 langcodes markdown-it-py MarkupSafe mdurl murmurhash numpy packaging phonenumbers preshed presidio-analyzer presidio-anonymizer pycparser pydantic pydantic-core Pygments PyYAML regex requests requests-file rich shellingham smart-open spacy spacy-legacy spacy-loggers srsly starlette thinc tldextract tqdm typer typer-slim typing-inspection typing-extensions urllib3 uvicorn wasabi weasel wrapt setuptools

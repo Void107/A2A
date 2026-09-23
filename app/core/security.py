@@ -5,7 +5,7 @@
 1. bcrypt 的 cost factor 默认 12 轮，单次比对约 250ms。
    绝不能 O(N) 遍历所有 Agent 做 bcrypt 比对，必须先用 agent_id 做 O(1) 查询。
 2. Hub→Agent HMAC 签名带时间戳，防重放窗口 300 秒。
-3. JWT payload 里塞 domain 和 scopes，减少后续查库次数。
+3. JWT 只绑定主体和凭据修订；每个请求查询当前受控身份。
 """
 
 from __future__ import annotations
@@ -39,13 +39,16 @@ def hash_api_key(api_key: str) -> str:
 
 def verify_api_key(plain: str, hashed: str) -> bool:
     """比对明文 API Key 与库里的 bcrypt 哈希"""
-    return bcrypt.checkpw(plain.encode(), hashed.encode())
+    try:
+        return bcrypt.checkpw(plain.encode(), hashed.encode())
+    except (ValueError, TypeError):
+        return False
 
 
-def create_jwt(agent_id: str, scopes: list, domain: str | None = None) -> str:
+def create_jwt(agent_id: str, scopes: list, domain: str | None = None, revision: int = 1) -> str:
     """
     签发短期 JWT。
-    payload 里带 domain 和 scopes，后续鉴权不用再查库。
+    只包含主体和凭据修订；权限由当前数据库身份决定。
     """
     now = datetime.utcnow()
     payload = {
@@ -53,10 +56,8 @@ def create_jwt(agent_id: str, scopes: list, domain: str | None = None) -> str:
         "iss": "a2a-contract-hub",
         "iat": now,
         "exp": now + timedelta(minutes=settings.JWT_EXPIRE_MINUTES),
-        "scopes": scopes,
+        "credential_revision": revision,
     }
-    if domain:
-        payload["domain"] = domain
     return jwt.encode(payload, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)
 
 
@@ -69,6 +70,8 @@ def decode_jwt(token: str) -> dict:
         token,
         settings.JWT_SECRET,
         algorithms=[settings.JWT_ALGORITHM],
+        issuer="a2a-contract-hub",
+        options={"require": ["sub", "exp", "iat", "iss", "credential_revision"]},
     )
 
 

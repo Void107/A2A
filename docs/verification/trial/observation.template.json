@@ -1,0 +1,29 @@
+{
+  "status": "awaiting_external_validation",
+  "participant_id": null,
+  "independent_of_implementation": null,
+  "consent_to_observation": null,
+  "date": null,
+  "platform": null,
+  "experience": null,
+  "candidate_sha256": null,
+  "dependency_download_seconds": null,
+  "cold_start_seconds": null,
+  "integration_seconds_excluding_download": null,
+  "help_requests": [],
+  "hub_source_edits": null,
+  "business_integration_lines": null,
+  "tasks": [
+    {"id": "startup", "status": "not_started", "observations": null},
+    {"id": "provider_and_callers", "status": "not_started", "observations": null},
+    {"id": "internal_assigned_tasks", "status": "not_started", "actual_result": null},
+    {"id": "external_unassigned_tasks", "status": "not_started", "actual_result": null},
+    {"id": "denial_and_diagnostics", "status": "not_started", "observations": null},
+    {"id": "contract_change", "status": "not_started", "observations": null},
+    {"id": "restart", "status": "not_started", "observations": null}
+  ],
+  "problems": [],
+  "participant_feedback": null,
+  "fixes_and_reverification": [],
+  "acceptance_ac22": "NOT_RUN"
+}

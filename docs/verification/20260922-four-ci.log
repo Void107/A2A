@@ -1,0 +1,13 @@
+Evidence directory: /Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/docs/verification/ci-run-a5edbe801e
+unit PASS
+verify_real_baseline PASS
+verify_unmigrated PASS
+verify_security PASS
+verify_upstream PASS
+verify_tls PASS
+verify_receipts PASS
+verify_process_failures PASS
+verify_opa PASS
+verify_processing PASS
+verify_delivery PASS
+presidio_quality PASS

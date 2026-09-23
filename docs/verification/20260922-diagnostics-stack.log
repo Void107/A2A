@@ -1,0 +1,23 @@
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade 20260914_publication -> 20260922_diagnostics, Add optional bounded failure metadata; historical rows remain unknown.
+PostgreSQL: 17.6 (Debian 17.6-2.pgdg13+1)
+Redis: 7.4.5
+PASS: real client disconnect after authorization, durable ready_to_send only, retry creates a new reauthorized receipt
+Traceback (most recent call last):
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_delivery.py", line 408, in <module>
+    if __name__ == '__main__': asyncio.run(main())
+                               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremysie/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/jeremysie/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jeremysie/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_delivery.py", line 239, in main
+    assert rest_diagnostics['stage'] == 'processing' and rest_diagnostics['profile_revision'] is None
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

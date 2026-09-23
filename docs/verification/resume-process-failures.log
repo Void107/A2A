@@ -1,0 +1,5 @@
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+PostgreSQL: 17.6 (Debian 17.6-2.pgdg13+1)
+Redis: 7.4.5
+PASS: receipt process exits after real flush before commit: no receipt/outbox; consumer exits before commit: retained event/no audit; exits after commit: exactly one durable audit, restart has no lost work

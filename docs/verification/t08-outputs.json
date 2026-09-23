@@ -1,0 +1,56 @@
+{
+  "internal-project": {
+    "request_id": "8d322980f21f4b82aaff3539440b1c55",
+    "contract_id": "meeting-eca6257e",
+    "contract_version": "1.0.0",
+    "contract_digest": "547fc05ebda51719af54d2aade1d3eb2d6f64bf7d1161f68da92145e4f23583e",
+    "view_id": "internal-project",
+    "decision": "delivered",
+    "data": {
+      "meeting_id": "meeting-001",
+      "title": "Launch readiness",
+      "summary": "Review completed. Contact release@example.com for the checklist.",
+      "action_items": [
+        {
+          "item_id": "item-001",
+          "task": "Send the checklist to review@example.com.",
+          "owner_name": "Alice Example",
+          "owner_email": "alice@example.com",
+          "due_date": "2026-09-20"
+        },
+        {
+          "item_id": "item-002",
+          "task": "Prepare the test report.",
+          "owner_name": "Bob Example",
+          "owner_email": "bob@example.com",
+          "due_date": "2026-09-21"
+        }
+      ]
+    }
+  },
+  "external-collaboration": {
+    "request_id": "d1c117d4dc97418a82322de9551bc3ee",
+    "contract_id": "meeting-eca6257e",
+    "contract_version": "1.0.0",
+    "contract_digest": "547fc05ebda51719af54d2aade1d3eb2d6f64bf7d1161f68da92145e4f23583e",
+    "view_id": "external-collaboration",
+    "decision": "delivered",
+    "data": {
+      "meeting_id": "meeting-001",
+      "title": "Launch readiness",
+      "summary": "Review completed. Contact [EMAIL] for the checklist.",
+      "action_items": [
+        {
+          "item_id": "item-001",
+          "task": "Send the checklist to [EMAIL].",
+          "due_date": "2026-09-20"
+        },
+        {
+          "item_id": "item-002",
+          "task": "Prepare the test report.",
+          "due_date": "2026-09-21"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+INFO:     Started server process [54984]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:58184 (Press CTRL+C to quit)
+Agent execution failed. Error: code=-32602 data=None message='REQUIRED_CONTRACT_EXTENSION'
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [54984]

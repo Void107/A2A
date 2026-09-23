@@ -1,0 +1,30 @@
+{
+  "samples": 15,
+  "peaks": {
+    "hub": {
+      "cpu_percent_peak": 99.94,
+      "memory_percent_peak": 12.52
+    },
+    "opa": {
+      "cpu_percent_peak": 0.92,
+      "memory_percent_peak": 4.89
+    },
+    "postgres": {
+      "cpu_percent_peak": 4.72,
+      "memory_percent_peak": 6.74
+    },
+    "presidio": {
+      "cpu_percent_peak": 3.09,
+      "memory_percent_peak": 3.82
+    },
+    "provider": {
+      "cpu_percent_peak": 4.64,
+      "memory_percent_peak": 10.95
+    },
+    "redis": {
+      "cpu_percent_peak": 0.2,
+      "memory_percent_peak": 3.84
+    }
+  },
+  "limits": "sampled peaks only, not continuous maxima; docker stats CPU percent is relative to one logical CPU"
+}

@@ -10,11 +10,13 @@
   "[*].email"             → 根节点就是数组
   "a.b[*].c[*].d"         → 多层嵌套数组
 
-单条规则失败不阻断整个管道，记日志后继续。
+仅供离线历史诊断；失败拒绝，不参与新交付授权。
 """
 
 from __future__ import annotations
 
+import copy
+import re
 import hashlib
 import logging
 
@@ -25,20 +27,26 @@ def apply_transforms(data: dict, transforms: list) -> dict:
     """
     按顺序执行多条 transform 规则，每一步的输出是下一步的输入。
     """
-    result = data.copy() if isinstance(data, dict) else data
+    result = copy.deepcopy(data)
 
     for transform in transforms:
         transform_type = transform["type"]
         fields = transform.get("applies_to_fields", [])
         config = transform.get("config", {})
 
+        if transform_type not in {'redact', 'mask', 'hash', 'truncate', 'generalize', 'filter_fields', 'aggregate'}:
+            raise ValueError('UNSUPPORTED_LEGACY_TRANSFORM')
+        if transform_type == 'aggregate' and config.get('aggregation_function', 'count') not in {'count', 'sum'}:
+            raise ValueError('UNSUPPORTED_LEGACY_AGGREGATION')
+        if transform_type == 'truncate' and (type(config.get('truncate_length', 200)) is not int or config.get('truncate_length', 200) < 0):
+            raise ValueError('INVALID_LEGACY_CONFIGURATION')
         for field_path in fields:
+            if not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*(?:\[\*\])?(?:\.[A-Za-z_][A-Za-z0-9_]*(?:\[\*\])?)*', field_path):
+                raise ValueError('UNSUPPORTED_LEGACY_PATH')
             try:
                 _apply_at_path(result, field_path, transform_type, config)
-            except Exception as e:
-                logger.warning(
-                    f"Transform skipped: {field_path} ({transform_type}): {e}"
-                )
+            except Exception:
+                raise ValueError('LEGACY_PROCESSING_FAILED') from None
 
     return result
 

@@ -1,0 +1,54 @@
+{
+  "usage": "Administrator-seeded synthetic identities; never accept this document from an unauthenticated caller. No credentials are included.",
+  "agents": [
+    {
+      "agent_id": "project-agent",
+      "organization_id": "org-acme",
+      "roles": [
+        "project-agent"
+      ],
+      "is_active": true,
+      "authorization_revision": 1
+    },
+    {
+      "agent_id": "partner-agent",
+      "organization_id": "org-partner",
+      "roles": [
+        "collaboration-agent"
+      ],
+      "is_active": true,
+      "authorization_revision": 1
+    },
+    {
+      "agent_id": "untrusted-agent",
+      "organization_id": "org-untrusted",
+      "roles": [],
+      "is_active": true,
+      "authorization_revision": 1
+    }
+  ],
+  "access_grants": [
+    {
+      "grant_id": "grant-internal-meeting",
+      "agent_id": "project-agent",
+      "contract_id": "meeting-actions",
+      "view_id": "internal-project",
+      "allowed_meeting_ids": [
+        "meeting-001"
+      ],
+      "active": true,
+      "revision": 1
+    },
+    {
+      "grant_id": "grant-partner-meeting",
+      "agent_id": "partner-agent",
+      "contract_id": "meeting-actions",
+      "view_id": "external-collaboration",
+      "allowed_meeting_ids": [
+        "meeting-001"
+      ],
+      "active": true,
+      "revision": 1
+    }
+  ]
+}

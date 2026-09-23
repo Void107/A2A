@@ -24,6 +24,16 @@ class Settings(BaseSettings):
     JWT_ALGORITHM: str = "HS256"
     JWT_EXPIRE_MINUTES: int = 60
 
+    METRICS_FILE: str = ''
+
+    OPA_URL: str = 'http://127.0.0.1:58181'
+    PRESIDIO_URL: str = ''
+    HUB_SIGNING_KEY_FILE: str = ''
+    HUB_SIGNING_KEY_ID: str = 'hub-v1'
+    UPSTREAM_ENDPOINTS: dict = {}
+    A2A_ENABLED: bool = False
+    A2A_URL: str = 'http://127.0.0.1:58185/a2a/'
+
     # ── Payload Guard（规范 §2.5） ──
     MAX_RESPONSE_BYTES: int = 5 * 1024 * 1024  # 5MB
 

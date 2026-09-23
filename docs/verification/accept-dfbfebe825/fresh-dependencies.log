@@ -1,0 +1,54 @@
+Collecting a2a-sdk==0.3.0
+  Downloading a2a_sdk-0.3.0-py3-none-any.whl (130 kB)
+Collecting alembic==1.16.5
+  Downloading alembic-1.16.5-py3-none-any.whl (247 kB)
+Collecting annotated-doc==0.0.4
+  Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+Collecting annotated-types==0.7.0
+  Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Collecting anyio==4.12.1
+  Downloading anyio-4.12.1-py3-none-any.whl (113 kB)
+Collecting async-timeout==5.0.1
+  Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+Collecting asyncpg==0.31.0
+  Downloading asyncpg-0.31.0-cp312-cp312-manylinux_2_28_aarch64.whl (3.4 MB)
+Collecting attrs==26.1.0
+  Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Collecting bcrypt==5.0.0
+  Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_28_aarch64.whl (276 kB)
+Collecting certifi==2026.2.25
+  Downloading certifi-2026.2.25-py3-none-any.whl (153 kB)
+Collecting cffi==2.1.1
+  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (222 kB)
+Collecting charset-normalizer==3.5.1
+  Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (238 kB)
+Collecting click==8.1.8
+  Downloading click-8.1.8-py3-none-any.whl (98 kB)
+Collecting cryptography==46.0.5
+  Downloading cryptography-46.0.5-cp311-abi3-manylinux_2_28_aarch64.whl (4.3 MB)
+Collecting exceptiongroup==1.3.1
+  Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+Collecting fastapi==0.128.8
+  Downloading fastapi-0.128.8-py3-none-any.whl (103 kB)
+Collecting google-api-core==2.30.3
+  Downloading google_api_core-2.30.3-py3-none-any.whl (173 kB)
+Collecting google-auth==2.58.0
+  Downloading google_auth-2.58.0-py3-none-any.whl (262 kB)
+Collecting googleapis-common-protos==1.75.0
+  Downloading googleapis_common_protos-1.75.0-py3-none-any.whl (300 kB)
+Collecting greenlet==3.2.5
+  Downloading greenlet-3.2.5-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (644 kB)
+Collecting h11==0.16.0
+  Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting httpcore==1.0.9
+  Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+ERROR: Could not find a version that satisfies the requirement httpx==0.28.1 (from versions: none)
+ERROR: No matching distribution found for httpx==0.28.1
+Traceback (most recent call last):
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/prepare_wheels.py", line 42, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/prepare_wheels.py", line 36, in main
+    subprocess.run(command+['-r',str(selected),'-d',str(wheelhouse)],check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/.venv/bin/python', '-m', 'pip', 'download', '--disable-pip-version-check', '--no-deps', '--only-binary=:all:', '--python-version', '312', '--implementation', 'cp', '--abi', 'cp312', '--abi', 'abi3', '--abi', 'none', '--no-cache-dir', '--platform', 'manylinux_2_28_aarch64', '--platform', 'manylinux_2_17_aarch64', '--platform', 'manylinux2014_aarch64', '--platform', 'manylinux_2_34_aarch64', '-r', '/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-8keeua0t/wheels/hub-linux.lock', '-d', '/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-8keeua0t/wheels/hub']' returned non-zero exit status 1.

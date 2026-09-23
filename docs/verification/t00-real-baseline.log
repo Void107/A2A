@@ -1,0 +1,7 @@
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 4e303a674a86, init: create agents, contract_history, audit_logs
+PostgreSQL: 17.6 (Debian 17.6-2.pgdg13+1)
+Redis: 7.4.5
+lifespan cycle 1 PASS; migration 4e303a674a86
+lifespan cycle 2 PASS; migration 4e303a674a86

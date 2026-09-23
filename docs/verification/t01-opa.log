@@ -1,0 +1,10 @@
+policies/contract_test.rego:
+data.hub.contract_test.test_allow_and_fixed_processors: PASS (995.75µs)
+data.hub.contract_test.test_dimensions_are_and: PASS (414µs)
+data.hub.contract_test.test_deny_wins: PASS (474.75µs)
+data.hub.contract_test.test_no_match_denies: PASS (236.583µs)
+data.hub.contract_test.test_revoked_grant_denies: PASS (303.584µs)
+data.hub.contract_test.test_wrong_resource_denies: PASS (630.75µs)
+data.hub.contract_test.test_disabled_identity_denies: PASS (301.833µs)
+--------------------------------------------------------------------------------
+PASS: 7/7

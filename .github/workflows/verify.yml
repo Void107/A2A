@@ -1,0 +1,46 @@
+name: contract-verification
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - name: Install locked environments
+        run: |
+          python -m venv .venv-ci
+          .venv-ci/bin/python -m pip install -r requirements-hub.lock pytest==8.4.2 pytest-asyncio==1.2.0 aiosqlite==0.21.0
+          python -m venv .venv-presidio
+          .venv-presidio/bin/python -m pip install -r requirements-presidio.lock
+      - name: Extract pinned official OPA executable
+        run: |
+          docker create --name opa-extract openpolicyagent/opa:1.0.0-static
+          docker cp opa-extract:/opa "$RUNNER_TEMP/opa"
+          chmod +x "$RUNNER_TEMP/opa"
+      - name: Start dedicated integration dependencies
+        run: docker compose -f compose.test.yaml up -d --wait
+      - name: Execute unit and real service checks
+        env:
+          OPA_BINARY: ${{ runner.temp }}/opa
+        run: .venv-ci/bin/python scripts/verify_all.py
+      - name: Clean local installation and consumers
+        run: |
+          docker compose up -d --build --wait
+          docker compose --profile demo run --rm demo
+          docker compose restart hub
+          docker compose up -d --wait
+          docker compose --profile demo run --rm demo
+      - name: Check release evidence (separate from test success)
+        if: always()
+        run: .venv-ci/bin/python scripts/verify_release.py > docs/verification/ci-release-gate.json
+      - name: Preserve results including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: contract-evidence
+          path: docs/verification/

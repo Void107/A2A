@@ -1,0 +1,5 @@
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+PostgreSQL: 17.6 (Debian 17.6-2.pgdg13+1)
+Redis: 7.4.5
+PASS: controlled identity, current scope, audit isolation, grant revisions, public metadata, rotation, disable, rate limit, legacy closure

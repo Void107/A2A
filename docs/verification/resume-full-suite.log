@@ -1,0 +1,126 @@
+.........................................................F.............. [ 66%]
+....................................                                     [100%]
+=================================== FAILURES ===================================
+_____________________ test_old_token_after_disable_denied ______________________
+
+self = <sqlalchemy.engine.base.Connection object at 0x10cf48bb0>
+dialect = <sqlalchemy.dialects.sqlite.aiosqlite.SQLiteDialect_aiosqlite object at 0x10b2b0e80>
+constructor = <bound method DefaultExecutionContext._init_compiled of <class 'sqlalchemy.dialects.sqlite.aiosqlite.SQLiteExecutionContext_aiosqlite'>>
+statement = <sqlalchemy.dialects.sqlite.base.SQLiteCompiler object at 0x10ce4b940>
+parameters = [{'pk_1': 'test-agent-alpha'}]
+execution_options = immutabledict({'_sa_orm_load_options': <class 'sqlalchemy.orm.context.QueryContext.default_load_options'>, '_result_disable_adapt_to_context': True})
+args = (<sqlalchemy.dialects.sqlite.base.SQLiteCompiler object at 0x10ce4b940>, [{'pk_1': 'test-agent-alpha'}], <sqlalchemy.sql.selectable.Select object at 0x10ca842b0>, [AnnotatedBindParameter('pk_1', None, type_=UUID())])
+kw = {'cache_hit': <CacheStats.CACHE_MISS: 1>}, yp = None
+conn = <sqlalchemy.pool.base._ConnectionFairy object at 0x10ceb3580>
+
+    def _execute_context(
+        self,
+        dialect: Dialect,
+        constructor: Callable[..., ExecutionContext],
+        statement: Union[str, Compiled],
+        parameters: Optional[_AnyMultiExecuteParams],
+        execution_options: _ExecuteOptions,
+        *args: Any,
+        **kw: Any,
+    ) -> CursorResult[Any]:
+        """Create an :class:`.ExecutionContext` and execute, returning
+        a :class:`_engine.CursorResult`."""
+    
+        if execution_options:
+            yp = execution_options.get("yield_per", None)
+            if yp:
+                execution_options = execution_options.union(
+                    {"stream_results": True, "max_row_buffer": yp}
+                )
+        try:
+            conn = self._dbapi_connection
+            if conn is None:
+                conn = self._revalidate_connection()
+    
+>           context = constructor(
+                dialect, self, conn, execution_options, *args, **kw
+            )
+
+.venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:1815: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py:1494: in _init_compiled
+    l_param: List[Any] = [
+.venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py:1496: in <listcomp>
+    flattened_processors[key](compiled_params[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = 'test-agent-alpha'
+
+    def process(value):
+        if value is not None:
+>           value = value.hex
+E           AttributeError: 'str' object has no attribute 'hex'
+
+.venv/lib/python3.9/site-packages/sqlalchemy/sql/sqltypes.py:3734: AttributeError
+
+The above exception was the direct cause of the following exception:
+
+client = <httpx.AsyncClient object at 0x10cf48310>
+registered_agent = {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0LWFnZW50LWFscGhhIiwiaXNzIjoiYTJhLWNvbnRyYWN0LWh...I6MTc4OTM5NTU2OCwiZXhwIjoxNzg5Mzk5MTY4LCJjcmVkZW50aWFsX3JldmlzaW9uIjoxfQ.xq80FrLD_Y2HkCIRbyDJVc8prm8NAiiGjY-GGWnEgM8'}}
+
+    async def test_old_token_after_disable_denied(client,registered_agent):
+        async with TestSessionLocal() as db,db.begin():
+>           actor=await db.get(Agent,registered_agent['agent_id']); actor.is_active=False
+
+tests/hacker_agent.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.9/site-packages/sqlalchemy/ext/asyncio/session.py:592: in get
+    return await greenlet_spawn(
+.venv/lib/python3.9/site-packages/sqlalchemy/util/_concurrency_py3k.py:190: in greenlet_spawn
+    result = context.switch(*args, **kwargs)
+.venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py:3680: in get
+    return self._get_impl(
+.venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py:3859: in _get_impl
+    return db_load_fn(
+.venv/lib/python3.9/site-packages/sqlalchemy/orm/loading.py:695: in load_on_pk_identity
+    session.execute(
+.venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py:2351: in execute
+    return self._execute_internal(
+.venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py:2249: in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+.venv/lib/python3.9/site-packages/sqlalchemy/orm/context.py:306: in orm_execute_statement
+    result = conn.execute(
+.venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:1419: in execute
+    return meth(
+.venv/lib/python3.9/site-packages/sqlalchemy/sql/elements.py:527: in _execute_on_connection
+    return connection._execute_clauseelement(
+.venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:1641: in _execute_clauseelement
+    ret = self._execute_context(
+.venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:1821: in _execute_context
+    self._handle_dbapi_exception(
+.venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:2363: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+.venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:1815: in _execute_context
+    context = constructor(
+.venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py:1494: in _init_compiled
+    l_param: List[Any] = [
+.venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py:1496: in <listcomp>
+    flattened_processors[key](compiled_params[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = 'test-agent-alpha'
+
+    def process(value):
+        if value is not None:
+>           value = value.hex
+E           sqlalchemy.exc.StatementError: (builtins.AttributeError) 'str' object has no attribute 'hex'
+E           [SQL: SELECT agents.id AS agents_id, agents.agent_id AS agents_agent_id, agents.display_name AS agents_display_name, agents.callback_url AS agents_callback_url, agents.skills AS agents_skills, agents.data_contract AS agents_data_contract, agents.domain AS agents_domain, agents.api_key_hash AS agents_api_key_hash, agents.hub_shared_secret_hash AS agents_hub_shared_secret_hash, agents.scopes AS agents_scopes, agents.roles AS agents_roles, agents.authorization_revision AS agents_authorization_revision, agents.credential_revision AS agents_credential_revision, agents.is_active AS agents_is_active, agents.created_at AS agents_created_at, agents.updated_at AS agents_updated_at 
+E           FROM agents 
+E           WHERE agents.id = ?]
+E           [parameters: [{'pk_1': 'test-agent-alpha'}]]
+
+.venv/lib/python3.9/site-packages/sqlalchemy/sql/sqltypes.py:3734: StatementError
+=============================== warnings summary ===============================
+tests/test_auth.py::TestForgedToken::test_wrong_secret_token
+  /Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/.venv/lib/python3.9/site-packages/jwt/api_jwt.py:147: InsecureKeyLengthWarning: The HMAC key is 16 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    return self._jws.encode(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/hacker_agent.py::test_old_token_after_disable_denied - sqlalchem...
+1 failed, 107 passed, 1 warning in 5.77s

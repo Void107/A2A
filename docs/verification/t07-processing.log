@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_processing.py", line 31, in main
+    else: raise RuntimeError('Presidio not ready')
+RuntimeError: Presidio not ready
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_processing.py", line 74, in <module>
+    if __name__ == '__main__': asyncio.run(main())
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_processing.py", line 71, in main
+    if proc.poll() is None: proc.terminate(); proc.wait(timeout=5)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 1189, in wait
+    return self._wait(timeout=timeout)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 1909, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/.venv-presidio/bin/python', '-m', 'uvicorn', 'examples.presidio.service:app', '--host', '127.0.0.1', '--port', '58182', '--no-access-log']' timed out after 5 seconds

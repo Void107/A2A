@@ -1,0 +1,44 @@
+# Isolated acceptance stack; use a unique -p name for fresh data/secrets.
+services:
+  postgres: {cpus: 1.0, mem_limit: 768m}
+  redis: {cpus: 0.5, mem_limit: 256m}
+  opa: {cpus: 0.5, mem_limit: 256m}
+  presidio: {cpus: 1.0, mem_limit: 2g}
+  init: {cpus: 1.0, mem_limit: 512m}
+  provider:
+    cpus: 0.5
+    mem_limit: 512m
+    networks:
+      local: {ipv4_address: 172.30.87.20}
+  hub:
+    cpus: 1.0
+    mem_limit: 768m
+    ports: !override ["127.0.0.1:58001:8000"]
+    environment:
+      METRICS_FILE: /measurements/core.jsonl
+      A2A_URL: http://127.0.0.1:58001/a2a/
+      UPSTREAM_ENDPOINTS: '{"meeting-provider":{"url":"http://provider:8000/meeting","approved_addresses":["172.30.87.20"],"local_test":true,"allow_private":true}}'
+    volumes: [measurements:/measurements]
+  measure:
+    build:
+      context: .
+      dockerfile: Dockerfile.offline
+      additional_contexts:
+        wheels: ./.local-wheelhouse/hub
+    cpus: 1.0
+    mem_limit: 512m
+    command: [python, scripts/local_entrypoint.py, python, scripts/measure_local.py]
+    environment:
+      DATABASE_URL: postgresql+asyncpg://a2a_local:synthetic-local-only@postgres:5432/a2a_local
+      REDIS_URL: redis://redis:6379/0
+    volumes: [secrets:/state:ro, measurements:/measurements]
+    networks: [local]
+    depends_on:
+      hub: {condition: service_healthy}
+    profiles: [measure]
+volumes:
+  measurements:
+networks:
+  local:
+    ipam:
+      config: !override [{subnet: 172.30.87.0/24}]

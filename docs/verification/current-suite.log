@@ -1,0 +1,137 @@
+........................................................................ [ 67%]
+....................FFFFFFFF......                                       [100%]
+=================================== FAILURES ===================================
+__________________________ test_unknown_effect_denies __________________________
+
+    def test_unknown_effect_denies():
+>       assert evaluate_contract(contract(effect='typo'), 's', {})['decision'] == 'blocked'
+E       AssertionError: assert 'allowed' == 'blocked'
+E         
+E         - blocked
+E         + allowed
+
+tests/test_security_regressions.py:28: AssertionError
+________________________ test_missing_transform_denies _________________________
+
+    def test_missing_transform_denies():
+>       assert evaluate_contract(contract(transforms=['missing']), 's', {})['decision'] == 'blocked'
+E       AssertionError: assert 'transformed' == 'blocked'
+E         
+E         - blocked
+E         + transformed
+
+tests/test_security_regressions.py:32: AssertionError
+______________________ test_unimplemented_conditions_deny ______________________
+
+    def test_unimplemented_conditions_deny():
+>       assert evaluate_contract(contract(conditions={'unknown': True}), 's', {})['decision'] == 'blocked'
+E       AssertionError: assert 'allowed' == 'blocked'
+E         
+E         - blocked
+E         + allowed
+
+tests/test_security_regressions.py:36: AssertionError
+__________ test_unsupported_processing_never_returns_original[rule0] ___________
+
+rule = {'applies_to_fields': ['field'], 'type': 'custom'}
+
+    @pytest.mark.parametrize('rule', [
+        {'type': 'custom', 'applies_to_fields': ['field']},
+        {'type': 'aggregate', 'applies_to_fields': ['field'], 'config': {'aggregation_function': 'avg'}},
+        {'type': 'truncate', 'applies_to_fields': ['field'], 'config': {'truncate_length': 'invalid'}},
+        {'type': 'redact', 'applies_to_fields': ['*']},
+    ])
+    def test_unsupported_processing_never_returns_original(rule):
+        with pytest.raises(ValueError):
+>           apply_transforms({'field': [1, 2]}, [rule])
+E           Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_security_regressions.py:47: Failed
+__________ test_unsupported_processing_never_returns_original[rule1] ___________
+
+rule = {'applies_to_fields': ['field'], 'config': {'aggregation_function': 'avg'}, 'type': 'aggregate'}
+
+    @pytest.mark.parametrize('rule', [
+        {'type': 'custom', 'applies_to_fields': ['field']},
+        {'type': 'aggregate', 'applies_to_fields': ['field'], 'config': {'aggregation_function': 'avg'}},
+        {'type': 'truncate', 'applies_to_fields': ['field'], 'config': {'truncate_length': 'invalid'}},
+        {'type': 'redact', 'applies_to_fields': ['*']},
+    ])
+    def test_unsupported_processing_never_returns_original(rule):
+        with pytest.raises(ValueError):
+>           apply_transforms({'field': [1, 2]}, [rule])
+E           Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_security_regressions.py:47: Failed
+__________ test_unsupported_processing_never_returns_original[rule2] ___________
+
+rule = {'applies_to_fields': ['field'], 'config': {'truncate_length': 'invalid'}, 'type': 'truncate'}
+
+    @pytest.mark.parametrize('rule', [
+        {'type': 'custom', 'applies_to_fields': ['field']},
+        {'type': 'aggregate', 'applies_to_fields': ['field'], 'config': {'aggregation_function': 'avg'}},
+        {'type': 'truncate', 'applies_to_fields': ['field'], 'config': {'truncate_length': 'invalid'}},
+        {'type': 'redact', 'applies_to_fields': ['*']},
+    ])
+    def test_unsupported_processing_never_returns_original(rule):
+        with pytest.raises(ValueError):
+>           apply_transforms({'field': [1, 2]}, [rule])
+E           Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_security_regressions.py:47: Failed
+------------------------------ Captured log call -------------------------------
+WARNING  app.services.transform:transform.py:39 Transform skipped: field (truncate): '>' not supported between instances of 'int' and 'str'
+__________ test_unsupported_processing_never_returns_original[rule3] ___________
+
+rule = {'applies_to_fields': ['*'], 'type': 'redact'}
+
+    @pytest.mark.parametrize('rule', [
+        {'type': 'custom', 'applies_to_fields': ['field']},
+        {'type': 'aggregate', 'applies_to_fields': ['field'], 'config': {'aggregation_function': 'avg'}},
+        {'type': 'truncate', 'applies_to_fields': ['field'], 'config': {'truncate_length': 'invalid'}},
+        {'type': 'redact', 'applies_to_fields': ['*']},
+    ])
+    def test_unsupported_processing_never_returns_original(rule):
+        with pytest.raises(ValueError):
+>           apply_transforms({'field': [1, 2]}, [rule])
+E           Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_security_regressions.py:47: Failed
+____________________ test_audit_storage_failure_propagates _____________________
+
+    async def test_audit_storage_failure_propagates():
+        class UnavailableSession:
+            async def __aenter__(self):
+                raise RuntimeError('synthetic database outage')
+    
+            async def __aexit__(self, *args):
+                return False
+    
+        with patch('app.services.audit_writer.AsyncSessionLocal', return_value=UnavailableSession()):
+            with pytest.raises(RuntimeError):
+>               await _flush_batch([{'request_id': 'synthetic-request'}])
+E               Failed: DID NOT RAISE <class 'RuntimeError'>
+
+tests/test_security_regressions.py:60: Failed
+------------------------------ Captured log call -------------------------------
+ERROR    app.services.audit_writer:audit_writer.py:103 Audit flush failed: synthetic database outage
+=============================== warnings summary ===============================
+tests/hacker_agent.py::TestHackerTokenForgery::test_forged_jwt_blocked
+  /Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/.venv/lib/python3.9/site-packages/jwt/api_jwt.py:147: InsecureKeyLengthWarning: The HMAC key is 26 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    return self._jws.encode(
+
+tests/test_auth.py::TestForgedToken::test_wrong_secret_token
+  /Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/.venv/lib/python3.9/site-packages/jwt/api_jwt.py:147: InsecureKeyLengthWarning: The HMAC key is 16 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    return self._jws.encode(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_security_regressions.py::test_unknown_effect_denies - Asser...
+FAILED tests/test_security_regressions.py::test_missing_transform_denies - As...
+FAILED tests/test_security_regressions.py::test_unimplemented_conditions_deny
+FAILED tests/test_security_regressions.py::test_unsupported_processing_never_returns_original[rule0]
+FAILED tests/test_security_regressions.py::test_unsupported_processing_never_returns_original[rule1]
+FAILED tests/test_security_regressions.py::test_unsupported_processing_never_returns_original[rule2]
+FAILED tests/test_security_regressions.py::test_unsupported_processing_never_returns_original[rule3]
+FAILED tests/test_security_regressions.py::test_audit_storage_failure_propagates
+8 failed, 98 passed, 2 warnings in 9.77s

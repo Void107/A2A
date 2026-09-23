@@ -1,0 +1,365 @@
+ Image a2a-alpha-local-provider Building 
+ Image a2a-alpha-local-hub Building 
+ Image a2a-alpha-local-presidio Building 
+ Image a2a-alpha-local-init Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.03kB done
+#1 DONE 0.0s
+
+#2 [presidio internal] load build definition from Dockerfile
+#2 transferring dockerfile: 388B done
+#2 DONE 0.0s
+
+#3 [hub internal] load build definition from Dockerfile
+#3 transferring dockerfile: 558B done
+#3 DONE 0.0s
+
+#4 [init internal] load metadata for docker.io/library/python:3.12.14-slim
+#4 DONE 0.0s
+
+#5 [presidio internal] load .dockerignore
+#5 transferring context: 108B done
+#5 DONE 0.0s
+
+#6 [presidio internal] load build context
+#6 transferring context: 1.62kB done
+#6 DONE 0.0s
+
+#7 [init internal] load build context
+#7 transferring context: 18.85kB done
+#7 DONE 0.0s
+
+#8 [provider 1/5] FROM docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#8 resolve docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done
+#8 DONE 0.0s
+
+#9 [provider 2/5] WORKDIR /hub
+#9 CACHED
+
+#10 [init  3/12] COPY requirements-hub.lock ./
+#10 DONE 0.0s
+
+#11 [presidio 3/5] COPY requirements-presidio.lock ./
+#11 DONE 0.0s
+
+#12 [hub  4/12] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-hub.lock
+#12 1.406 Collecting a2a-sdk==0.3.0 (from -r requirements-hub.lock (line 1))
+#12 1.969   Downloading a2a_sdk-0.3.0-py3-none-any.whl.metadata (5.4 kB)
+#12 2.236 Collecting alembic==1.16.5 (from -r requirements-hub.lock (line 2))
+#12 2.364   Downloading alembic-1.16.5-py3-none-any.whl.metadata (7.3 kB)
+#12 2.577 Collecting annotated-doc==0.0.4 (from -r requirements-hub.lock (line 3))
+#12 2.708   Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+#12 2.835 Collecting annotated-types==0.7.0 (from -r requirements-hub.lock (line 4))
+#12 3.044   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#12 3.559 Collecting anyio==4.12.1 (from -r requirements-hub.lock (line 5))
+#12 3.690   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+#12 3.945 Collecting async-timeout==5.0.1 (from -r requirements-hub.lock (line 6))
+#12 4.483   Downloading async_timeout-5.0.1-py3-none-any.whl.metadata (5.1 kB)
+#12 5.243 Collecting asyncpg==0.31.0 (from -r requirements-hub.lock (line 7))
+#12 5.623   Downloading asyncpg-0.31.0-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (4.4 kB)
+#12 5.824 Collecting attrs==26.1.0 (from -r requirements-hub.lock (line 8))
+#12 6.013   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+#12 6.545 Collecting bcrypt==5.0.0 (from -r requirements-hub.lock (line 9))
+#12 6.691   Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_34_aarch64.whl.metadata (10 kB)
+#12 7.218 Collecting certifi==2026.2.25 (from -r requirements-hub.lock (line 10))
+#12 7.450   Downloading certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+#12 8.363 Collecting cffi==2.1.1 (from -r requirements-hub.lock (line 11))
+#12 8.618   Downloading cffi-2.1.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (2.5 kB)
+#12 9.753 Collecting charset-normalizer==3.5.1 (from -r requirements-hub.lock (line 12))
+#12 9.944   Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (45 kB)
+#12 ...
+
+#13 [presidio 4/5] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-presidio.lock
+#13 1.578 Collecting annotated-doc==0.0.5 (from -r requirements-presidio.lock (line 1))
+#13 2.333   Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+#13 2.577 Collecting annotated-types==0.7.0 (from -r requirements-presidio.lock (line 2))
+#13 2.685   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#13 3.088 Collecting anyio==4.12.1 (from -r requirements-presidio.lock (line 3))
+#13 3.194   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+#13 3.970 Collecting blis==0.7.11 (from -r requirements-presidio.lock (line 4))
+#13 4.082   Downloading blis-0.7.11-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (7.4 kB)
+#13 4.324 Collecting catalogue==2.0.10 (from -r requirements-presidio.lock (line 5))
+#13 4.435   Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+#13 4.698 Collecting certifi==2026.7.22 (from -r requirements-presidio.lock (line 6))
+#13 4.802   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+#13 5.667 Collecting cffi==2.0.0 (from -r requirements-presidio.lock (line 7))
+#13 5.775   Downloading cffi-2.0.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (2.6 kB)
+#13 7.590 Collecting charset-normalizer==3.5.1 (from -r requirements-presidio.lock (line 8))
+#13 7.795   Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (45 kB)
+#13 8.085 Collecting click==8.1.8 (from -r requirements-presidio.lock (line 9))
+#13 8.330   Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+#13 8.703 Collecting cloudpathlib==0.25.0 (from -r requirements-presidio.lock (line 10))
+#13 8.953   Downloading cloudpathlib-0.25.0-py3-none-any.whl.metadata (16 kB)
+#13 9.487 Collecting confection==0.1.5 (from -r requirements-presidio.lock (line 11))
+#13 9.815   Downloading confection-0.1.5-py3-none-any.whl.metadata (19 kB)
+#13 ...
+
+#12 [hub  4/12] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-hub.lock
+#12 10.28 Collecting click==8.1.8 (from -r requirements-hub.lock (line 13))
+#12 10.41   Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+#12 11.74 Collecting cryptography==46.0.5 (from -r requirements-hub.lock (line 14))
+#12 11.89   Downloading cryptography-46.0.5-cp311-abi3-manylinux_2_34_aarch64.whl.metadata (5.7 kB)
+#12 12.34 Collecting exceptiongroup==1.3.1 (from -r requirements-hub.lock (line 15))
+#12 12.82   Downloading exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)
+#12 13.24 Collecting fastapi==0.128.8 (from -r requirements-hub.lock (line 16))
+#12 13.47   Downloading fastapi-0.128.8-py3-none-any.whl.metadata (30 kB)
+#12 13.80 Collecting google-api-core==2.30.3 (from -r requirements-hub.lock (line 17))
+#12 14.12   Downloading google_api_core-2.30.3-py3-none-any.whl.metadata (3.1 kB)
+#12 14.50 Collecting google-auth==2.58.0 (from -r requirements-hub.lock (line 18))
+#12 14.67   Downloading google_auth-2.58.0-py3-none-any.whl.metadata (6.0 kB)
+#12 14.96 Collecting googleapis-common-protos==1.75.0 (from -r requirements-hub.lock (line 19))
+#12 15.10   Downloading googleapis_common_protos-1.75.0-py3-none-any.whl.metadata (8.6 kB)
+#12 16.14 Collecting greenlet==3.2.5 (from -r requirements-hub.lock (line 20))
+#12 17.20   Downloading greenlet-3.2.5-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (4.1 kB)
+#12 18.02 Collecting h11==0.16.0 (from -r requirements-hub.lock (line 21))
+#12 18.38   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#12 18.69 Collecting httpcore==1.0.9 (from -r requirements-hub.lock (line 22))
+#12 18.92   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+#12 19.14 Collecting httpx==0.28.1 (from -r requirements-hub.lock (line 23))
+#12 19.32   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+#12 19.44 Collecting httpx-sse==0.4.3 (from -r requirements-hub.lock (line 24))
+#12 19.65   Downloading httpx_sse-0.4.3-py3-none-any.whl.metadata (9.7 kB)
+#12 19.86 Collecting idna==3.11 (from -r requirements-hub.lock (line 25))
+#12 20.00   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+#12 20.30 Collecting jsonschema==4.25.1 (from -r requirements-hub.lock (line 26))
+#12 20.51   Downloading jsonschema-4.25.1-py3-none-any.whl.metadata (7.6 kB)
+#12 21.07 Collecting jsonschema-specifications==2025.9.1 (from -r requirements-hub.lock (line 27))
+#12 21.53   Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+#12 21.83 Collecting Mako==1.3.10 (from -r requirements-hub.lock (line 28))
+#12 22.12   Downloading mako-1.3.10-py3-none-any.whl.metadata (2.9 kB)
+#12 ...
+
+#13 [presidio 4/5] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-presidio.lock
+#13 12.29 Collecting cryptography==44.0.3 (from -r requirements-presidio.lock (line 12))
+#13 12.43   Downloading cryptography-44.0.3-cp39-abi3-manylinux_2_34_aarch64.whl.metadata (5.7 kB)
+#13 12.84 Collecting cymem==2.0.13 (from -r requirements-presidio.lock (line 13))
+#13 13.05   Downloading cymem-2.0.13-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (9.7 kB)
+#13 13.62 Collecting exceptiongroup==1.3.1 (from -r requirements-presidio.lock (line 14))
+#13 13.91   Downloading exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)
+#13 14.74 Collecting fastapi==0.128.8 (from -r requirements-presidio.lock (line 15))
+#13 14.98   Downloading fastapi-0.128.8-py3-none-any.whl.metadata (30 kB)
+#13 15.61 Collecting filelock==3.19.1 (from -r requirements-presidio.lock (line 16))
+#13 15.90   Downloading filelock-3.19.1-py3-none-any.whl.metadata (2.1 kB)
+#13 16.87 Collecting h11==0.16.0 (from -r requirements-presidio.lock (line 17))
+#13 17.79   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#13 18.35 Collecting httpcore==1.0.9 (from -r requirements-presidio.lock (line 18))
+#13 18.63   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+#13 19.08 Collecting httpx==0.28.1 (from -r requirements-presidio.lock (line 19))
+#13 19.24   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+#13 19.77 Collecting idna==3.19 (from -r requirements-presidio.lock (line 20))
+#13 19.89   Downloading idna-3.19-py3-none-any.whl.metadata (9.2 kB)
+#13 20.33 Collecting Jinja2==3.1.6 (from -r requirements-presidio.lock (line 21))
+#13 20.46   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#13 20.68 Collecting langcodes==3.5.1 (from -r requirements-presidio.lock (line 22))
+#13 20.92   Downloading langcodes-3.5.1-py3-none-any.whl.metadata (30 kB)
+#13 21.87 Collecting markdown-it-py==3.0.0 (from -r requirements-presidio.lock (line 23))
+#13 22.12   Downloading markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+#13 ...
+
+#12 [hub  4/12] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-hub.lock
+#12 22.57 Collecting MarkupSafe==3.0.3 (from -r requirements-hub.lock (line 29))
+#12 23.10   Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+#12 23.76 Collecting proto-plus==1.28.2 (from -r requirements-hub.lock (line 30))
+#12 24.04   Downloading proto_plus-1.28.2-py3-none-any.whl.metadata (2.2 kB)
+#12 25.12 Collecting protobuf==5.29.5 (from -r requirements-hub.lock (line 31))
+#12 25.58   Downloading protobuf-5.29.5-cp38-abi3-manylinux2014_aarch64.whl.metadata (592 bytes)
+#12 26.16 Collecting pyasn1==0.6.4 (from -r requirements-hub.lock (line 32))
+#12 26.29   Downloading pyasn1-0.6.4-py3-none-any.whl.metadata (8.4 kB)
+#12 26.84 Collecting pyasn1_modules==0.4.2 (from -r requirements-hub.lock (line 33))
+#12 26.99   Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+#12 27.21 Collecting pycparser==3.0 (from -r requirements-hub.lock (line 34))
+#12 27.37   Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+#12 28.34 Collecting pydantic==2.12.5 (from -r requirements-hub.lock (line 35))
+#12 28.65   Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+#12 30.01 Collecting pydantic-settings==2.11.0 (from -r requirements-hub.lock (line 36))
+#12 30.13   Downloading pydantic_settings-2.11.0-py3-none-any.whl.metadata (3.4 kB)
+#12 ...
+
+#13 [presidio 4/5] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-presidio.lock
+#13 23.71 Collecting MarkupSafe==3.0.3 (from -r requirements-presidio.lock (line 24))
+#13 23.84   Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+#13 24.10 Collecting mdurl==0.1.2 (from -r requirements-presidio.lock (line 25))
+#13 24.23   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+#13 24.88 Collecting murmurhash==1.0.15 (from -r requirements-presidio.lock (line 26))
+#13 25.04   Downloading murmurhash-1.0.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (2.3 kB)
+#13 28.09 Collecting numpy==1.26.4 (from -r requirements-presidio.lock (line 27))
+#13 28.26   Downloading numpy-1.26.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (62 kB)
+#13 28.82 Collecting packaging==26.3 (from -r requirements-presidio.lock (line 28))
+#13 29.21   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#13 29.91 Collecting phonenumbers==9.0.39 (from -r requirements-presidio.lock (line 29))
+#13 30.03   Downloading phonenumbers-9.0.39-py2.py3-none-any.whl.metadata (10 kB)
+#13 30.53 Collecting preshed==3.0.13 (from -r requirements-presidio.lock (line 30))
+#13 30.65   Downloading preshed-3.0.13-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (5.2 kB)
+#13 30.87 Collecting presidio_analyzer==2.2.360 (from -r requirements-presidio.lock (line 31))
+#13 30.98   Downloading presidio_analyzer-2.2.360-py3-none-any.whl.metadata (3.4 kB)
+#13 31.15 Collecting presidio_anonymizer==2.2.360 (from -r requirements-presidio.lock (line 32))
+#13 31.34   Downloading presidio_anonymizer-2.2.360-py3-none-any.whl.metadata (8.9 kB)
+#13 31.58 Collecting pycparser==2.23 (from -r requirements-presidio.lock (line 33))
+#13 31.68   Downloading pycparser-2.23-py3-none-any.whl.metadata (993 bytes)
+#13 32.75 Collecting pydantic==2.13.5 (from -r requirements-presidio.lock (line 34))
+#13 32.86   Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+#13 ...
+
+#12 [hub  4/12] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-hub.lock
+#12 33.17 Collecting pydantic_core==2.41.5 (from -r requirements-hub.lock (line 37))
+#12 33.40   Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (7.3 kB)
+#12 33.55 Collecting PyJWT==2.12.1 (from -r requirements-hub.lock (line 38))
+#12 33.77   Downloading pyjwt-2.12.1-py3-none-any.whl.metadata (4.1 kB)
+#12 34.55 Collecting python-dotenv==1.2.1 (from -r requirements-hub.lock (line 39))
+#12 34.70   Downloading python_dotenv-1.2.1-py3-none-any.whl.metadata (25 kB)
+#12 35.54 Collecting redis==7.0.1 (from -r requirements-hub.lock (line 40))
+#12 35.80   Downloading redis-7.0.1-py3-none-any.whl.metadata (12 kB)
+#12 36.02 Collecting referencing==0.37.0 (from -r requirements-hub.lock (line 41))
+#12 36.51   Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+#12 36.80 Collecting requests==2.34.2 (from -r requirements-hub.lock (line 42))
+#12 36.97   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#12 39.13 Collecting rpds-py==2026.6.3 (from -r requirements-hub.lock (line 43))
+#12 39.31   Downloading rpds_py-2026.6.3-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (4.1 kB)
+#12 ...
+
+#13 [presidio 4/5] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-presidio.lock
+#13 39.91 Collecting pydantic_core==2.46.5 (from -r requirements-presidio.lock (line 35))
+#13 40.03   Downloading pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.6 kB)
+#13 40.35 Collecting Pygments==2.21.0 (from -r requirements-presidio.lock (line 36))
+#13 40.46   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+#13 40.87 Collecting PyYAML==6.0.3 (from -r requirements-presidio.lock (line 37))
+#13 40.99   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.4 kB)
+#13 43.85 Collecting regex==2026.1.15 (from -r requirements-presidio.lock (line 38))
+#13 44.04   Downloading regex-2026.1.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (40 kB)
+#13 44.47 Collecting requests==2.32.5 (from -r requirements-presidio.lock (line 39))
+#13 44.58   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+#13 44.72 Collecting requests-file==3.0.1 (from -r requirements-presidio.lock (line 40))
+#13 44.83   Downloading requests_file-3.0.1-py2.py3-none-any.whl.metadata (1.7 kB)
+#13 45.82 Collecting rich==15.0.0 (from -r requirements-presidio.lock (line 41))
+#13 45.93   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+#13 46.28 Collecting shellingham==1.5.4 (from -r requirements-presidio.lock (line 42))
+#13 46.40   Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+#13 46.65 Collecting smart_open==7.5.0 (from -r requirements-presidio.lock (line 43))
+#13 46.85   Downloading smart_open-7.5.0-py3-none-any.whl.metadata (24 kB)
+#13 47.90 Collecting spacy==3.7.5 (from -r requirements-presidio.lock (line 44))
+#13 48.08   Downloading spacy-3.7.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (27 kB)
+#13 48.31 Collecting spacy-legacy==3.0.12 (from -r requirements-presidio.lock (line 45))
+#13 48.42   Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl.metadata (2.8 kB)
+#13 48.58 Collecting spacy-loggers==1.0.5 (from -r requirements-presidio.lock (line 46))
+#13 48.76   Downloading spacy_loggers-1.0.5-py3-none-any.whl.metadata (23 kB)
+#13 49.28 Collecting srsly==2.5.3 (from -r requirements-presidio.lock (line 47))
+#13 49.40   Downloading srsly-2.5.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (19 kB)
+#13 49.84 Collecting starlette==0.49.3 (from -r requirements-presidio.lock (line 48))
+#13 49.96   Downloading starlette-0.49.3-py3-none-any.whl.metadata (6.4 kB)
+#13 51.16 Collecting thinc==8.2.5 (from -r requirements-presidio.lock (line 49))
+#13 ...
+
+#12 [hub  4/12] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-hub.lock
+#12 41.12 Collecting SQLAlchemy==2.0.48 (from -r requirements-hub.lock (line 44))
+#12 41.25   Downloading sqlalchemy-2.0.48-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (9.5 kB)
+#12 41.61 Collecting sse-starlette==3.3.0 (from -r requirements-hub.lock (line 45))
+#12 41.87   Downloading sse_starlette-3.3.0-py3-none-any.whl.metadata (14 kB)
+#12 42.50 Collecting starlette==0.49.3 (from -r requirements-hub.lock (line 46))
+#12 42.67   Downloading starlette-0.49.3-py3-none-any.whl.metadata (6.4 kB)
+#12 43.00 Collecting tomli==2.4.0 (from -r requirements-hub.lock (line 47))
+#12 43.24   Downloading tomli-2.4.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (10 kB)
+#12 43.36 Collecting typing-inspection==0.4.2 (from -r requirements-hub.lock (line 48))
+#12 43.51   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+#12 44.52 Collecting typing_extensions==4.15.0 (from -r requirements-hub.lock (line 49))
+#12 45.00   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+#12 45.30 Collecting urllib3==2.7.0 (from -r requirements-hub.lock (line 50))
+#12 46.07   Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+#12 46.63 Collecting uvicorn==0.39.0 (from -r requirements-hub.lock (line 51))
+#12 46.76   Downloading uvicorn-0.39.0-py3-none-any.whl.metadata (6.8 kB)
+#12 47.57 Downloading a2a_sdk-0.3.0-py3-none-any.whl (130 kB)
+#12 49.02 Downloading alembic-1.16.5-py3-none-any.whl (247 kB)
+#12 ...
+
+#13 [presidio 4/5] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-presidio.lock
+#13 51.27   Downloading thinc-8.2.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (15 kB)
+#13 51.92 Collecting tldextract==5.3.0 (from -r requirements-presidio.lock (line 50))
+#13 52.12   Downloading tldextract-5.3.0-py3-none-any.whl.metadata (11 kB)
+#13 52.86 Collecting tqdm==4.70.1 (from -r requirements-presidio.lock (line 51))
+#13 52.96   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+#13 53.71 Collecting typer==0.23.2 (from -r requirements-presidio.lock (line 52))
+#13 53.98   Downloading typer-0.23.2-py3-none-any.whl.metadata (16 kB)
+#13 54.72 Collecting typer-slim==0.23.2 (from -r requirements-presidio.lock (line 53))
+#13 54.98   Downloading typer_slim-0.23.2-py3-none-any.whl.metadata (4.2 kB)
+#13 55.23 Collecting typing-inspection==0.4.2 (from -r requirements-presidio.lock (line 54))
+#13 55.46   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+#13 56.20 Collecting typing_extensions==4.16.0 (from -r requirements-presidio.lock (line 55))
+#13 56.50   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#13 56.82 Collecting urllib3==2.6.3 (from -r requirements-presidio.lock (line 56))
+#13 56.94   Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+#13 57.28 Collecting uvicorn==0.39.0 (from -r requirements-presidio.lock (line 57))
+#13 57.40   Downloading uvicorn-0.39.0-py3-none-any.whl.metadata (6.8 kB)
+#13 57.64 Collecting wasabi==1.1.3 (from -r requirements-presidio.lock (line 58))
+#13 57.82   Downloading wasabi-1.1.3-py3-none-any.whl.metadata (28 kB)
+#13 58.11 Collecting weasel==0.4.3 (from -r requirements-presidio.lock (line 59))
+#13 58.56   Downloading weasel-0.4.3-py3-none-any.whl.metadata (4.6 kB)
+#13 61.67 Collecting wrapt==2.4.1 (from -r requirements-presidio.lock (line 60))
+#13 61.83   Downloading wrapt-2.4.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (7.4 kB)
+#13 ...
+
+#12 [hub  4/12] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-hub.lock
+#12 52.21 Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+#12 52.40 Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+#12 52.75 Downloading anyio-4.12.1-py3-none-any.whl (113 kB)
+#12 54.56 Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+#12 54.62 WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))': /packages/9f/62/3f699ba45d8bd24c5d65392190d19656d74ff0185f42e19d0bbd973bb371/asyncpg-0.31.0-cp312-cp312-manylinux_2_28_aarch64.whl
+#12 55.76 Downloading asyncpg-0.31.0-cp312-cp312-manylinux_2_28_aarch64.whl (3.4 MB)
+#12 56.90    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 4.5 MB/s eta 0:00:00
+#12 57.13 Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+#12 57.29 Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_34_aarch64.whl (275 kB)
+#12 57.62 Downloading certifi-2026.2.25-py3-none-any.whl (153 kB)
+#12 58.10 Downloading cffi-2.1.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (222 kB)
+#12 58.72 Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (238 kB)
+#12 59.38 Downloading click-8.1.8-py3-none-any.whl (98 kB)
+#12 59.77 Downloading cryptography-46.0.5-cp311-abi3-manylinux_2_34_aarch64.whl (4.3 MB)
+#12 ...
+
+#13 [presidio 4/5] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-presidio.lock
+#13 62.85 Collecting setuptools (from spacy==3.7.5->-r requirements-presidio.lock (line 44))
+#13 63.01   Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+#13 63.07 INFO: pip is looking at multiple versions of typer to determine which version is compatible with other requirements. This could take a while.
+#13 63.07 ERROR: Cannot install -r requirements-presidio.lock (line 52) and click==8.1.8 because these package versions have conflicting dependencies.
+#13 63.07 
+#13 63.07 The conflict is caused by:
+#13 63.07     The user requested click==8.1.8
+#13 63.07     typer 0.23.2 depends on click>=8.2.1; python_version >= "3.10"
+#13 63.07 
+#13 63.07 To fix this you could try to:
+#13 63.07 1. loosen the range of package versions you've specified
+#13 63.07 2. remove package versions to allow pip to attempt to solve the dependency conflict
+#13 63.07 
+#13 63.07 ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
+#13 ERROR: process "/bin/sh -c pip install --no-cache-dir --disable-pip-version-check -r requirements-presidio.lock" did not complete successfully: exit code: 1
+
+#12 [hub  4/12] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-hub.lock
+#12 CANCELED
+------
+ > [presidio 4/5] RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-presidio.lock:
+63.07 
+63.07 The conflict is caused by:
+63.07     The user requested click==8.1.8
+63.07     typer 0.23.2 depends on click>=8.2.1; python_version >= "3.10"
+63.07 
+63.07 To fix this you could try to:
+63.07 1. loosen the range of package versions you've specified
+63.07 2. remove package versions to allow pip to attempt to solve the dependency conflict
+63.07 
+63.07 ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
+------
+Dockerfile:4
+
+--------------------
+
+   2 |     WORKDIR /hub
+
+   3 |     COPY requirements-presidio.lock ./
+
+   4 | >>> RUN pip install --no-cache-dir --disable-pip-version-check -r requirements-presidio.lock
+
+   5 |     COPY examples/presidio examples/presidio
+
+   6 |     ENV PYTHONUNBUFFERED=1
+
+--------------------
+
+target presidio: failed to solve: process "/bin/sh -c pip install --no-cache-dir --disable-pip-version-check -r requirements-presidio.lock" did not complete successfully: exit code: 1
+

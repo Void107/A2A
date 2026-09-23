@@ -1,0 +1,25 @@
+ Container a2a-accept-cfd92a0a0f-hub-1 Running 
+ Container a2a-accept-cfd92a0a0f-postgres-1 Running 
+ Container a2a-accept-cfd92a0a0f-redis-1 Running 
+ Container a2a-accept-cfd92a0a0f-presidio-1 Running 
+ Container a2a-accept-cfd92a0a0f-opa-1 Running 
+ Container a2a-accept-cfd92a0a0f-provider-1 Running 
+ Container a2a-accept-cfd92a0a0f-postgres-1 Waiting 
+ Container a2a-accept-cfd92a0a0f-postgres-1 Healthy 
+ Container a2a-accept-cfd92a0a0f-init-1 Starting 
+ Container a2a-accept-cfd92a0a0f-init-1 Started 
+ Container a2a-accept-cfd92a0a0f-init-1 Waiting 
+ Container a2a-accept-cfd92a0a0f-init-1 Exited 
+ Container a2a-accept-cfd92a0a0f-init-1 Waiting 
+ Container a2a-accept-cfd92a0a0f-init-1 Exited 
+ Container a2a-accept-cfd92a0a0f-hub-1 Waiting 
+ Container a2a-accept-cfd92a0a0f-hub-1 Healthy 
+ Container a2a-accept-cfd92a0a0f-measure-run-756fd00b7e98 Creating 
+ Container a2a-accept-cfd92a0a0f-measure-run-756fd00b7e98 Created 
+Traceback (most recent call last):
+  File "/hub/scripts/local_entrypoint.py", line 6, in <module>
+    os.execvp(sys.argv[1], sys.argv[1:])
+  File "<frozen os>", line 609, in execvp
+  File "<frozen os>", line 632, in _execvpe
+PermissionError: [Errno 13] Permission denied
+

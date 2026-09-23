@@ -1,0 +1,157 @@
+ Image a2a-alpha-local-presidio Building 
+ Image a2a-alpha-local-hub Building 
+ Image a2a-alpha-local-provider Building 
+ Image a2a-alpha-local-init Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.56kB done
+#1 DONE 0.0s
+
+#2 [presidio internal] load build definition from Dockerfile.offline
+#2 transferring dockerfile: 463B done
+#2 DONE 0.0s
+
+#3 [hub internal] load build definition from Dockerfile.offline
+#3 transferring dockerfile: 598B done
+#3 DONE 0.0s
+
+#4 [presidio context wheels] load .dockerignore
+#4 transferring wheels: 2B done
+#4 DONE 0.0s
+
+#5 [hub context wheels] load .dockerignore
+#5 transferring wheels: 2B done
+#5 DONE 0.0s
+
+#6 [provider internal] load metadata for docker.io/library/python:3.12.14-slim
+#6 DONE 0.0s
+
+#7 [presidio internal] load .dockerignore
+#7 transferring context: 127B done
+#7 DONE 0.0s
+
+#8 [presidio internal] load build context
+#8 transferring context: 4.16kB done
+#8 DONE 0.0s
+
+#9 [provider stage-0 1/7] FROM docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#9 resolve docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done
+#9 DONE 0.0s
+
+#10 [init internal] load build context
+#10 transferring context: 262.44kB 0.0s done
+#10 DONE 0.0s
+
+#11 [presidio context wheels] load from client
+#11 transferring wheels: 4.07kB done
+#11 DONE 0.0s
+
+#12 [init context wheels] load from client
+#12 transferring wheels: 3.30kB done
+#12 DONE 0.0s
+
+#13 [provider stage-0  3/13] COPY requirements-hub.lock ./
+#13 CACHED
+
+#14 [provider stage-0  4/13] COPY --from=wheels / /wheels/
+#14 CACHED
+
+#15 [presidio stage-0 4/7] COPY --from=wheels / /wheels/
+#15 CACHED
+
+#16 [provider stage-0 2/7] WORKDIR /hub
+#16 CACHED
+
+#17 [presidio stage-0 3/7] COPY requirements-presidio.lock ./
+#17 CACHED
+
+#18 [init stage-0  5/13] RUN pip install --no-index --find-links=/wheels -r requirements-hub.lock && pip check
+#18 CACHED
+
+#19 [presidio stage-0 5/7] RUN pip install --no-index --find-links=/wheels -r requirements-presidio.lock && pip check
+#19 CACHED
+
+#20 [hub stage-0  6/13] COPY app app
+#20 DONE 0.0s
+
+#21 [presidio stage-0 6/7] COPY examples/presidio examples/presidio
+#21 DONE 0.0s
+
+#22 [presidio stage-0 7/7] COPY app/profile.py app/profile.py
+#22 DONE 0.0s
+
+#23 [init stage-0  7/13] COPY sdk sdk
+#23 DONE 0.0s
+
+#24 [hub stage-0  8/13] COPY examples examples
+#24 DONE 0.0s
+
+#25 [provider stage-0  9/13] COPY policies policies
+#25 DONE 0.0s
+
+#26 [provider stage-0 10/13] COPY scripts scripts
+#26 DONE 0.0s
+
+#27 [hub stage-0 11/13] COPY docs/implementation/examples docs/implementation/examples
+#27 DONE 0.0s
+
+#28 [init stage-0 12/13] COPY alembic alembic
+#28 DONE 0.0s
+
+#29 [presidio] exporting to image
+#29 exporting layers 0.0s done
+#29 exporting manifest sha256:8ed62dc30116697462df4b666c6db2eb41e0fbd97ec854b17dc6cd59ecf45cb1 done
+#29 exporting config sha256:cd64b23a175aa3f27225cb5d89354d5d0366868f90cca1b3a03f3b37428848eb done
+#29 exporting attestation manifest sha256:170357ff39285e63858095ddba572a42c8a563509782bd8ec73cb108950bb760 done
+#29 exporting manifest list sha256:617da3c987a29fc919e412bb66455b261f66ad18db1699cde9f51b1c2179fee7 done
+#29 naming to docker.io/library/a2a-alpha-local-presidio:latest done
+#29 unpacking to docker.io/library/a2a-alpha-local-presidio:latest 0.0s done
+#29 DONE 0.1s
+
+#30 [init stage-0 13/13] COPY alembic.ini ./
+#30 DONE 0.0s
+
+#31 [hub] exporting to image
+#31 exporting layers 0.1s done
+#31 exporting manifest sha256:13088abb21ac7569db9a8b50da746f4f90b40396716a991b3e6cb8c9953c3fc1 done
+#31 exporting config sha256:ef0b3a69d6cbe15efbacdaf286b3009e59032b06acfc4702a4e56f171bc970f3 done
+#31 exporting attestation manifest sha256:4087ef27cd215f9c935f91daa2ab3412de526b421f1c91d6161a62ed68e8071c done
+#31 exporting manifest list sha256:110bd74081de358c7dc757712e1a3feb78f5165f5297bcf566f1050e1e31abfa done
+#31 naming to docker.io/library/a2a-alpha-local-hub:latest done
+#31 unpacking to docker.io/library/a2a-alpha-local-hub:latest 0.0s done
+#31 DONE 0.2s
+
+#32 [presidio] resolving provenance for metadata file
+#32 DONE 0.0s
+
+#33 [init] exporting to image
+#33 exporting layers 0.1s done
+#33 exporting manifest sha256:a418557c7efc4a8fa3dcd92c041898c3eed59bf642094e85c7041a054e5284e6 done
+#33 exporting config sha256:67716298ac72dc2bd0fe5524bf25837211ea2082791dc84fbc51bbc9601884b0 done
+#33 exporting attestation manifest sha256:c629ec3d45ecaaba1ea731eb379027042edc10bb3045f3b94cac877d68e0f73c done
+#33 exporting manifest list sha256:76d357049e189b40e0667a73eeb09691699bada7d1af52ab84906609b0efb198 done
+#33 naming to docker.io/library/a2a-alpha-local-init:latest done
+#33 unpacking to docker.io/library/a2a-alpha-local-init:latest 0.0s done
+#33 DONE 0.2s
+
+#34 [provider] exporting to image
+#34 exporting layers 0.1s done
+#34 exporting manifest sha256:58d8af1c9732cc92c711d6fbf00c9de7e9937a6689ec5e0305fe44ce52930d86 done
+#34 exporting config sha256:b67e3e54f887ce595ed1db8b640d0e6b0d1eabf13b0ec04d1f94079ec72b9fd1 done
+#34 exporting attestation manifest sha256:d73c3bb727e3cee0caaff2b540443397dfc00487654538aefc28b2441d846c52 done
+#34 exporting manifest list sha256:fd230ceb2012963e0a588e288fae76ac213c6c2d7c91e0094d8a94b0843781a4 done
+#34 naming to docker.io/library/a2a-alpha-local-provider:latest done
+#34 unpacking to docker.io/library/a2a-alpha-local-provider:latest 0.0s done
+#34 DONE 0.2s
+
+#35 [hub] resolving provenance for metadata file
+#35 DONE 0.0s
+
+#36 [init] resolving provenance for metadata file
+#36 DONE 0.0s
+
+#37 [provider] resolving provenance for metadata file
+#37 DONE 0.0s
+ Image a2a-alpha-local-presidio Built 
+ Image a2a-alpha-local-provider Built 
+ Image a2a-alpha-local-hub Built 
+ Image a2a-alpha-local-init Built 

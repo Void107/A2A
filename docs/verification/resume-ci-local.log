@@ -1,0 +1,9 @@
+unit PASS
+verify_real_baseline PASS
+verify_security PASS
+verify_upstream PASS
+verify_receipts PASS
+verify_opa PASS
+verify_processing PASS
+verify_delivery PASS
+presidio_quality PASS

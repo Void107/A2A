@@ -1,0 +1,159 @@
+{
+  "profile_revision": "presidio-email-2_2_360-psl5_3_0-v1",
+  "nlp_model": null,
+  "entity": "EMAIL_ADDRESS",
+  "threshold": 0.5,
+  "cases": [
+    {
+      "group": "regression",
+      "text": "Mail alice@example.com.",
+      "expected": [
+        [
+          5,
+          22
+        ]
+      ],
+      "actual": [
+        [
+          5,
+          22
+        ]
+      ],
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "group": "regression",
+      "text": "a@example.com, b@example.com",
+      "expected": [
+        [
+          0,
+          13
+        ],
+        [
+          15,
+          28
+        ]
+      ],
+      "actual": [
+        [
+          0,
+          13
+        ],
+        [
+          15,
+          28
+        ]
+      ],
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "group": "regression",
+      "text": "No email here.",
+      "expected": [],
+      "actual": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "group": "regression",
+      "text": "Alice Example 555-1234",
+      "expected": [],
+      "actual": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "group": "exploration",
+      "text": "Contact team+launch@sub.example.com now",
+      "expected": [
+        [
+          8,
+          35
+        ]
+      ],
+      "actual": [
+        [
+          8,
+          35
+        ]
+      ],
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "group": "exploration",
+      "text": "(qa@example.com)",
+      "expected": [
+        [
+          1,
+          15
+        ]
+      ],
+      "actual": [
+        [
+          1,
+          15
+        ]
+      ],
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "group": "exploration",
+      "text": "alice @ example . com",
+      "expected": [
+        [
+          0,
+          21
+        ]
+      ],
+      "actual": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    {
+      "group": "exploration",
+      "text": "中文人名 张三 电话12345",
+      "expected": [],
+      "actual": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "group": "exploration",
+      "text": "not-an-email.example.com",
+      "expected": [],
+      "actual": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    }
+  ],
+  "scope": "Synthetic only; obfuscation and other entities are outside supported baseline.",
+  "regression": {
+    "samples": 4,
+    "tp": 3,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "exploration": {
+    "samples": 5,
+    "tp": 2,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.6666666666666666
+  }
+}

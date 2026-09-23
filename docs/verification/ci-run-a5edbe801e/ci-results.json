@@ -1,0 +1,136 @@
+[
+  {
+    "name": "unit",
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081478.8504739,
+    "seconds": 11.992156982421875,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-unit.log"
+  },
+  {
+    "name": "verify_real_baseline",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv312/bin/python",
+      "scripts/verify_real_baseline.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081490.843071,
+    "seconds": 0.928704023361206,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-verify_real_baseline.log"
+  },
+  {
+    "name": "verify_unmigrated",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv312/bin/python",
+      "scripts/verify_unmigrated.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081491.772115,
+    "seconds": 0.6316919326782227,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-verify_unmigrated.log"
+  },
+  {
+    "name": "verify_security",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv312/bin/python",
+      "scripts/verify_security.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081492.404172,
+    "seconds": 2.538012981414795,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-verify_security.log"
+  },
+  {
+    "name": "verify_upstream",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv312/bin/python",
+      "scripts/verify_upstream.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081494.942612,
+    "seconds": 0.2408912181854248,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-verify_upstream.log"
+  },
+  {
+    "name": "verify_tls",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv312/bin/python",
+      "scripts/verify_tls.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081495.184008,
+    "seconds": 0.14360404014587402,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-verify_tls.log"
+  },
+  {
+    "name": "verify_receipts",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv312/bin/python",
+      "scripts/verify_receipts.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081495.3280032,
+    "seconds": 3.966141939163208,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-verify_receipts.log"
+  },
+  {
+    "name": "verify_process_failures",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv312/bin/python",
+      "scripts/verify_process_failures.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081499.294742,
+    "seconds": 1.248560905456543,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-verify_process_failures.log"
+  },
+  {
+    "name": "verify_opa",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv312/bin/python",
+      "scripts/verify_opa.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081500.543822,
+    "seconds": 0.9313449859619141,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-verify_opa.log"
+  },
+  {
+    "name": "verify_processing",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv312/bin/python",
+      "scripts/verify_processing.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081501.476116,
+    "seconds": 1.453084945678711,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-verify_processing.log"
+  },
+  {
+    "name": "verify_delivery",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv312/bin/python",
+      "scripts/verify_delivery.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081502.9298098,
+    "seconds": 55.11411929130554,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-verify_delivery.log"
+  },
+  {
+    "name": "presidio_quality",
+    "command": [
+      "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv-presidio/bin/python",
+      "scripts/presidio_quality.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790081558.0446432,
+    "seconds": 0.9212217330932617,
+    "log": "docs/verification/ci-run-a5edbe801e/ci-presidio_quality.log"
+  }
+]

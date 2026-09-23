@@ -19,3 +19,22 @@ __pycache__/
 # 系统文件
 .DS_Store
 Thumbs.db
+
+# Isolated replacement environment
+.venv/
+
+.venv312/
+
+.venv-presidio/
+
+.local-wheelhouse/
+
+# Local credentials, runtime state and generated packages
+.env.*
+!.env.example
+*.pem
+*.key
+*.sqlite
+*.sqlite3
+artifacts/
+.venv-ci/

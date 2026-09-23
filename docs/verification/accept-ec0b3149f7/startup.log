@@ -1,0 +1,20 @@
+ Volume a2a-accept-ec0b3149f7_secrets Creating 
+ Volume a2a-accept-ec0b3149f7_data Creating 
+ Network a2a-accept-ec0b3149f7_local Creating 
+ Volume a2a-accept-ec0b3149f7_measurements Creating 
+ Volume a2a-accept-ec0b3149f7_public Creating 
+ Volume a2a-accept-ec0b3149f7_data Creating 
+ Volume a2a-accept-ec0b3149f7_public Creating 
+ Volume a2a-accept-ec0b3149f7_secrets Creating 
+ Volume a2a-accept-ec0b3149f7_measurements Creating 
+ Network a2a-accept-ec0b3149f7_local Creating 
+ Network a2a-accept-ec0b3149f7_local Error Error response from daemon: invalid pool request: Pool overlaps with other one on this address space
+ network:local failed to create network a2a-accept-ec0b3149f7_local: Error response from daemon: invalid pool request: Pool overlaps with other one on this address space 
+ Container a2a-accept-ec0b3149f7-opa-1 Creating 
+ Container a2a-accept-ec0b3149f7-presidio-1 Creating 
+ Volume a2a-accept-ec0b3149f7_measurements Error error during connect: Post "http://%2FUsers%2Fjeremysie%2F.docker%2Frun%2Fdocker.sock/v1.55/volumes/create": failed to create network a2a-accept-ec0b3149f7_local: Error response from daemon: invalid pool request: Pool overlaps with other one on this address space
+ Container a2a-accept-ec0b3149f7-redis-1 Creating 
+ Volume a2a-accept-ec0b3149f7_data Error error during connect: Post "http://%2FUsers%2Fjeremysie%2F.docker%2Frun%2Fdocker.sock/v1.55/volumes/create": failed to create network a2a-accept-ec0b3149f7_local: Error response from daemon: invalid pool request: Pool overlaps with other one on this address space
+ Volume a2a-accept-ec0b3149f7_secrets Error error during connect: Post "http://%2FUsers%2Fjeremysie%2F.docker%2Frun%2Fdocker.sock/v1.55/volumes/create": failed to create network a2a-accept-ec0b3149f7_local: Error response from daemon: invalid pool request: Pool overlaps with other one on this address space
+ Volume a2a-accept-ec0b3149f7_public Error error during connect: Post "http://%2FUsers%2Fjeremysie%2F.docker%2Frun%2Fdocker.sock/v1.55/volumes/create": failed to create network a2a-accept-ec0b3149f7_local: Error response from daemon: invalid pool request: Pool overlaps with other one on this address space
+failed to create network a2a-accept-ec0b3149f7_local: Error response from daemon: invalid pool request: Pool overlaps with other one on this address space

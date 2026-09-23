@@ -1,0 +1,68 @@
+{
+  "project": "a2a-accept-ec0b3149f7",
+  "host": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "logical_cpus": 10
+  },
+  "steps": [
+    {
+      "name": "clean-build",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-ec0b3149f7",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-qz4_t4g6/wheels.json",
+        "--profile",
+        "demo",
+        "--profile",
+        "measure",
+        "build",
+        "--no-cache"
+      ],
+      "started_unix": 1790079832.8116128,
+      "seconds": 14.438658237457275,
+      "exit_code": 0
+    },
+    {
+      "name": "startup",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-ec0b3149f7",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-qz4_t4g6/wheels.json",
+        "up",
+        "-d",
+        "--wait",
+        "--wait-timeout",
+        "180"
+      ],
+      "started_unix": 1790079847.2509031,
+      "seconds": 0.09748506546020508,
+      "exit_code": 1
+    }
+  ],
+  "external_deployment": false,
+  "dependency_acquisition": "existing wheel cache; no fresh download claim",
+  "configuration": [
+    "compose.yaml",
+    "compose.offline.yaml",
+    "compose.acceptance.yaml"
+  ]
+}

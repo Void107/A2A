@@ -1,0 +1,1 @@
+PASS: real OPA allow/deny/grant/resource/offline; empty/null/wrong-type/digest/deadline reject

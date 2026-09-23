@@ -1,0 +1,6 @@
+{
+  "before": 0,
+  "consumed": 0,
+  "after": 0,
+  "note": "Dedicated test DB; final-suite workers may already have recovered performance backlog."
+}

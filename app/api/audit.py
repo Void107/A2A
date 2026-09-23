@@ -13,7 +13,7 @@ from fastapi import APIRouter, Depends, Query
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.auth import require_auth
+from app.api.auth import require_scope
 from app.database import get_db
 from app.models.schemas import AuditLog
 
@@ -22,7 +22,7 @@ router = APIRouter(prefix="/api/v1/audit", tags=["审计日志"])
 
 @router.get("/logs")
 async def get_logs(
-    agent: dict = Depends(require_auth),
+    agent: dict = Depends(require_scope('audit')),
     db: AsyncSession = Depends(get_db),
     agent_id: Optional[str] = Query(None, description="按 Agent ID 过滤（source 或 target）"),
     schema_id: Optional[str] = Query(None, description="按 schema_id 过滤"),
@@ -35,6 +35,11 @@ async def get_logs(
 
     query = select(AuditLog).order_by(AuditLog.timestamp.desc())
     count_query = select(func.count(AuditLog.id))
+
+    if 'admin' not in agent['scopes']:
+        visible = (AuditLog.source_agent == agent['sub']) | (AuditLog.target_agent == agent['sub'])
+        query = query.where(visible)
+        count_query = count_query.where(visible)
 
     # 按条件过滤
     if agent_id:

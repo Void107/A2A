@@ -1,0 +1,26 @@
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_delivery.py:239: DeprecationWarning: A2AClient is deprecated and will be removed in a future version. Use ClientFactory to create a client with a JSON-RPC transport.
+  client = A2AClient(ahttp, agent_card=card)
+ Container a2a-contract-test-redis-1 Stopping 
+ Container a2a-contract-test-redis-1 Stopped 
+ Container a2a-contract-test-redis-1 Starting 
+ Container a2a-contract-test-redis-1 Started 
+ Container a2a-contract-test-redis-1 Waiting 
+ Container a2a-contract-test-redis-1 Healthy 
+ Container a2a-contract-test-postgres-1 Stopping 
+ Container a2a-contract-test-postgres-1 Stopped 
+ Container a2a-contract-test-postgres-1 Starting 
+ Container a2a-contract-test-postgres-1 Started 
+ Container a2a-contract-test-postgres-1 Waiting 
+ Container a2a-contract-test-postgres-1 Healthy 
+/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_delivery.py:367: DeprecationWarning: A2AClient is deprecated and will be removed in a future version. Use ClientFactory to create a client with a JSON-RPC transport.
+  failed_client = A2AClient(failed_http, agent_card=card)
+PostgreSQL: 17.6 (Debian 17.6-2.pgdg13+1)
+Redis: 7.4.5
+PASS: real client disconnect after authorization, durable ready_to_send only, retry creates a new reauthorized receipt
+PASS: publication consumer checks, compatible patch, breaking same-major rejection, explicit major migration and default acknowledgement, unknown change blocked, pinned old version
+PASS: persisted failure metadata, honest unexecuted stages, REST/official A2A diagnostic parity
+PASS: failure receipt ownership and ordinary logs omit synthetic email, credentials and bearer tokens
+PASS: EX-01..EX-10 with inactive identity represented by AUTHENTICATION_REQUIRED; in-flight pinned snapshot/default switch; malformed real OPA decision prevents fetch and recovers
+PASS: real in-flight revoke, Redis-off delivery, PG pre-receipt failure, Presidio/OPA outage; real full stack REST dual views, scoped discovery, immutable version, signed provider, resource/source rejection, receipts, revocation; official A2A BOTH views/deny/extension/dependency failure; API consumer effects/source mutations/reverse order

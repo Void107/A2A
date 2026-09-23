@@ -1,0 +1,53 @@
+ Container a2a-accept-31d3cd5f97-provider-1 Running 
+ Container a2a-accept-31d3cd5f97-redis-1 Running 
+ Container a2a-accept-31d3cd5f97-hub-1 Running 
+ Container a2a-accept-31d3cd5f97-postgres-1 Running 
+ Container a2a-accept-31d3cd5f97-presidio-1 Running 
+ Container a2a-accept-31d3cd5f97-opa-1 Running 
+ Container a2a-accept-31d3cd5f97-postgres-1 Waiting 
+ Container a2a-accept-31d3cd5f97-postgres-1 Healthy 
+ Container a2a-accept-31d3cd5f97-init-1 Starting 
+ Container a2a-accept-31d3cd5f97-init-1 Started 
+ Container a2a-accept-31d3cd5f97-init-1 Waiting 
+ Container a2a-accept-31d3cd5f97-init-1 Exited 
+ Container a2a-accept-31d3cd5f97-init-1 Waiting 
+ Container a2a-accept-31d3cd5f97-init-1 Exited 
+ Container a2a-accept-31d3cd5f97-hub-1 Waiting 
+ Container a2a-accept-31d3cd5f97-hub-1 Healthy 
+ Container a2a-accept-31d3cd5f97-demo-run-eb40a8d298b1 Creating 
+ Container a2a-accept-31d3cd5f97-demo-run-eb40a8d298b1 Created 
+{
+  "internal-project": [
+    {
+      "item_id": "item-001",
+      "task": "Send the checklist to review@example.com.",
+      "due_date": "2026-09-20",
+      "assignee": "alice@example.com",
+      "assignment_state": "assigned"
+    },
+    {
+      "item_id": "item-002",
+      "task": "Prepare the test report.",
+      "due_date": "2026-09-21",
+      "assignee": "bob@example.com",
+      "assignment_state": "assigned"
+    }
+  ],
+  "external-collaboration": [
+    {
+      "item_id": "item-001",
+      "task": "Send the checklist to [EMAIL].",
+      "due_date": "2026-09-20",
+      "assignee": null,
+      "assignment_state": "unassigned"
+    },
+    {
+      "item_id": "item-002",
+      "task": "Prepare the test report.",
+      "due_date": "2026-09-21",
+      "assignee": null,
+      "assignment_state": "unassigned"
+    }
+  ]
+}
+PASS: public API discovery, exact dual views, local task consumers

@@ -1,0 +1,9 @@
+fresh-dependencies 1
+Traceback (most recent call last):
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_clean_install.py", line 83, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_clean_install.py", line 37, in main
+    run('fresh-dependencies',[sys.executable,'scripts/prepare_wheels.py','--destination',str(wheelhouse),'--no-cache'])
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_clean_install.py", line 29, in run
+    if check and result.returncode:raise RuntimeError(name+' failed; inspect '+str(evidence))
+RuntimeError: fresh-dependencies failed; inspect /Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/docs/verification/accept-99e1a569ea

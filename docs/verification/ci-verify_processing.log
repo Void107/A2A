@@ -1,0 +1,2 @@
+PASS: actual Presidio email profile; golden dual views/input isolation/title/source drift/resource mismatch; local consumers; service failure closed
+Quality scope: golden fixture plus 4 fixed texts; 2 negative texts unchanged. Exploratory span precision/recall NOT_RUN.

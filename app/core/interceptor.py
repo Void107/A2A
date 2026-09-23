@@ -26,6 +26,13 @@ def evaluate_contract(
           "policy_matched": "xxx",
           "reason": "..." }
     """
+    # Offline legacy diagnostics only; unsupported semantics cannot permit data.
+    rules = contract.get('policies', [])
+    available = {t.get('transform_id') for t in contract.get('transforms', [])}
+    if any(p.get('effect') not in {'allow', 'deny'} or p.get('conditions')
+           or not set(p.get('transform_ids', [])) <= available for p in rules):
+        return {'decision': 'blocked', 'reason': 'LEGACY_CONTRACT_UNSUPPORTED',
+                'transforms': [], 'policy_matched': None}
     # ── 第 1 步：查找目标 schema ──
     schemas = contract.get("schemas", [])
     target_schema = None

@@ -52,8 +52,11 @@ class Agent(Base):
     hub_shared_secret_hash = Column(String(255), nullable=False)     # Hub→Agent 签名 §2.2
     scopes = Column(
         JSON,
-        server_default='["publish","query","discover","subscribe","audit"]',
+        default=list, server_default='[]',
     )
+    roles = Column(JSON, nullable=False, default=list, server_default="[]")
+    authorization_revision = Column(Integer, nullable=False, default=1, server_default="1")
+    credential_revision = Column(Integer, nullable=False, default=1, server_default="1")
     is_active = Column(Boolean, default=True, server_default=text("true"))
 
     created_at = Column(
@@ -113,3 +116,98 @@ class AuditLog(Base):
     policy_matched = Column(String(255), nullable=True) # 命中的策略 ID
     transforms_applied = Column(JSON, server_default="[]")
     request_id = Column(String(255), unique=True)
+
+
+class AccessGrant(Base):
+    __tablename__ = 'access_grants'
+    grant_id = Column(String(64), primary_key=True)
+    agent_id = Column(String(255), nullable=False, index=True)
+    contract_id = Column(String(64), nullable=False)
+    view_id = Column(String(64), nullable=False)
+    allowed_meeting_ids = Column(JSON, nullable=False, default=list)
+    active = Column(Boolean, nullable=False, default=True)
+    revision = Column(Integer, nullable=False, default=1)
+
+
+class PublicResource(Base):
+    __tablename__ = 'public_resources'
+    contract_id = Column(String(64), primary_key=True)
+    contract_version = Column(String(50), primary_key=True)
+    owner_agent_id = Column(String(255), nullable=False)
+    public = Column(Boolean, nullable=False, default=False)
+
+
+class DeliveryReceipt(Base):
+    __tablename__ = 'delivery_receipts'
+    request_id = Column(String(64), primary_key=True)
+    source_agent = Column(String(255), nullable=False, index=True)
+    target_agent = Column(String(255), nullable=False)
+    contract_id = Column(String(64), nullable=False)
+    contract_version = Column(String(50), nullable=False)
+    contract_digest = Column(String(64), nullable=False)
+    view_id = Column(String(64), nullable=False)
+    meeting_id = Column(String(64), nullable=False)
+    policy_revision = Column(String(64), nullable=False)
+    profile_revision = Column(String(64), nullable=False)
+    completed_processors = Column(JSON, nullable=False)
+    status = Column(String(32), nullable=False, default='ready_to_send')
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+
+
+class OutboxEvent(Base):
+    __tablename__ = 'outbox_events'
+    event_id = Column(String(64), primary_key=True)
+    receipt_id = Column(String(64), nullable=False, unique=True)
+    processed = Column(Boolean, nullable=False, default=False)
+    attempts = Column(Integer, nullable=False, default=0)
+    next_attempt = Column(DateTime, nullable=False, default=datetime.utcnow)
+
+
+class DeliveryAudit(Base):
+    __tablename__ = 'delivery_audit'
+    event_id = Column(String(64), primary_key=True)
+    receipt_id = Column(String(64), nullable=False, unique=True)
+    indexed_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+
+
+class ContractVersion(Base):
+    __tablename__ = 'contract_versions'
+    contract_id = Column(String(64), primary_key=True)
+    contract_version = Column(String(50), primary_key=True)
+    owner_agent_id = Column(String(255), nullable=False)
+    provider_agent_id = Column(String(255), nullable=False)
+    document = Column(JSON, nullable=False)
+    digest = Column(String(64), nullable=False)
+    state = Column(String(16), nullable=False, default='draft')
+    is_default = Column(Boolean, nullable=False, default=False)
+
+
+class ContractResource(Base):
+    __tablename__ = 'contract_resources'
+    contract_id = Column(String(64), primary_key=True)
+    owner_agent_id = Column(String(255), nullable=False)
+    provider_agent_id = Column(String(255), nullable=False)
+
+
+class FailureRecord(Base):
+    __tablename__ = 'failure_records'
+    request_id = Column(String(64), primary_key=True)
+    source_agent = Column(String(255), nullable=False)
+    code = Column(String(64), nullable=False)
+    diagnostics = Column(JSON, nullable=True)
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+
+
+class UpstreamNonce(Base):
+    __tablename__ = 'upstream_nonces'
+    nonce = Column(String(256), primary_key=True)
+    expires_at = Column(DateTime, nullable=False)
+
+
+class PublicationCheck(Base):
+    __tablename__ = 'publication_checks'
+    contract_id = Column(String(64), primary_key=True)
+    contract_version = Column(String(50), primary_key=True)
+    bundle = Column(JSON, nullable=False)
+    report = Column(JSON, nullable=False)
+    acknowledged_digest = Column(String(64), nullable=True)

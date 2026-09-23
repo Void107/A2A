@@ -1,0 +1,26 @@
+services:
+  init:
+    build:
+      dockerfile: Dockerfile.offline
+      additional_contexts:
+        wheels: ./.local-wheelhouse/hub
+  hub:
+    build:
+      dockerfile: Dockerfile.offline
+      additional_contexts:
+        wheels: ./.local-wheelhouse/hub
+  provider:
+    build:
+      dockerfile: Dockerfile.offline
+      additional_contexts:
+        wheels: ./.local-wheelhouse/hub
+  presidio:
+    build:
+      dockerfile: examples/presidio/Dockerfile.offline
+      additional_contexts:
+        wheels: ./.local-wheelhouse/presidio
+  demo:
+    build:
+      dockerfile: Dockerfile.offline
+      additional_contexts:
+        wheels: ./.local-wheelhouse/hub

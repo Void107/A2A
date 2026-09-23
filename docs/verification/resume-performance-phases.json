@@ -1,0 +1,71 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "hardware_cpu_memory_bytes_logical_cpus": [],
+  "phases": {
+    "internal-project": {
+      "authorization_ms": {
+        "samples": 317,
+        "p50": 24.147500007529743,
+        "p95": 50.82074999518227
+      },
+      "upstream_ms": {
+        "samples": 317,
+        "p50": 34.2594159883447,
+        "p95": 75.83433300897013
+      },
+      "validation_ms": {
+        "samples": 317,
+        "p50": 17.74837399716489,
+        "p95": 19.202208990463987
+      },
+      "detection_ms": {
+        "samples": 317,
+        "p50": 0.00020800507627427578,
+        "p95": 0.00041701423469930887
+      },
+      "pg_commit_ms": {
+        "samples": 317,
+        "p50": 112.62345900468063,
+        "p95": 450.13162499526516
+      },
+      "core_total_ms": {
+        "samples": 317,
+        "p50": 202.6132500031963,
+        "p95": 533.2977079960983
+      }
+    },
+    "external-collaboration": {
+      "authorization_ms": {
+        "samples": 324,
+        "p50": 26.063583994982764,
+        "p95": 68.09125001018401
+      },
+      "upstream_ms": {
+        "samples": 324,
+        "p50": 24.996541993459687,
+        "p95": 83.33941700402647
+      },
+      "validation_ms": {
+        "samples": 317,
+        "p50": 18.034000997431576,
+        "p95": 19.129332999000326
+      },
+      "detection_ms": {
+        "samples": 317,
+        "p50": 75.9178339940263,
+        "p95": 163.65791698626708
+      },
+      "pg_commit_ms": {
+        "samples": 317,
+        "p50": 71.49487499555107,
+        "p95": 315.1467080024304
+      },
+      "core_total_ms": {
+        "samples": 324,
+        "p50": 245.8609589957632,
+        "p95": 584.9244169949088
+      }
+    }
+  },
+  "scope": "Includes warmup and initial validation calls; not grouped by concurrency. Authorization is OPA only; initial identity DB lookup is included in client end-to-end measurements. Container CPU/memory limits were not set; no production SLO."
+}

@@ -227,56 +227,18 @@ class TestTokenExchange:
 
 
 class TestRegistrationSecurity:
-    """注册接口的安全边界测试"""
+    """The legacy self-registration contract was explicitly removed."""
+    @pytest.mark.parametrize('body', [
+        {'agent_id':'new-agent','domain':'org-acme','roles':['admin']},
+        {'agent_id':'test-agent-alpha'}, {'data_contract':{'policies':[]}},
+    ])
+    async def test_self_registration_cannot_issue_credentials(self, client, registered_agent, body):
+        response=await client.post('/api/v1/agents/register',json=body)
+        assert response.status_code==403
+        assert not {'api_key','access_token','hub_shared_secret'} & response.json().keys()
 
-    @pytest.mark.asyncio
-    async def test_duplicate_agent_id_rejected(
-        self, client: AsyncClient, registered_agent: dict
-    ):
-        """重复 agent_id 注册 → 409 Conflict"""
-        resp = await client.post(
-            "/api/v1/agents/register",
-            json={
-                "agent_id": registered_agent["agent_id"],  # 已存在
-                "display_name": "Duplicate",
-                "callback_url": "http://localhost:9999",
-                "data_contract": {"schemas": []},
-            },
-        )
-        assert resp.status_code == 409
-
-    @pytest.mark.asyncio
-    async def test_missing_schemas_rejected(self, client: AsyncClient):
-        """data_contract 缺少 schemas 字段 → 422"""
-        resp = await client.post(
-            "/api/v1/agents/register",
-            json={
-                "agent_id": "bad-contract-agent",
-                "display_name": "Bad Contract",
-                "callback_url": "http://localhost:9999",
-                "data_contract": {"policies": []},  # 没有 schemas
-            },
-        )
-        assert resp.status_code == 422
-
-    @pytest.mark.asyncio
-    async def test_registration_returns_credentials_once(
-        self, client: AsyncClient
-    ):
-        """注册成功后返回 api_key 和 hub_shared_secret（只返回一次）"""
-        resp = await client.post(
-            "/api/v1/agents/register",
-            json={
-                "agent_id": "fresh-agent-001",
-                "display_name": "Fresh Agent",
-                "callback_url": "http://localhost:9001/normal",
-                "data_contract": {"schemas": [], "version": "0.2.0"},
-            },
-        )
-        assert resp.status_code == 201
-        data = resp.json()
-
-        # 密钥必须存在且非空
-        assert len(data["api_key"]) > 20
-        assert len(data["hub_shared_secret"]) > 20
-        assert len(data["access_token"]) > 20
+    async def test_current_scope_overrides_signed_claims(self,client,provision_identity):
+        actor=await provision_identity('no-scope',scopes=[])
+        token=make_jwt('no-scope',['query','admin'],domain='org-acme')
+        response=await client.post('/api/v1/interact/query',headers=make_auth_header(token),json={})
+        assert response.status_code==403

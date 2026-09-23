@@ -1,0 +1,15 @@
+FROM python:3.12.14-slim
+WORKDIR /hub
+COPY requirements-hub.lock ./
+COPY --from=wheels / /wheels/
+RUN pip install --no-index --find-links=/wheels -r requirements-hub.lock && pip check
+COPY app app
+COPY sdk sdk
+COPY examples examples
+COPY policies policies
+COPY scripts scripts
+COPY docs/implementation/examples docs/implementation/examples
+COPY alembic alembic
+COPY alembic.ini ./
+ENV PYTHONPATH=/hub PYTHONUNBUFFERED=1
+CMD ["python", "scripts/local_entrypoint.py", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--no-access-log"]

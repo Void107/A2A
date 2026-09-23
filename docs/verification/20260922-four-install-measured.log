@@ -1,0 +1,14 @@
+clean-build 0
+startup 0
+first-consumers 0
+before-restart 0
+restart 0
+ready-after-restart 0
+after-restart 0
+restart-consumers 0
+measurement 0
+export-requests 0
+export-phases 0
+final-state 0
+cleanup-owned-stack 0
+PASS AC-21/23: /Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/docs/verification/accept-31d3cd5f97

@@ -1,0 +1,109 @@
+{
+  "project": "a2a-accept-44b77e00d0",
+  "host": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "logical_cpus": 10
+  },
+  "steps": [
+    {
+      "name": "fresh-dependencies",
+      "command": [
+        "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv/bin/python",
+        "scripts/prepare_wheels.py",
+        "--destination",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-4_b99mcw/wheels",
+        "--no-cache",
+        "--downloader",
+        "curl"
+      ],
+      "started_unix": 1790079533.038053,
+      "seconds": 164.0319859981537,
+      "exit_code": 0
+    },
+    {
+      "name": "clean-build",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-44b77e00d0",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-4_b99mcw/wheels.json",
+        "--profile",
+        "demo",
+        "--profile",
+        "measure",
+        "build",
+        "--no-cache"
+      ],
+      "started_unix": 1790079697.073936,
+      "seconds": 14.289979934692383,
+      "exit_code": 0
+    },
+    {
+      "name": "startup",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-44b77e00d0",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-4_b99mcw/wheels.json",
+        "up",
+        "-d",
+        "--wait",
+        "--wait-timeout",
+        "180"
+      ],
+      "started_unix": 1790079711.364481,
+      "seconds": 8.363605976104736,
+      "exit_code": 0
+    },
+    {
+      "name": "first-consumers",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-44b77e00d0",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-4_b99mcw/wheels.json",
+        "--profile",
+        "demo",
+        "run",
+        "--rm",
+        "--no-build",
+        "demo"
+      ],
+      "started_unix": 1790079719.729541,
+      "seconds": 0.05695700645446777,
+      "exit_code": 1
+    }
+  ],
+  "external_deployment": false,
+  "dependency_bytes": 60708314,
+  "configuration": [
+    "compose.yaml",
+    "compose.offline.yaml",
+    "compose.acceptance.yaml"
+  ]
+}

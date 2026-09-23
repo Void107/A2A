@@ -1,70 +1,41 @@
-"""
-Broadcast Engine —— 基于 Redis Pub/Sub + SSE 的广播系统。
-
-所有 Redis 操作都通过 get_redis() 获取全局连接池，
-不自行创建连接，避免泄露。
-"""
-
-from __future__ import annotations
-
+"""Public, administrator-approved metadata only; no free-text broadcast route."""
+import asyncio
 import json
-import logging
-from typing import Optional
+from typing import Literal
+from fastapi import APIRouter, Depends
+from pydantic import BaseModel, ConfigDict, Field
+from sqlalchemy.ext.asyncio import AsyncSession
 
-from fastapi import APIRouter, Depends, HTTPException, Query
-from pydantic import BaseModel
-from sse_starlette.sse import EventSourceResponse
-
-from app.api.auth import require_auth
+from app.api.auth import denied, require_scope
 from app.core.redis_pool import get_redis
+from app.database import get_db
+from app.models.schemas import PublicResource
 
-logger = logging.getLogger(__name__)
-
-router = APIRouter(prefix="/api/v1/topics", tags=["广播系统"])
+router = APIRouter(prefix='/api/v1/topics', tags=['Public metadata'])
 
 
 class PublishRequest(BaseModel):
-    topic: str
-    content: dict
-    entity_type: Optional[str] = None
+    model_config = ConfigDict(extra='forbid', strict=True)
+    event_type: Literal['contract.updated']
+    contract_id: str = Field(pattern=r'^[a-z][a-z0-9-]{0,63}$')
+    contract_version: str = Field(pattern=r'^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$')
 
 
-@router.post("/publish")
-async def publish(body: PublishRequest, agent: dict = Depends(require_auth)):
-    """向某个 Topic 发布广播消息"""
-
-    message = json.dumps(
-        {
-            "source_agent": agent["sub"],
-            "entity_type": body.entity_type,
-            "content": body.content,
-        },
-        ensure_ascii=False,
-    )
-
-    redis = get_redis()
-    receivers = await redis.publish(f"topic:{body.topic}", message)
-    return {"status": "published", "topic": body.topic, "receivers": receivers}
+@router.post('/publish')
+async def publish(body: PublishRequest, agent=Depends(require_scope('publish')),
+                  db: AsyncSession = Depends(get_db)):
+    resource = await db.get(PublicResource, (body.contract_id, body.contract_version))
+    if not resource or not resource.public or resource.owner_agent_id != agent['sub']:
+        raise denied()
+    try:
+        receivers = await asyncio.wait_for(get_redis().publish('public:contract.updated', json.dumps(body.model_dump())), 3)
+    except Exception:
+        raise denied('PROCESSING_UNAVAILABLE', 503) from None
+    return {'status': 'published', 'receivers': receivers}
 
 
-@router.get("/subscribe")
-async def subscribe(
-    topic: str = Query(..., description="要订阅的 Topic 名称"),
-    agent: dict = Depends(require_auth),
-):
-    """通过 SSE 长连接订阅某个 Topic 的实时消息"""
-
-    async def event_generator():
-        redis = get_redis()
-        pubsub = redis.pubsub()
-        channel = f"topic:{topic}"
-        await pubsub.subscribe(channel)
-        try:
-            async for message in pubsub.listen():
-                if message["type"] == "message":
-                    yield {"event": "message", "data": message["data"]}
-        finally:
-            await pubsub.unsubscribe(channel)
-            await pubsub.aclose()
-
-    return EventSourceResponse(event_generator())
+@router.get('/subscribe')
+async def subscribe(agent=Depends(require_scope('subscribe'))):
+    # No legacy arbitrary topic stream. A bounded metadata feed is introduced
+    # with the delivery outbox; this endpoint cannot expose legacy content.
+    raise denied('LEGACY_SUBSCRIPTION_DISABLED', 410)

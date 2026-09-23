@@ -1,0 +1,1 @@
+PASS: real signed HTTP; tamper/method/path/expiry/key/replay; address pinning; redirect/size/JSON/depth/deadline/concurrency

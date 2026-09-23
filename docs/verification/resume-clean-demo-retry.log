@@ -1,0 +1,134 @@
+ Container a2a-alpha-local-redis-1 Running 
+ Container a2a-alpha-local-provider-1 Running 
+ Container a2a-alpha-local-postgres-1 Running 
+ Container a2a-alpha-local-presidio-1 Running 
+ Container a2a-alpha-local-hub-1 Running 
+ Container a2a-alpha-local-opa-1 Running 
+ Container a2a-alpha-local-postgres-1 Waiting 
+ Container a2a-alpha-local-postgres-1 Healthy 
+ Container a2a-alpha-local-init-1 Starting 
+ Container a2a-alpha-local-init-1 Started 
+ Container a2a-alpha-local-init-1 Waiting 
+ Container a2a-alpha-local-init-1 Exited 
+ Container a2a-alpha-local-init-1 Waiting 
+ Container a2a-alpha-local-init-1 Exited 
+ Image a2a-alpha-local-demo Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 3.10kB done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile.offline
+#2 transferring dockerfile: 598B done
+#2 DONE 0.0s
+
+#3 [context wheels] load .dockerignore
+#3 transferring wheels: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/python:3.12.14-slim
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 127B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 259.75kB 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-0  1/13] FROM docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#7 resolve docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done
+#7 DONE 0.0s
+
+#8 [context wheels] load from client
+#8 transferring wheels: 3.30kB done
+#8 DONE 0.0s
+
+#9 [stage-0  7/13] COPY sdk sdk
+#9 CACHED
+
+#10 [stage-0 11/13] COPY docs/implementation/examples docs/implementation/examples
+#10 CACHED
+
+#11 [stage-0  4/13] COPY --from=wheels / /wheels/
+#11 CACHED
+
+#12 [stage-0  3/13] COPY requirements-hub.lock ./
+#12 CACHED
+
+#13 [stage-0  6/13] COPY app app
+#13 CACHED
+
+#14 [stage-0 10/13] COPY scripts scripts
+#14 CACHED
+
+#15 [stage-0  8/13] COPY examples examples
+#15 CACHED
+
+#16 [stage-0  2/13] WORKDIR /hub
+#16 CACHED
+
+#17 [stage-0  5/13] RUN pip install --no-index --find-links=/wheels -r requirements-hub.lock && pip check
+#17 CACHED
+
+#18 [stage-0  9/13] COPY policies policies
+#18 CACHED
+
+#19 [stage-0 12/13] COPY alembic alembic
+#19 CACHED
+
+#20 [stage-0 13/13] COPY alembic.ini ./
+#20 CACHED
+
+#21 exporting to image
+#21 exporting layers done
+#21 exporting manifest sha256:56b490c4540051489a2f6ec8c05d2b289d2ed9b8c73e8adbac81285f99e38f76 done
+#21 exporting config sha256:575ab6c1acd559213a66df30edcda7f65d6c37f85890e1ee2300a3bdcbfcf6d9 done
+#21 exporting attestation manifest sha256:68732a5bbab8e788a6ea73f7df60e6b3e8124b8f42a6f2f511a053a4239e0fdf done
+#21 exporting manifest list sha256:ea7293bbaee6d9e5a4c211516689f80cffc93276071733d7fe548fa6532fd8e3 done
+#21 naming to docker.io/library/a2a-alpha-local-demo:latest done
+#21 unpacking to docker.io/library/a2a-alpha-local-demo:latest done
+#21 DONE 0.0s
+
+#22 resolving provenance for metadata file
+#22 DONE 0.0s
+ Image a2a-alpha-local-demo Built 
+ Container a2a-alpha-local-hub-1 Waiting 
+ Container a2a-alpha-local-hub-1 Healthy 
+ Container a2a-alpha-local-demo-run-ce2adca5b305 Creating 
+ Container a2a-alpha-local-demo-run-ce2adca5b305 Created 
+{
+  "internal-project": [
+    {
+      "item_id": "item-001",
+      "task": "Send the checklist to review@example.com.",
+      "due_date": "2026-09-20",
+      "assignee": "alice@example.com",
+      "assignment_state": "assigned"
+    },
+    {
+      "item_id": "item-002",
+      "task": "Prepare the test report.",
+      "due_date": "2026-09-21",
+      "assignee": "bob@example.com",
+      "assignment_state": "assigned"
+    }
+  ],
+  "external-collaboration": [
+    {
+      "item_id": "item-001",
+      "task": "Send the checklist to [EMAIL].",
+      "due_date": "2026-09-20",
+      "assignee": null,
+      "assignment_state": "unassigned"
+    },
+    {
+      "item_id": "item-002",
+      "task": "Prepare the test report.",
+      "due_date": "2026-09-21",
+      "assignee": null,
+      "assignment_state": "unassigned"
+    }
+  ]
+}
+PASS: public API discovery, exact dual views, local task consumers

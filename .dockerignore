@@ -1,0 +1,9 @@
+.git
+.env*
+.venv*
+venv
+__pycache__
+**/__pycache__
+docs/verification
+
+.local-wheelhouse

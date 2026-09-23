@@ -1,0 +1,58 @@
+[
+  {
+    "name": "t00-legacy-default-collection",
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "tests/test_auth.py",
+      "tests/test_broadcast_sse.py",
+      "tests/test_proxy_chaos.py",
+      "tests/test_transform.py",
+      "--collect-only",
+      "-q"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "t01-tests",
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "tests/contracts",
+      "-q"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "t01-cli",
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "app.contracts",
+      "docs/implementation/examples/contract.meeting.json"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "t01-opa",
+    "command": [
+      "/private/tmp/a2a-opa-1.0.0",
+      "test",
+      "policies",
+      "-v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "current-suite",
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "exit_code": 1
+  }
+]

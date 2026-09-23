@@ -1,0 +1,317 @@
+ Image a2a-accept-cfd92a0a0f-measure Building 
+ Image a2a-accept-cfd92a0a0f-presidio Building 
+ Image a2a-accept-cfd92a0a0f-hub Building 
+ Image a2a-accept-cfd92a0a0f-provider Building 
+ Image a2a-accept-cfd92a0a0f-demo Building 
+ Image a2a-accept-cfd92a0a0f-init Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 4.00kB done
+#1 DONE 0.0s
+
+#2 [hub internal] load build definition from Dockerfile.offline
+#2 transferring dockerfile: 598B done
+#2 DONE 0.0s
+
+#3 [presidio internal] load build definition from Dockerfile.offline
+#3 transferring dockerfile: 463B done
+#3 DONE 0.0s
+
+#4 [hub context wheels] load .dockerignore
+#4 transferring wheels: 2B done
+#4 DONE 0.0s
+
+#5 [presidio context wheels] load .dockerignore
+#5 transferring wheels: 2B done
+#5 DONE 0.0s
+
+#6 [presidio internal] load metadata for docker.io/library/python:3.12.14-slim
+#6 DONE 0.0s
+
+#7 [hub internal] load .dockerignore
+#7 transferring context: 127B done
+#7 DONE 0.0s
+
+#8 [presidio internal] load build context
+#8 transferring context: 322B done
+#8 DONE 0.0s
+
+#9 [hub stage-0  1/13] FROM docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#9 resolve docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done
+#9 DONE 0.0s
+
+#10 [hub internal] load build context
+#10 transferring context: 54.47kB 0.0s done
+#10 DONE 0.0s
+
+#11 [hub stage-0  2/13] WORKDIR /hub
+#11 CACHED
+
+#12 [presidio context wheels] load from client
+#12 transferring wheels: 4.07kB done
+#12 DONE 0.0s
+
+#13 [init context wheels] load from client
+#13 transferring wheels: 3.30kB done
+#13 DONE 0.0s
+
+#14 [presidio stage-0 3/7] COPY requirements-presidio.lock ./
+#14 DONE 0.0s
+
+#15 [demo stage-0  3/13] COPY requirements-hub.lock ./
+#15 DONE 0.0s
+
+#16 [presidio stage-0 4/7] COPY --from=wheels / /wheels/
+#16 DONE 0.1s
+
+#17 [hub stage-0  4/13] COPY --from=wheels / /wheels/
+#17 DONE 0.1s
+
+#18 [measure stage-0  5/13] RUN pip install --no-index --find-links=/wheels -r requirements-hub.lock && pip check
+#18 0.792 Looking in links: /wheels
+#18 0.795 Processing /wheels/a2a_sdk-0.3.0-py3-none-any.whl (from -r requirements-hub.lock (line 1))
+#18 0.799 Processing /wheels/alembic-1.16.5-py3-none-any.whl (from -r requirements-hub.lock (line 2))
+#18 0.801 Processing /wheels/annotated_doc-0.0.4-py3-none-any.whl (from -r requirements-hub.lock (line 3))
+#18 0.802 Processing /wheels/annotated_types-0.7.0-py3-none-any.whl (from -r requirements-hub.lock (line 4))
+#18 0.803 Processing /wheels/anyio-4.12.1-py3-none-any.whl (from -r requirements-hub.lock (line 5))
+#18 0.804 Processing /wheels/async_timeout-5.0.1-py3-none-any.whl (from -r requirements-hub.lock (line 6))
+#18 0.805 Processing /wheels/asyncpg-0.31.0-cp312-cp312-manylinux_2_28_aarch64.whl (from -r requirements-hub.lock (line 7))
+#18 0.809 Processing /wheels/attrs-26.1.0-py3-none-any.whl (from -r requirements-hub.lock (line 8))
+#18 0.810 Processing /wheels/bcrypt-5.0.0-cp39-abi3-manylinux_2_28_aarch64.whl (from -r requirements-hub.lock (line 9))
+#18 0.812 Processing /wheels/certifi-2026.2.25-py3-none-any.whl (from -r requirements-hub.lock (line 10))
+#18 0.812 Processing /wheels/cffi-2.1.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (from -r requirements-hub.lock (line 11))
+#18 0.814 Processing /wheels/charset_normalizer-3.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r requirements-hub.lock (line 12))
+#18 0.816 Processing /wheels/click-8.1.8-py3-none-any.whl (from -r requirements-hub.lock (line 13))
+#18 0.817 Processing /wheels/cryptography-46.0.5-cp311-abi3-manylinux_2_28_aarch64.whl (from -r requirements-hub.lock (line 14))
+#18 0.822 Processing /wheels/exceptiongroup-1.3.1-py3-none-any.whl (from -r requirements-hub.lock (line 15))
+#18 0.824 Processing /wheels/fastapi-0.128.8-py3-none-any.whl (from -r requirements-hub.lock (line 16))
+#18 0.827 Processing /wheels/google_api_core-2.30.3-py3-none-any.whl (from -r requirements-hub.lock (line 17))
+#18 0.829 Processing /wheels/google_auth-2.58.0-py3-none-any.whl (from -r requirements-hub.lock (line 18))
+#18 0.834 Processing /wheels/googleapis_common_protos-1.75.0-py3-none-any.whl (from -r requirements-hub.lock (line 19))
+#18 0.836 Processing /wheels/greenlet-3.2.5-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (from -r requirements-hub.lock (line 20))
+#18 0.838 Processing /wheels/h11-0.16.0-py3-none-any.whl (from -r requirements-hub.lock (line 21))
+#18 0.839 Processing /wheels/httpcore-1.0.9-py3-none-any.whl (from -r requirements-hub.lock (line 22))
+#18 0.841 Processing /wheels/httpx-0.28.1-py3-none-any.whl (from -r requirements-hub.lock (line 23))
+#18 0.842 Processing /wheels/httpx_sse-0.4.3-py3-none-any.whl (from -r requirements-hub.lock (line 24))
+#18 0.844 Processing /wheels/idna-3.11-py3-none-any.whl (from -r requirements-hub.lock (line 25))
+#18 0.846 Processing /wheels/jsonschema-4.25.1-py3-none-any.whl (from -r requirements-hub.lock (line 26))
+#18 0.849 Processing /wheels/jsonschema_specifications-2025.9.1-py3-none-any.whl (from -r requirements-hub.lock (line 27))
+#18 0.850 Processing /wheels/mako-1.3.10-py3-none-any.whl (from -r requirements-hub.lock (line 28))
+#18 0.851 Processing /wheels/markupsafe-3.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r requirements-hub.lock (line 29))
+#18 0.851 Processing /wheels/proto_plus-1.28.2-py3-none-any.whl (from -r requirements-hub.lock (line 30))
+#18 0.852 Processing /wheels/protobuf-5.29.5-cp38-abi3-manylinux2014_aarch64.whl (from -r requirements-hub.lock (line 31))
+#18 0.854 Processing /wheels/pyasn1-0.6.4-py3-none-any.whl (from -r requirements-hub.lock (line 32))
+#18 0.857 Processing /wheels/pyasn1_modules-0.4.2-py3-none-any.whl (from -r requirements-hub.lock (line 33))
+#18 0.857 Processing /wheels/pycparser-3.0-py3-none-any.whl (from -r requirements-hub.lock (line 34))
+#18 0.859 Processing /wheels/pydantic-2.12.5-py3-none-any.whl (from -r requirements-hub.lock (line 35))
+#18 0.861 Processing /wheels/pydantic_settings-2.11.0-py3-none-any.whl (from -r requirements-hub.lock (line 36))
+#18 0.863 Processing /wheels/pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (from -r requirements-hub.lock (line 37))
+#18 0.866 Processing /wheels/pyjwt-2.12.1-py3-none-any.whl (from -r requirements-hub.lock (line 38))
+#18 0.867 Processing /wheels/python_dotenv-1.2.1-py3-none-any.whl (from -r requirements-hub.lock (line 39))
+#18 0.869 Processing /wheels/redis-7.0.1-py3-none-any.whl (from -r requirements-hub.lock (line 40))
+#18 0.871 Processing /wheels/referencing-0.37.0-py3-none-any.whl (from -r requirements-hub.lock (line 41))
+#18 0.873 Processing /wheels/requests-2.34.2-py3-none-any.whl (from -r requirements-hub.lock (line 42))
+#18 0.875 Processing /wheels/rpds_py-2026.6.3-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (from -r requirements-hub.lock (line 43))
+#18 0.876 Processing /wheels/sqlalchemy-2.0.48-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r requirements-hub.lock (line 44))
+#18 0.882 Processing /wheels/sse_starlette-3.3.0-py3-none-any.whl (from -r requirements-hub.lock (line 45))
+#18 0.885 Processing /wheels/starlette-0.49.3-py3-none-any.whl (from -r requirements-hub.lock (line 46))
+#18 0.887 Processing /wheels/tomli-2.4.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r requirements-hub.lock (line 47))
+#18 0.888 Processing /wheels/typing_inspection-0.4.2-py3-none-any.whl (from -r requirements-hub.lock (line 48))
+#18 0.889 Processing /wheels/typing_extensions-4.15.0-py3-none-any.whl (from -r requirements-hub.lock (line 49))
+#18 0.890 Processing /wheels/urllib3-2.7.0-py3-none-any.whl (from -r requirements-hub.lock (line 50))
+#18 0.892 Processing /wheels/uvicorn-0.39.0-py3-none-any.whl (from -r requirements-hub.lock (line 51))
+#18 0.954 Installing collected packages: urllib3, typing_extensions, tomli, rpds-py, redis, python-dotenv, PyJWT, pycparser, pyasn1, protobuf, MarkupSafe, idna, httpx-sse, h11, greenlet, click, charset-normalizer, certifi, bcrypt, attrs, asyncpg, async-timeout, annotated-types, annotated-doc, uvicorn, typing-inspection, SQLAlchemy, requests, referencing, pydantic_core, pyasn1_modules, proto-plus, Mako, httpcore, googleapis-common-protos, exceptiongroup, cffi, anyio, starlette, pydantic, jsonschema-specifications, httpx, cryptography, alembic, sse-starlette, pydantic-settings, jsonschema, google-auth, fastapi, google-api-core, a2a-sdk
+#18 3.232 Successfully installed Mako-1.3.10 MarkupSafe-3.0.3 PyJWT-2.12.1 SQLAlchemy-2.0.48 a2a-sdk-0.3.0 alembic-1.16.5 annotated-doc-0.0.4 annotated-types-0.7.0 anyio-4.12.1 async-timeout-5.0.1 asyncpg-0.31.0 attrs-26.1.0 bcrypt-5.0.0 certifi-2026.2.25 cffi-2.1.1 charset-normalizer-3.5.1 click-8.1.8 cryptography-46.0.5 exceptiongroup-1.3.1 fastapi-0.128.8 google-api-core-2.30.3 google-auth-2.58.0 googleapis-common-protos-1.75.0 greenlet-3.2.5 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 httpx-sse-0.4.3 idna-3.11 jsonschema-4.25.1 jsonschema-specifications-2025.9.1 proto-plus-1.28.2 protobuf-5.29.5 pyasn1-0.6.4 pyasn1_modules-0.4.2 pycparser-3.0 pydantic-2.12.5 pydantic-settings-2.11.0 pydantic_core-2.41.5 python-dotenv-1.2.1 redis-7.0.1 referencing-0.37.0 requests-2.34.2 rpds-py-2026.6.3 sse-starlette-3.3.0 starlette-0.49.3 tomli-2.4.0 typing-inspection-0.4.2 typing_extensions-4.15.0 urllib3-2.7.0 uvicorn-0.39.0
+#18 3.232 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#18 3.390 No broken requirements found.
+#18 DONE 3.6s
+
+#19 [measure stage-0  6/13] COPY app app
+#19 DONE 0.0s
+
+#20 [hub stage-0  7/13] COPY sdk sdk
+#20 DONE 0.0s
+
+#21 [provider stage-0  8/13] COPY examples examples
+#21 DONE 0.0s
+
+#22 [measure stage-0  9/13] COPY policies policies
+#22 DONE 0.0s
+
+#23 [provider stage-0 10/13] COPY scripts scripts
+#23 DONE 0.0s
+
+#24 [demo stage-0 11/13] COPY docs/implementation/examples docs/implementation/examples
+#24 DONE 0.0s
+
+#25 [provider stage-0 12/13] COPY alembic alembic
+#25 DONE 0.0s
+
+#26 [demo stage-0 13/13] COPY alembic.ini ./
+#26 DONE 0.0s
+
+#27 [presidio stage-0 5/7] RUN pip install --no-index --find-links=/wheels -r requirements-presidio.lock && pip check
+#27 0.793 Looking in links: /wheels
+#27 0.793 Ignoring click: markers 'python_version < "3.10"' don't match your environment
+#27 0.797 Processing /wheels/annotated_doc-0.0.5-py3-none-any.whl (from -r requirements-presidio.lock (line 1))
+#27 0.799 Processing /wheels/annotated_types-0.7.0-py3-none-any.whl (from -r requirements-presidio.lock (line 2))
+#27 0.801 Processing /wheels/anyio-4.12.1-py3-none-any.whl (from -r requirements-presidio.lock (line 3))
+#27 0.802 Processing /wheels/blis-0.7.11-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (from -r requirements-presidio.lock (line 4))
+#27 0.805 Processing /wheels/catalogue-2.0.10-py3-none-any.whl (from -r requirements-presidio.lock (line 5))
+#27 0.806 Processing /wheels/certifi-2026.7.22-py3-none-any.whl (from -r requirements-presidio.lock (line 6))
+#27 0.807 Processing /wheels/cffi-2.0.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (from -r requirements-presidio.lock (line 7))
+#27 0.808 Processing /wheels/charset_normalizer-3.5.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r requirements-presidio.lock (line 8))
+#27 0.811 Processing /wheels/click-8.2.1-py3-none-any.whl (from -r requirements-presidio.lock (line 10))
+#27 0.812 Processing /wheels/cloudpathlib-0.25.0-py3-none-any.whl (from -r requirements-presidio.lock (line 11))
+#27 0.813 Processing /wheels/confection-0.1.5-py3-none-any.whl (from -r requirements-presidio.lock (line 12))
+#27 0.815 Processing /wheels/cryptography-44.0.3-cp39-abi3-manylinux_2_28_aarch64.whl (from -r requirements-presidio.lock (line 13))
+#27 0.821 Processing /wheels/cymem-2.0.13-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (from -r requirements-presidio.lock (line 14))
+#27 0.822 Processing /wheels/exceptiongroup-1.3.1-py3-none-any.whl (from -r requirements-presidio.lock (line 15))
+#27 0.823 Processing /wheels/fastapi-0.128.8-py3-none-any.whl (from -r requirements-presidio.lock (line 16))
+#27 0.827 Processing /wheels/filelock-3.19.1-py3-none-any.whl (from -r requirements-presidio.lock (line 17))
+#27 0.828 Processing /wheels/h11-0.16.0-py3-none-any.whl (from -r requirements-presidio.lock (line 18))
+#27 0.829 Processing /wheels/httpcore-1.0.9-py3-none-any.whl (from -r requirements-presidio.lock (line 19))
+#27 0.830 Processing /wheels/httpx-0.28.1-py3-none-any.whl (from -r requirements-presidio.lock (line 20))
+#27 0.832 Processing /wheels/idna-3.19-py3-none-any.whl (from -r requirements-presidio.lock (line 21))
+#27 0.833 Processing /wheels/jinja2-3.1.6-py3-none-any.whl (from -r requirements-presidio.lock (line 22))
+#27 0.834 Processing /wheels/langcodes-3.5.1-py3-none-any.whl (from -r requirements-presidio.lock (line 23))
+#27 0.836 Processing /wheels/markdown_it_py-3.0.0-py3-none-any.whl (from -r requirements-presidio.lock (line 24))
+#27 0.838 Processing /wheels/markupsafe-3.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r requirements-presidio.lock (line 25))
+#27 0.839 Processing /wheels/mdurl-0.1.2-py3-none-any.whl (from -r requirements-presidio.lock (line 26))
+#27 0.840 Processing /wheels/murmurhash-1.0.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (from -r requirements-presidio.lock (line 27))
+#27 0.841 Processing /wheels/numpy-1.26.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (from -r requirements-presidio.lock (line 28))
+#27 0.856 Processing /wheels/packaging-26.3-py3-none-any.whl (from -r requirements-presidio.lock (line 29))
+#27 0.857 Processing /wheels/phonenumbers-9.0.39-py2.py3-none-any.whl (from -r requirements-presidio.lock (line 30))
+#27 0.862 Processing /wheels/preshed-3.0.13-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (from -r requirements-presidio.lock (line 31))
+#27 0.865 Processing /wheels/presidio_analyzer-2.2.360-py3-none-any.whl (from -r requirements-presidio.lock (line 32))
+#27 0.867 Processing /wheels/presidio_anonymizer-2.2.360-py3-none-any.whl (from -r requirements-presidio.lock (line 33))
+#27 0.869 Processing /wheels/pycparser-2.23-py3-none-any.whl (from -r requirements-presidio.lock (line 34))
+#27 0.869 Processing /wheels/pydantic-2.13.5-py3-none-any.whl (from -r requirements-presidio.lock (line 35))
+#27 0.872 Processing /wheels/pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (from -r requirements-presidio.lock (line 36))
+#27 0.875 Processing /wheels/pygments-2.21.0-py3-none-any.whl (from -r requirements-presidio.lock (line 37))
+#27 0.878 Processing /wheels/pyyaml-6.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r requirements-presidio.lock (line 38))
+#27 0.879 Processing /wheels/regex-2026.1.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r requirements-presidio.lock (line 39))
+#27 0.882 Processing /wheels/requests-2.32.5-py3-none-any.whl (from -r requirements-presidio.lock (line 40))
+#27 0.883 Processing /wheels/requests_file-3.0.1-py2.py3-none-any.whl (from -r requirements-presidio.lock (line 41))
+#27 0.884 Processing /wheels/rich-15.0.0-py3-none-any.whl (from -r requirements-presidio.lock (line 42))
+#27 0.885 Processing /wheels/shellingham-1.5.4-py2.py3-none-any.whl (from -r requirements-presidio.lock (line 43))
+#27 0.886 Processing /wheels/smart_open-7.5.0-py3-none-any.whl (from -r requirements-presidio.lock (line 44))
+#27 0.890 Processing /wheels/spacy-3.7.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (from -r requirements-presidio.lock (line 45))
+#27 0.900 Processing /wheels/spacy_legacy-3.0.12-py2.py3-none-any.whl (from -r requirements-presidio.lock (line 46))
+#27 0.901 Processing /wheels/spacy_loggers-1.0.5-py3-none-any.whl (from -r requirements-presidio.lock (line 47))
+#27 0.902 Processing /wheels/srsly-2.5.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (from -r requirements-presidio.lock (line 48))
+#27 0.904 Processing /wheels/starlette-0.49.3-py3-none-any.whl (from -r requirements-presidio.lock (line 49))
+#27 0.905 Processing /wheels/thinc-8.2.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (from -r requirements-presidio.lock (line 50))
+#27 0.911 Processing /wheels/tldextract-5.3.0-py3-none-any.whl (from -r requirements-presidio.lock (line 51))
+#27 0.912 Processing /wheels/tqdm-4.70.1-py3-none-any.whl (from -r requirements-presidio.lock (line 52))
+#27 0.915 Processing /wheels/typer-0.23.2-py3-none-any.whl (from -r requirements-presidio.lock (line 53))
+#27 0.916 Processing /wheels/typer_slim-0.23.2-py3-none-any.whl (from -r requirements-presidio.lock (line 54))
+#27 0.917 Processing /wheels/typing_inspection-0.4.2-py3-none-any.whl (from -r requirements-presidio.lock (line 55))
+#27 0.918 Processing /wheels/typing_extensions-4.16.0-py3-none-any.whl (from -r requirements-presidio.lock (line 56))
+#27 0.918 Processing /wheels/urllib3-2.6.3-py3-none-any.whl (from -r requirements-presidio.lock (line 57))
+#27 0.920 Processing /wheels/uvicorn-0.39.0-py3-none-any.whl (from -r requirements-presidio.lock (line 58))
+#27 0.921 Processing /wheels/wasabi-1.1.3-py3-none-any.whl (from -r requirements-presidio.lock (line 59))
+#27 0.922 Processing /wheels/weasel-0.4.3-py3-none-any.whl (from -r requirements-presidio.lock (line 60))
+#27 0.924 Processing /wheels/wrapt-2.4.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (from -r requirements-presidio.lock (line 61))
+#27 0.925 Processing /wheels/setuptools-80.9.0-py3-none-any.whl (from -r requirements-presidio.lock (line 62))
+#27 1.032 Installing collected packages: wrapt, wasabi, urllib3, typing_extensions, tqdm, spacy-loggers, spacy-legacy, shellingham, setuptools, regex, PyYAML, Pygments, pycparser, phonenumbers, packaging, numpy, murmurhash, mdurl, MarkupSafe, langcodes, idna, h11, filelock, cymem, cloudpathlib, click, charset-normalizer, certifi, catalogue, annotated-types, annotated-doc, uvicorn, typing-inspection, srsly, smart_open, requests, pydantic_core, preshed, markdown-it-py, Jinja2, httpcore, exceptiongroup, cffi, blis, anyio, starlette, rich, requests-file, pydantic, httpx, cryptography, typer, tldextract, presidio_anonymizer, fastapi, confection, typer-slim, thinc, weasel, spacy, presidio_analyzer
+#27 ...
+
+#28 [provider] exporting to image
+#28 exporting layers 2.1s done
+#28 exporting manifest sha256:8495e172671b4a899018fd0fa3643152627106ab6bc71a8835a0534af6d468a8 0.0s done
+#28 exporting config sha256:88b1226febadd6bf46ef00e89ed46a739cadea758129c085bdf20f7e5837f3d0 0.0s done
+#28 exporting attestation manifest sha256:925bd999ff8252e9484cec8bb98e0dc1e7af6a0f44b358074a5e5990442f3602 0.0s done
+#28 exporting manifest list sha256:2958121f3c4d84d8448be79b71845fb084387e38bce1c2673cc04827fbd06ab4 0.0s done
+#28 naming to docker.io/library/a2a-accept-cfd92a0a0f-provider:latest done
+#28 unpacking to docker.io/library/a2a-accept-cfd92a0a0f-provider:latest 1.3s done
+#28 DONE 3.5s
+
+#29 [init] exporting to image
+#29 exporting layers 2.1s done
+#29 exporting manifest sha256:c5be080b7667f96a1180a1a9e25a0db5ca572308bbee4cbf034cc7a271d70377 0.0s done
+#29 exporting config sha256:192bdbe838caabcdb21ff3c3e4794328d714702af6722a3c49755f49282f5318 0.0s done
+#29 exporting attestation manifest sha256:ba10a4a39f9866c1eec0a11afdc626ed74cbb0b9f2e1e908426c1068b87dea33 0.0s done
+#29 exporting manifest list sha256:f0e6f4f1607f9cecd3bef4d0fe6d51da255fb09cd868f928e3ee6d86518220b2 0.0s done
+#29 naming to docker.io/library/a2a-accept-cfd92a0a0f-init:latest done
+#29 unpacking to docker.io/library/a2a-accept-cfd92a0a0f-init:latest 1.3s done
+#29 DONE 3.5s
+
+#30 [demo] exporting to image
+#30 exporting layers 2.1s done
+#30 exporting manifest sha256:e066d3fbef53e03fb9f75092718694452e1b8aa908839a23650b73be92e9c7a9 0.0s done
+#30 exporting config sha256:afff80d8eefe24ea9cf045f1522281eb1410f054e8aa2654c1299991100421b1 0.0s done
+#30 exporting attestation manifest sha256:ee1af34c3f472b44e750e65e7fa4d7eda253522f2edaaac2413bea7d4ac4f484 0.0s done
+#30 exporting manifest list sha256:6099277c639200b7d0dbfc31220a93a6402dba760fdc6c92b2353ca8b4cec255 0.0s done
+#30 naming to docker.io/library/a2a-accept-cfd92a0a0f-demo:latest done
+#30 unpacking to docker.io/library/a2a-accept-cfd92a0a0f-demo:latest 1.3s done
+#30 DONE 3.5s
+
+#31 [measure] exporting to image
+#31 exporting layers 2.1s done
+#31 exporting manifest sha256:87a998492a015053c48892882ec540ea17ea0c88ab3c1747516bad54d3b564c7 0.0s done
+#31 exporting config sha256:f37ef3bc99da619b3950d089999f7f8e2297b60f42dcf95b97b54de54a3fa015 0.0s done
+#31 exporting attestation manifest sha256:73f8cef5f79aa9c458bdaf1be03eb8b2c9a5957e24869fe065caaa5bd3125bf2 0.0s done
+#31 exporting manifest list sha256:f571e0df44d3df22383a7094260edc36c7d399d6eb02f94f5e9ef8c6fe57aa3b done
+#31 naming to docker.io/library/a2a-accept-cfd92a0a0f-measure:latest done
+#31 unpacking to docker.io/library/a2a-accept-cfd92a0a0f-measure:latest 1.3s done
+#31 DONE 3.5s
+
+#32 [hub] exporting to image
+#32 exporting layers 2.1s done
+#32 exporting manifest sha256:85b5a494195bf7a001b2842a7652ef841a33c5a621d13a3dd5ef02c5d36dd792 0.0s done
+#32 exporting config sha256:63e1706831933251ed390408d02aa143c13fbd6b68072bc72ed333af60e8310a 0.0s done
+#32 exporting attestation manifest sha256:27138b286401702db993efb83c2fb23ee98e2899251244683c7ce78c8302a675 0.0s done
+#32 exporting manifest list sha256:a9162d61342acfcfde06eee3c84612766d7010d27dbfdc0bcd1677186a2c1ea4 0.0s done
+#32 naming to docker.io/library/a2a-accept-cfd92a0a0f-hub:latest done
+#32 unpacking to docker.io/library/a2a-accept-cfd92a0a0f-hub:latest 1.4s done
+#32 DONE 3.6s
+
+#27 [presidio stage-0 5/7] RUN pip install --no-index --find-links=/wheels -r requirements-presidio.lock && pip check
+#27 ...
+
+#33 [provider] resolving provenance for metadata file
+#33 DONE 0.0s
+
+#34 [demo] resolving provenance for metadata file
+#34 DONE 0.0s
+
+#35 [measure] resolving provenance for metadata file
+#35 DONE 0.0s
+
+#36 [init] resolving provenance for metadata file
+#36 DONE 0.0s
+
+#37 [hub] resolving provenance for metadata file
+#37 DONE 0.0s
+
+#27 [presidio stage-0 5/7] RUN pip install --no-index --find-links=/wheels -r requirements-presidio.lock && pip check
+#27 7.900 Successfully installed Jinja2-3.1.6 MarkupSafe-3.0.3 PyYAML-6.0.3 Pygments-2.21.0 annotated-doc-0.0.5 annotated-types-0.7.0 anyio-4.12.1 blis-0.7.11 catalogue-2.0.10 certifi-2026.7.22 cffi-2.0.0 charset-normalizer-3.5.1 click-8.2.1 cloudpathlib-0.25.0 confection-0.1.5 cryptography-44.0.3 cymem-2.0.13 exceptiongroup-1.3.1 fastapi-0.128.8 filelock-3.19.1 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.19 langcodes-3.5.1 markdown-it-py-3.0.0 mdurl-0.1.2 murmurhash-1.0.15 numpy-1.26.4 packaging-26.3 phonenumbers-9.0.39 preshed-3.0.13 presidio_analyzer-2.2.360 presidio_anonymizer-2.2.360 pycparser-2.23 pydantic-2.13.5 pydantic_core-2.46.5 regex-2026.1.15 requests-2.32.5 requests-file-3.0.1 rich-15.0.0 setuptools-80.9.0 shellingham-1.5.4 smart_open-7.5.0 spacy-3.7.5 spacy-legacy-3.0.12 spacy-loggers-1.0.5 srsly-2.5.3 starlette-0.49.3 thinc-8.2.5 tldextract-5.3.0 tqdm-4.70.1 typer-0.23.2 typer-slim-0.23.2 typing-inspection-0.4.2 typing_extensions-4.16.0 urllib3-2.6.3 uvicorn-0.39.0 wasabi-1.1.3 weasel-0.4.3 wrapt-2.4.1
+#27 7.901 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#27 8.102 No broken requirements found.
+#27 DONE 8.3s
+
+#38 [presidio stage-0 6/7] COPY examples/presidio examples/presidio
+#38 DONE 0.1s
+
+#39 [presidio stage-0 7/7] COPY app/profile.py app/profile.py
+#39 DONE 0.0s
+
+#40 [presidio] exporting to image
+#40 exporting layers 4.1s done
+#40 exporting manifest sha256:aab57ac02381a60cb137f853991c903d0d1920fdfae881496683638bc8a19cf1 done
+#40 exporting config sha256:2a5163efdee4ab8c08d60ec19a9882ac6aab2f6c07688b10024170e81da5e274 done
+#40 exporting attestation manifest sha256:6957f4981716fe0a90d7b457b217e57d72786c300c5f9b2bced4e1062ff1b5fe done
+#40 exporting manifest list sha256:c6565d6e443166f113e1b870883e8c675489f9a00df21e3e1de47eff3525e64d done
+#40 naming to docker.io/library/a2a-accept-cfd92a0a0f-presidio:latest done
+#40 unpacking to docker.io/library/a2a-accept-cfd92a0a0f-presidio:latest
+#40 unpacking to docker.io/library/a2a-accept-cfd92a0a0f-presidio:latest 1.1s done
+#40 DONE 5.1s
+
+#41 [presidio] resolving provenance for metadata file
+#41 DONE 0.0s
+ Image a2a-accept-cfd92a0a0f-presidio Built 
+ Image a2a-accept-cfd92a0a0f-demo Built 
+ Image a2a-accept-cfd92a0a0f-init Built 
+ Image a2a-accept-cfd92a0a0f-provider Built 
+ Image a2a-accept-cfd92a0a0f-measure Built 
+ Image a2a-accept-cfd92a0a0f-hub Built 

@@ -1,0 +1,29 @@
+# Dedicated test project only. No host .env is read by the services.
+name: a2a-contract-test
+services:
+  postgres:
+    image: postgres:17.6
+    environment:
+      POSTGRES_USER: a2a_test
+      POSTGRES_PASSWORD: local-synthetic-test-only
+      POSTGRES_DB: a2a_test
+    ports:
+      - "127.0.0.1:55432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U a2a_test -d a2a_test"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+    volumes:
+      - postgres-test:/var/lib/postgresql/data
+  redis:
+    image: redis:7.4.5
+    ports:
+      - "127.0.0.1:56379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+volumes:
+  postgres-test:

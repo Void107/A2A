@@ -1,0 +1,87 @@
+name: a2a-alpha-local
+x-hub: &hub
+  build: .
+  environment: &environment
+    DATABASE_URL: postgresql+asyncpg://a2a_local:synthetic-local-only@postgres:5432/a2a_local
+    REDIS_URL: redis://redis:6379/0
+    LOCAL_SYNTHETIC_STACK: "1"
+    OPA_URL: http://opa:8181
+    PRESIDIO_URL: http://presidio:8000
+    HUB_SIGNING_KEY_FILE: /state/hub.pem
+    HUB_SIGNING_KEY_ID: hub-v1
+    A2A_ENABLED: "true"
+    A2A_URL: http://127.0.0.1:58000/a2a/
+    UPSTREAM_ENDPOINTS: '{"meeting-provider":{"url":"http://provider:8000/meeting","approved_addresses":["172.30.86.20"],"local_test":true,"allow_private":true}}'
+  networks: [local]
+services:
+  postgres:
+    image: postgres:17.6
+    environment:
+      POSTGRES_USER: a2a_local
+      POSTGRES_PASSWORD: synthetic-local-only
+      POSTGRES_DB: a2a_local
+    volumes: [data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U a2a_local -d a2a_local"]
+      interval: 2s
+      retries: 30
+    networks: [local]
+  redis:
+    image: redis:7.4.5
+    networks: [local]
+  opa:
+    image: openpolicyagent/opa:1.0.0-static
+    command: [run, --server, --addr=0.0.0.0:8181, --disable-telemetry, /policies/contract.rego]
+    volumes: [./policies:/policies:ro]
+    networks: [local]
+  presidio:
+    build:
+      context: .
+      dockerfile: examples/presidio/Dockerfile
+    networks: [local]
+  init:
+    <<: *hub
+    command: [python, scripts/local_bootstrap.py]
+    volumes: [secrets:/state, public:/public]
+    depends_on:
+      postgres: {condition: service_healthy}
+  provider:
+    <<: *hub
+    command: [uvicorn, examples.meeting_views.provider:app, --host, 0.0.0.0, --port, '8000', --no-access-log]
+    environment:
+      <<: *environment
+      JWT_SECRET: synthetic-provider-unused-token-secret
+    volumes: [public:/public:ro]
+    depends_on:
+      init: {condition: service_completed_successfully}
+    networks:
+      local: {ipv4_address: 172.30.86.20}
+  hub:
+    <<: *hub
+    volumes: [secrets:/state:ro]
+    ports: ["127.0.0.1:58000:8000"]
+    depends_on:
+      init: {condition: service_completed_successfully}
+      opa: {condition: service_started}
+      presidio: {condition: service_started}
+      provider: {condition: service_started}
+      redis: {condition: service_started}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/ready')"]
+      interval: 3s
+      retries: 100
+  demo:
+    <<: *hub
+    command: [python, -m, examples.meeting_views.demo]
+    volumes: [secrets:/state]
+    depends_on:
+      hub: {condition: service_healthy}
+    profiles: [demo]
+volumes:
+  data:
+  secrets:
+  public:
+networks:
+  local:
+    ipam:
+      config: [{subnet: 172.30.86.0/24}]

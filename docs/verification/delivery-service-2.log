@@ -1,0 +1,11 @@
+INFO:     Started server process [84695]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:58185 (Press CTRL+C to quit)
+Agent execution failed. Error: code=-32000 data={'request_id': 'd03bdab1c06c44f4b345b23e6f96b9e8', 'diagnostic_recorded': True} message='ACCESS_DENIED'
+Agent execution failed. Error: code=-32602 data=None message='REQUIRED_CONTRACT_EXTENSION'
+Agent execution failed. Error: code=-32000 data={'request_id': '1f691d78707346d29647f72c42dd6989', 'diagnostic_recorded': True} message='PROCESSING_UNAVAILABLE'
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [84695]

@@ -1,0 +1,99 @@
+{
+  "format_version": "1.0",
+  "status": "NOT_RUN",
+  "description": "Design fixtures. Operations describe future test setup; they are not executable commands or runtime guarantees.",
+  "cases": [
+    {
+      "id": "EX-01",
+      "actor": "project-agent",
+      "view_id": "internal-project",
+      "input": "raw.meeting.json",
+      "expected_data": "expected.internal.json",
+      "expected": "delivered"
+    },
+    {
+      "id": "EX-02",
+      "actor": "partner-agent",
+      "view_id": "external-collaboration",
+      "input": "raw.meeting.json",
+      "expected_data": "expected.external.json",
+      "expected": "delivered"
+    },
+    {
+      "id": "EX-03",
+      "actor": "partner-agent",
+      "view_id": "internal-project",
+      "expected_error": "ACCESS_DENIED"
+    },
+    {
+      "id": "EX-04",
+      "actor": "untrusted-agent",
+      "view_id": "external-collaboration",
+      "expected_error": "ACCESS_DENIED"
+    },
+    {
+      "id": "EX-05",
+      "actor": "partner-agent",
+      "view_id": "external-collaboration",
+      "input": "raw.meeting.json",
+      "mutations": [
+        {
+          "op": "add",
+          "path": "/action_items/0/private_note",
+          "value": "synthetic secret"
+        }
+      ],
+      "expected_error": "UPSTREAM_SCHEMA_MISMATCH"
+    },
+    {
+      "id": "EX-06",
+      "actor": "partner-agent",
+      "view_id": "external-collaboration",
+      "input": "raw.meeting.json",
+      "mutations": [
+        {
+          "op": "replace",
+          "path": "/action_items/0/due_date",
+          "value": 12345
+        }
+      ],
+      "expected_error": "UPSTREAM_SCHEMA_MISMATCH"
+    },
+    {
+      "id": "EX-07",
+      "actor": "partner-agent",
+      "view_id": "external-collaboration",
+      "simulate_dependency_failure": "required_presidio",
+      "expected_error": "PROCESSING_UNAVAILABLE"
+    },
+    {
+      "id": "EX-08",
+      "actor": "partner-agent",
+      "view_id": "external-collaboration",
+      "simulate_dependency_failure": "postgres_receipt_commit",
+      "expected_error": "AUDIT_PERSISTENCE_UNAVAILABLE"
+    },
+    {
+      "id": "EX-09",
+      "actor": "partner-agent",
+      "view_id": "external-collaboration",
+      "input": "raw.meeting.json",
+      "server_identity_change": {
+        "is_active": false,
+        "authorization_revision": 2
+      },
+      "request_contract_version": "1.0.0",
+      "expected_error": "ACCESS_DENIED"
+    },
+    {
+      "id": "EX-10",
+      "actor": "project-agent",
+      "view_id": "internal-project",
+      "simulate_opa_result": {},
+      "expected_error": "PROCESSING_UNAVAILABLE"
+    }
+  ],
+  "default_query": {
+    "meeting_id": "meeting-001"
+  }
+}

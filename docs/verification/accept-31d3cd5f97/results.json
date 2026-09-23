@@ -1,0 +1,387 @@
+{
+  "project": "a2a-accept-31d3cd5f97",
+  "host": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "logical_cpus": 10
+  },
+  "steps": [
+    {
+      "name": "clean-build",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "--profile",
+        "demo",
+        "--profile",
+        "measure",
+        "build",
+        "--no-cache"
+      ],
+      "started_unix": 1790080165.944298,
+      "seconds": 14.810161828994751,
+      "exit_code": 0
+    },
+    {
+      "name": "startup",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "up",
+        "-d",
+        "--wait",
+        "--wait-timeout",
+        "180"
+      ],
+      "started_unix": 1790080180.7551382,
+      "seconds": 8.477129936218262,
+      "exit_code": 0
+    },
+    {
+      "name": "first-consumers",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "--profile",
+        "demo",
+        "run",
+        "--rm",
+        "demo"
+      ],
+      "started_unix": 1790080189.233845,
+      "seconds": 4.507678985595703,
+      "exit_code": 0
+    },
+    {
+      "name": "before-restart",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "exec",
+        "-T",
+        "hub",
+        "python",
+        "scripts/local_entrypoint.py",
+        "python",
+        "scripts/inspect_local_state.py"
+      ],
+      "started_unix": 1790080193.743039,
+      "seconds": 0.2945590019226074,
+      "exit_code": 0
+    },
+    {
+      "name": "restart",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "restart",
+        "postgres",
+        "hub",
+        "provider"
+      ],
+      "started_unix": 1790080194.038744,
+      "seconds": 0.5641381740570068,
+      "exit_code": 0
+    },
+    {
+      "name": "ready-after-restart",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "up",
+        "-d",
+        "--wait",
+        "--wait-timeout",
+        "180"
+      ],
+      "started_unix": 1790080194.603982,
+      "seconds": 3.7875640392303467,
+      "exit_code": 0
+    },
+    {
+      "name": "after-restart",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "exec",
+        "-T",
+        "hub",
+        "python",
+        "scripts/local_entrypoint.py",
+        "python",
+        "scripts/inspect_local_state.py"
+      ],
+      "started_unix": 1790080198.392778,
+      "seconds": 0.43767619132995605,
+      "exit_code": 0
+    },
+    {
+      "name": "restart-consumers",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "--profile",
+        "demo",
+        "run",
+        "--rm",
+        "demo"
+      ],
+      "started_unix": 1790080198.831608,
+      "seconds": 4.0638427734375,
+      "exit_code": 0
+    },
+    {
+      "name": "measurement",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "--profile",
+        "measure",
+        "run",
+        "--rm",
+        "measure"
+      ],
+      "started_unix": 1790080203.5198479,
+      "seconds": 43.83269023895264,
+      "exit_code": 0
+    },
+    {
+      "name": "export-requests",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "cp",
+        "hub:/measurements/requests.json",
+        "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/docs/verification/accept-31d3cd5f97/requests.json"
+      ],
+      "started_unix": 1790080248.185014,
+      "seconds": 0.07033085823059082,
+      "exit_code": 0
+    },
+    {
+      "name": "export-phases",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "cp",
+        "hub:/measurements/core.jsonl",
+        "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/docs/verification/accept-31d3cd5f97/core.jsonl"
+      ],
+      "started_unix": 1790080248.2558851,
+      "seconds": 0.05079770088195801,
+      "exit_code": 0
+    },
+    {
+      "name": "final-state",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "exec",
+        "-T",
+        "hub",
+        "python",
+        "scripts/local_entrypoint.py",
+        "python",
+        "scripts/inspect_local_state.py"
+      ],
+      "started_unix": 1790080248.30736,
+      "seconds": 0.30388522148132324,
+      "exit_code": 0
+    },
+    {
+      "name": "cleanup-owned-stack",
+      "command": [
+        "docker",
+        "compose",
+        "-p",
+        "a2a-accept-31d3cd5f97",
+        "-f",
+        "compose.yaml",
+        "-f",
+        "compose.offline.yaml",
+        "-f",
+        "compose.acceptance.yaml",
+        "-f",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-38k3pbg2/wheels.json",
+        "down"
+      ],
+      "started_unix": 1790080248.612471,
+      "seconds": 1.168785810470581,
+      "exit_code": 0
+    }
+  ],
+  "external_deployment": false,
+  "dependency_acquisition": "existing wheel cache; no fresh download claim",
+  "configuration": [
+    "compose.yaml",
+    "compose.offline.yaml",
+    "compose.acceptance.yaml"
+  ],
+  "cold_start_to_first_consumers_seconds": 12.987283945083618,
+  "containers": [
+    {
+      "image": "sha256:5518a0975566f2b9a729ca670f6b9a56744dee542987ebaefb3f5f20c1578ba4",
+      "service": "hub",
+      "memory_bytes": 805306368,
+      "nano_cpus": 1000000000
+    },
+    {
+      "image": "sha256:03d2338f54cabbc8109301a794c08c49b40b2cd860b3c80a2a00acb8bc5d89ea",
+      "service": "opa",
+      "memory_bytes": 268435456,
+      "nano_cpus": 500000000
+    },
+    {
+      "image": "sha256:00bc86618629af00d2937fdc5a5d63db3ff8450acf52f0636ec813c7f4902929",
+      "service": "postgres",
+      "memory_bytes": 805306368,
+      "nano_cpus": 1000000000
+    },
+    {
+      "image": "sha256:664bc3b0ca0fb42243d8d78382fe5c75b78c0d50ff19c350c0acbb1a104c1b9a",
+      "service": "presidio",
+      "memory_bytes": 2147483648,
+      "nano_cpus": 1000000000
+    },
+    {
+      "image": "sha256:2e49405edd5552da0682c8c508f42c5a12784068ce5dba57f9da284529a40359",
+      "service": "provider",
+      "memory_bytes": 536870912,
+      "nano_cpus": 500000000
+    },
+    {
+      "image": "sha256:90e7a336d044f1abc9e9dbc05d65566850896d11453bbd1dd0fb7e5059f0e8fb",
+      "service": "redis",
+      "memory_bytes": 268435456,
+      "nano_cpus": 500000000
+    }
+  ],
+  "docker_engine": {
+    "ServerVersion": "29.7.2",
+    "Architecture": "aarch64",
+    "NCPU": 10,
+    "MemTotal": 8319504384,
+    "OperatingSystem": "Docker Desktop"
+  },
+  "result": "PASS"
+}

@@ -100,4 +100,5 @@ async def _flush_batch(batch: list):
             await session.commit()
             logger.info(f"Audit: flushed {len(batch)} events to database")
     except Exception as e:
-        logger.error(f"Audit flush failed: {e}")
+        logger.error('Legacy audit flush failed')
+        raise

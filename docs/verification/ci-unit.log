@@ -1,0 +1,9 @@
+........................................................................ [ 66%]
+....................................                                     [100%]
+=============================== warnings summary ===============================
+tests/test_auth.py::TestForgedToken::test_wrong_secret_token
+  /Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/.venv/lib/python3.9/site-packages/jwt/api_jwt.py:147: InsecureKeyLengthWarning: The HMAC key is 16 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+    return self._jws.encode(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+108 passed, 1 warning in 5.95s

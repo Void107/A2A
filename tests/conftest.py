@@ -127,6 +127,10 @@ class FakeRedis:
         self._channels = {}
         self._stream_id_counter = 0
 
+    async def eval(self, script, count, key):
+        self._data[key] = self._data.get(key, 0) + 1
+        return self._data[key]
+
     async def ping(self):
         return True
 
@@ -202,11 +206,13 @@ def mock_redis():
     因为 `from app.core.redis_pool import get_redis` 会在目标模块创建本地引用，
     只 patch 源模块不会影响已导入的引用。
     """
+    _fake_redis._data.clear()
     _fake_redis._channels.clear()
     _fake_redis._streams.clear()
     _fake_redis._stream_id_counter = 0
 
-    with patch("app.core.redis_pool.get_redis", return_value=_fake_redis), \
+    with patch("app.api.auth.get_redis", return_value=_fake_redis), \
+         patch("app.core.redis_pool.get_redis", return_value=_fake_redis), \
          patch("app.api.topics.get_redis", return_value=_fake_redis), \
          patch("app.services.audit_writer.get_redis", return_value=_fake_redis), \
          patch("app.core.redis_pool.init_redis", new_callable=AsyncMock), \
@@ -233,126 +239,29 @@ async def client():
 # ═══════════════════════════════════════════
 
 @pytest_asyncio.fixture
-async def registered_agent(client: AsyncClient):
-    """
-    注册一个标准测试 Agent，返回完整注册信息。
-    """
-    register_data = {
-        "agent_id": "test-agent-alpha",
-        "display_name": "Test Agent Alpha",
-        "callback_url": "http://localhost:9001/normal",
-        "domain": "testing.org",
-        "skills": ["query", "report"],
-        "data_contract": {
-            "version": "0.2.0",
-            "schemas": [
-                {
-                    "schema_id": "user_profile",
-                    "name": "User Profile",
-                    "sensitivity_level": "confidential",
-                    "fields": [
-                        {"name": "name", "type": "string"},
-                        {"name": "email", "type": "string"},
-                        {"name": "phone", "type": "string"},
-                    ],
-                },
-                {
-                    "schema_id": "financial_report",
-                    "name": "Financial Report",
-                    "sensitivity_level": "restricted",
-                    "fields": [
-                        {"name": "q3_revenue", "type": "number"},
-                    ],
-                },
-            ],
-            "policies": [
-                {
-                    "policy_id": "allow-public-read",
-                    "effect": "allow",
-                    "schema_ids": ["user_profile"],
-                    "principal": {"public": True},
-                    "transform_ids": ["mask-email"],
-                },
-                {
-                    "policy_id": "allow-finance-internal",
-                    "effect": "allow",
-                    "schema_ids": ["financial_report"],
-                    "principal": {"organizations": ["testing.org"]},
-                    "transform_ids": ["generalize-revenue"],
-                },
-            ],
-            "transforms": [
-                {
-                    "transform_id": "mask-email",
-                    "type": "redact",
-                    "applies_to_fields": ["user.email"],
-                },
-                {
-                    "transform_id": "generalize-revenue",
-                    "type": "generalize",
-                    "applies_to_fields": ["financials.q3_revenue"],
-                },
-            ],
-        },
-    }
-
-    resp = await client.post("/api/v1/agents/register", json=register_data)
-    assert resp.status_code == 201, f"Agent registration failed: {resp.text}"
-
-    data = resp.json()
-    return {
-        "agent_id": data["agent_id"],
-        "api_key": data["api_key"],
-        "access_token": data["access_token"],
-        "hub_shared_secret": data["hub_shared_secret"],
-        "auth_header": {"Authorization": f"Bearer {data['access_token']}"},
-    }
+async def provision_identity():
+    """Trusted test administrator fixture. Authentication still uses real JWT/DB."""
+    from app.models.schemas import Agent
+    async def provision(agent_id='test-agent-alpha', scopes=None, domain='testing-org'):
+        key=generate_api_key()
+        async with TestSessionLocal() as db, db.begin():
+            db.add(Agent(agent_id=agent_id, display_name=agent_id, callback_url='', domain=domain,
+                         roles=[], scopes=scopes if scopes is not None else ['query','discover','audit','publish','subscribe'],
+                         data_contract={}, api_key_hash=hash_api_key(key), hub_shared_secret_hash=''))
+        token=create_jwt(agent_id, [], revision=1)
+        return {'agent_id':agent_id,'api_key':key,'access_token':token,
+                'auth_header':{'Authorization':'Bearer '+token}}
+    return provision
 
 
 @pytest_asyncio.fixture
-async def second_agent(client: AsyncClient):
-    """注册第二个 Agent（作为查询目标）"""
-    register_data = {
-        "agent_id": "test-agent-beta",
-        "display_name": "Test Agent Beta (Target)",
-        "callback_url": "http://localhost:9001/normal",
-        "domain": "other-corp.com",
-        "skills": ["data-provider"],
-        "data_contract": {
-            "version": "0.2.0",
-            "schemas": [
-                {
-                    "schema_id": "candidate_info",
-                    "name": "Candidate Info",
-                    "sensitivity_level": "restricted",
-                    "fields": [
-                        {"name": "name", "type": "string"},
-                        {"name": "salary", "type": "number"},
-                    ],
-                },
-            ],
-            "policies": [
-                {
-                    "policy_id": "allow-testing-org",
-                    "effect": "allow",
-                    "schema_ids": ["candidate_info"],
-                    "principal": {"organizations": ["testing.org"]},
-                    "transform_ids": [],
-                },
-            ],
-            "transforms": [],
-        },
-    }
+async def registered_agent(provision_identity):
+    return await provision_identity()
 
-    resp = await client.post("/api/v1/agents/register", json=register_data)
-    assert resp.status_code == 201
-    data = resp.json()
-    return {
-        "agent_id": data["agent_id"],
-        "api_key": data["api_key"],
-        "access_token": data["access_token"],
-        "auth_header": {"Authorization": f"Bearer {data['access_token']}"},
-    }
+
+@pytest_asyncio.fixture
+async def second_agent(provision_identity):
+    return await provision_identity('test-agent-beta')
 
 
 def make_jwt(

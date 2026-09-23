@@ -1,0 +1,18 @@
+services:
+  hub:
+    environment:
+      METRICS_FILE: /measurements/core.jsonl
+    volumes: [measurements:/measurements]
+  measure:
+    image: a2a-alpha-local-hub
+    command: [python, scripts/local_entrypoint.py, python, scripts/measure_local.py]
+    environment:
+      DATABASE_URL: postgresql+asyncpg://a2a_local:synthetic-local-only@postgres:5432/a2a_local
+      REDIS_URL: redis://redis:6379/0
+    volumes: [secrets:/state:ro, measurements:/measurements]
+    networks: [local]
+    depends_on:
+      hub: {condition: service_healthy}
+    profiles: [measure]
+volumes:
+  measurements:

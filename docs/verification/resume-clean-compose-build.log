@@ -1,0 +1,269 @@
+ Image a2a-alpha-local-provider Building 
+ Image a2a-alpha-local-hub Building 
+ Image a2a-alpha-local-init Building 
+ Image a2a-alpha-local-presidio Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.03kB done
+#1 DONE 0.0s
+
+#2 [provider internal] load build definition from Dockerfile
+#2 transferring dockerfile: 545B done
+#2 DONE 0.0s
+
+#3 [presidio internal] load build definition from Dockerfile
+#3 transferring dockerfile: 358B done
+#3 DONE 0.0s
+
+#4 [hub internal] load metadata for docker.io/library/python:3.12.14-slim
+#4 DONE 0.0s
+
+#5 [provider internal] load .dockerignore
+#5 transferring context: 108B done
+#5 DONE 0.0s
+
+#6 [presidio internal] load build context
+#6 transferring context: 2.45kB done
+#6 DONE 0.0s
+
+#7 [init internal] load build context
+#7 transferring context: 245.48kB 0.0s done
+#7 DONE 0.0s
+
+#8 [provider  1/12] FROM docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#8 resolve docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done
+#8 DONE 0.0s
+
+#9 [hub  2/12] WORKDIR /hub
+#9 DONE 0.0s
+
+#10 [presidio 3/5] COPY requirements-presidio.txt ./
+#10 DONE 0.0s
+
+#11 [hub  3/12] COPY requirements.txt requirements-a2a.txt ./
+#11 DONE 0.0s
+
+#12 [init  4/12] RUN pip install --no-cache-dir -r requirements-a2a.txt
+#12 1.631 Collecting alembic==1.16.5 (from -r /hub/requirements.txt (line 1))
+#12 2.532   Downloading alembic-1.16.5-py3-none-any.whl.metadata (7.3 kB)
+#12 2.646 Collecting annotated-doc==0.0.4 (from -r /hub/requirements.txt (line 2))
+#12 2.753   Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+#12 2.948 Collecting annotated-types==0.7.0 (from -r /hub/requirements.txt (line 3))
+#12 3.055   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#12 5.425 Collecting anyio==4.12.1 (from -r /hub/requirements.txt (line 4))
+#12 5.855   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+#12 6.066 Collecting async-timeout==5.0.1 (from -r /hub/requirements.txt (line 5))
+#12 6.173   Downloading async_timeout-5.0.1-py3-none-any.whl.metadata (5.1 kB)
+#12 6.641 Collecting asyncpg==0.31.0 (from -r /hub/requirements.txt (line 6))
+#12 6.750   Downloading asyncpg-0.31.0-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (4.4 kB)
+#12 7.564 Collecting bcrypt==5.0.0 (from -r /hub/requirements.txt (line 7))
+#12 7.672   Downloading bcrypt-5.0.0-cp39-abi3-manylinux_2_34_aarch64.whl.metadata (10 kB)
+#12 8.350 Collecting certifi==2026.2.25 (from -r /hub/requirements.txt (line 8))
+#12 8.867   Downloading certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+#12 9.054 Collecting click==8.1.8 (from -r /hub/requirements.txt (line 9))
+#12 9.236   Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+#12 ...
+
+#13 [presidio 4/5] RUN pip install --no-cache-dir -r requirements-presidio.txt
+#13 1.310 Collecting presidio-analyzer==2.2.360 (from -r requirements-presidio.txt (line 2))
+#13 1.946   Downloading presidio_analyzer-2.2.360-py3-none-any.whl.metadata (3.4 kB)
+#13 2.112 Collecting presidio-anonymizer==2.2.360 (from -r requirements-presidio.txt (line 3))
+#13 2.215   Downloading presidio_anonymizer-2.2.360-py3-none-any.whl.metadata (8.9 kB)
+#13 3.085 Collecting spacy==3.7.5 (from -r requirements-presidio.txt (line 4))
+#13 3.185   Downloading spacy-3.7.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (27 kB)
+#13 3.558 Collecting fastapi==0.128.8 (from -r requirements-presidio.txt (line 5))
+#13 3.658   Downloading fastapi-0.128.8-py3-none-any.whl.metadata (30 kB)
+#13 3.970 Collecting uvicorn==0.39.0 (from -r requirements-presidio.txt (line 6))
+#13 4.206   Downloading uvicorn-0.39.0-py3-none-any.whl.metadata (6.8 kB)
+#13 4.638 Collecting httpx==0.28.1 (from -r requirements-presidio.txt (line 7))
+#13 4.737   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+#13 5.040 Collecting tldextract==5.3.0 (from -r requirements-presidio.txt (line 8))
+#13 5.142   Downloading tldextract-5.3.0-py3-none-any.whl.metadata (11 kB)
+#13 5.833 Collecting phonenumbers<10.0.0,>=8.12 (from presidio-analyzer==2.2.360->-r requirements-presidio.txt (line 2))
+#13 5.947   Downloading phonenumbers-9.0.39-py2.py3-none-any.whl.metadata (10 kB)
+#13 6.192 Collecting pyyaml (from presidio-analyzer==2.2.360->-r requirements-presidio.txt (line 2))
+#13 6.298   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.4 kB)
+#13 7.756 Collecting regex (from presidio-analyzer==2.2.360->-r requirements-presidio.txt (line 2))
+#13 7.873   Downloading regex-2026.9.10-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (40 kB)
+#13 9.073 Collecting cryptography<44.1 (from presidio-anonymizer==2.2.360->-r requirements-presidio.txt (line 3))
+#13 9.186   Downloading cryptography-44.0.3-cp39-abi3-manylinux_2_34_aarch64.whl.metadata (5.7 kB)
+#13 9.412 Collecting spacy-legacy<3.1.0,>=3.0.11 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 9.519   Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl.metadata (2.8 kB)
+#13 9.834 Collecting spacy-loggers<2.0.0,>=1.0.0 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 ...
+
+#12 [init  4/12] RUN pip install --no-cache-dir -r requirements-a2a.txt
+#12 9.702 Collecting exceptiongroup==1.3.1 (from -r /hub/requirements.txt (line 10))
+#12 9.979   Downloading exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)
+#12 10.40 Collecting fastapi==0.128.8 (from -r /hub/requirements.txt (line 11))
+#12 10.61   Downloading fastapi-0.128.8-py3-none-any.whl.metadata (30 kB)
+#12 12.63 Collecting greenlet==3.2.5 (from -r /hub/requirements.txt (line 12))
+#12 12.85   Downloading greenlet-3.2.5-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (4.1 kB)
+#12 13.03 Collecting h11==0.16.0 (from -r /hub/requirements.txt (line 13))
+#12 13.16   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#12 13.53 Collecting httpcore==1.0.9 (from -r /hub/requirements.txt (line 14))
+#12 13.64   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+#12 14.35 Collecting httpx==0.28.1 (from -r /hub/requirements.txt (line 15))
+#12 14.61   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+#12 14.86 Collecting idna==3.11 (from -r /hub/requirements.txt (line 16))
+#12 15.09   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+#12 15.39 Collecting Mako==1.3.10 (from -r /hub/requirements.txt (line 17))
+#12 15.54   Downloading mako-1.3.10-py3-none-any.whl.metadata (2.9 kB)
+#12 16.42 Collecting MarkupSafe==3.0.3 (from -r /hub/requirements.txt (line 18))
+#12 16.56   Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+#12 18.11 Collecting pydantic==2.12.5 (from -r /hub/requirements.txt (line 19))
+#12 18.21   Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+#12 ...
+
+#13 [presidio 4/5] RUN pip install --no-cache-dir -r requirements-presidio.txt
+#13 9.951   Downloading spacy_loggers-1.0.5-py3-none-any.whl.metadata (23 kB)
+#13 10.64 Collecting murmurhash<1.1.0,>=0.28.0 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 10.75   Downloading murmurhash-1.0.15-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (2.3 kB)
+#13 11.11 Collecting cymem<2.1.0,>=2.0.2 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 11.24   Downloading cymem-2.0.13-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (9.7 kB)
+#13 11.53 Collecting preshed<3.1.0,>=3.0.2 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 11.63   Downloading preshed-3.0.13-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (5.2 kB)
+#13 13.07 Collecting thinc<8.3.0,>=8.2.2 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 13.17   Downloading thinc-8.2.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (15 kB)
+#13 13.38 Collecting wasabi<1.2.0,>=0.9.1 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 13.50   Downloading wasabi-1.1.3-py3-none-any.whl.metadata (28 kB)
+#13 14.30 Collecting srsly<3.0.0,>=2.4.3 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 14.40   Downloading srsly-2.5.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (19 kB)
+#13 14.72 Collecting catalogue<2.1.0,>=2.0.6 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 14.91   Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+#13 15.02 Collecting weasel<0.5.0,>=0.1.0 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 15.19   Downloading weasel-0.4.3-py3-none-any.whl.metadata (4.6 kB)
+#13 15.39 Collecting typer<1.0.0,>=0.3.0 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 15.56   Downloading typer-0.27.2-py3-none-any.whl.metadata (16 kB)
+#13 15.82 Collecting tqdm<5.0.0,>=4.38.0 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 16.00   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+#13 16.47 Collecting requests<3.0.0,>=2.13.0 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 16.65   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#13 17.20 Collecting pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 17.47   Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+#13 18.38 Collecting jinja2 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 18.49   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#13 19.03 Collecting setuptools (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 19.32   Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+#13 19.50 Collecting packaging>=20.0 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 19.68   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#13 19.85 Collecting langcodes<4.0.0,>=3.2.0 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 ...
+
+#12 [init  4/12] RUN pip install --no-cache-dir -r requirements-a2a.txt
+#12 19.73 Collecting pydantic-settings==2.11.0 (from -r /hub/requirements.txt (line 20))
+#12 20.19   Downloading pydantic_settings-2.11.0-py3-none-any.whl.metadata (3.4 kB)
+#12 ...
+
+#13 [presidio 4/5] RUN pip install --no-cache-dir -r requirements-presidio.txt
+#13 20.05   Downloading langcodes-3.5.1-py3-none-any.whl.metadata (30 kB)
+#13 21.36 Collecting numpy>=1.19.0 (from spacy==3.7.5->-r requirements-presidio.txt (line 4))
+#13 21.49   Downloading numpy-2.5.3-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (6.6 kB)
+#13 26.01 Could not fetch URL https://pypi.org/simple/pip/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/pip/ (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))) - skipping
+#13 26.02 ERROR: Exception:
+#13 26.02 Traceback (most recent call last):
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 106, in _run_wrapper
+#13 26.02     status = _inner_run()
+#13 26.02              ^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 97, in _inner_run
+#13 26.02     return self.run(options, args)
+#13 26.02            ^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/cli/req_command.py", line 67, in wrapper
+#13 26.02     return func(self, options, args)
+#13 26.02            ^^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/commands/install.py", line 386, in run
+#13 26.02     requirement_set = resolver.resolve(
+#13 26.02                       ^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/resolver.py", line 95, in resolve
+#13 26.02     result = self._result = resolver.resolve(
+#13 26.02                             ^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 546, in resolve
+#13 26.02     state = resolution.resolve(requirements, max_rounds=max_rounds)
+#13 26.02             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 427, in resolve
+#13 26.02     failure_causes = self._attempt_to_pin_criterion(name)
+#13 26.02                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 239, in _attempt_to_pin_criterion
+#13 26.02     criteria = self._get_updated_criteria(candidate)
+#13 26.02                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 230, in _get_updated_criteria
+#13 26.02     self._add_to_criteria(criteria, requirement, parent=candidate)
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 173, in _add_to_criteria
+#13 26.02     if not criterion.candidates:
+#13 26.02            ^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_vendor/resolvelib/structs.py", line 156, in __bool__
+#13 26.02     return bool(self._sequence)
+#13 26.02            ^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 174, in __bool__
+#13 26.02     return any(self)
+#13 26.02            ^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 162, in <genexpr>
+#13 26.02     return (c for c in iterator if id(c) not in self._incompatible_ids)
+#13 26.02                        ^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 49, in _iter_built
+#13 26.02     for version, func in infos:
+#13 26.02                          ^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/factory.py", line 307, in iter_index_candidate_infos
+#13 26.02     result = self._finder.find_best_candidate(
+#13 26.02              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/index/package_finder.py", line 892, in find_best_candidate
+#13 26.02     candidates = self.find_all_candidates(project_name)
+#13 26.02                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/index/package_finder.py", line 833, in find_all_candidates
+#13 26.02     page_candidates = list(page_candidates_it)
+#13 26.02                       ^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/index/sources.py", line 193, in page_candidates
+#13 26.02     yield from self._candidates_from_page(self._link)
+#13 26.02                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/index/package_finder.py", line 797, in process_project_url
+#13 26.02     page_links = list(parse_links(index_response))
+#13 26.02                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/index/collector.py", line 218, in wrapper_wrapper
+#13 26.02     return list(fn(page))
+#13 26.02            ^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/site-packages/pip/_internal/index/collector.py", line 231, in parse_links
+#13 26.02     data = json.loads(page.content)
+#13 26.02            ^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/json/__init__.py", line 346, in loads
+#13 26.02     return _default_decoder.decode(s)
+#13 26.02            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/json/decoder.py", line 338, in decode
+#13 26.02     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+#13 26.02                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#13 26.02   File "/usr/local/lib/python3.12/json/decoder.py", line 356, in raw_decode
+#13 26.02     raise JSONDecodeError("Expecting value", s, err.value) from None
+#13 26.02 json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+#13 ERROR: process "/bin/sh -c pip install --no-cache-dir -r requirements-presidio.txt" did not complete successfully: exit code: 2
+
+#12 [init  4/12] RUN pip install --no-cache-dir -r requirements-a2a.txt
+#12 CANCELED
+------
+ > [presidio 4/5] RUN pip install --no-cache-dir -r requirements-presidio.txt:
+26.02            ^^^^^^^^^^^^^^^^^^^^^^^^
+26.02   File "/usr/local/lib/python3.12/json/__init__.py", line 346, in loads
+26.02     return _default_decoder.decode(s)
+26.02            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+26.02   File "/usr/local/lib/python3.12/json/decoder.py", line 338, in decode
+26.02     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+26.02                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+26.02   File "/usr/local/lib/python3.12/json/decoder.py", line 356, in raw_decode
+26.02     raise JSONDecodeError("Expecting value", s, err.value) from None
+26.02 json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+------
+Dockerfile:4
+
+--------------------
+
+   2 |     WORKDIR /hub
+
+   3 |     COPY requirements-presidio.txt ./
+
+   4 | >>> RUN pip install --no-cache-dir -r requirements-presidio.txt
+
+   5 |     COPY examples/presidio examples/presidio
+
+   6 |     ENV PYTHONUNBUFFERED=1
+
+--------------------
+
+target presidio: failed to solve: process "/bin/sh -c pip install --no-cache-dir -r requirements-presidio.txt" did not complete successfully: exit code: 2
+

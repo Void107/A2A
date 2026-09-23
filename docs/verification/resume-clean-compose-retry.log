@@ -1,0 +1,35 @@
+ Image a2a-alpha-local-provider Building 
+ Image a2a-alpha-local-hub Building 
+ Image a2a-alpha-local-presidio Building 
+ Image a2a-alpha-local-init Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.03kB done
+#1 DONE 0.0s
+
+#2 [presidio internal] load build definition from Dockerfile
+#2 transferring dockerfile: 358B done
+#2 DONE 0.0s
+
+#3 [init internal] load build definition from Dockerfile
+#3 transferring dockerfile: 545B done
+#3 DONE 0.0s
+
+#4 [provider internal] load metadata for docker.io/library/python:3.12.14-slim
+#4 ERROR: failed to do request: Head "https://registry-1.docker.io/v2/library/python/manifests/3.12.14-slim": EOF
+------
+ > [provider internal] load metadata for docker.io/library/python:3.12.14-slim:
+------
+Dockerfile:1
+
+--------------------
+
+   1 | >>> FROM python:3.12.14-slim
+
+   2 |     WORKDIR /hub
+
+   3 |     COPY requirements.txt requirements-a2a.txt ./
+
+--------------------
+
+target hub: failed to solve: python:3.12.14-slim: failed to resolve source metadata for docker.io/library/python:3.12.14-slim: failed to do request: Head "https://registry-1.docker.io/v2/library/python/manifests/3.12.14-slim": EOF
+

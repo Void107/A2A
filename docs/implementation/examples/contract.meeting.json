@@ -1,0 +1,280 @@
+{
+  "spec_version": "0.3.0-draft.1",
+  "contract_id": "meeting-actions",
+  "contract_version": "1.0.0",
+  "source_schema": {
+    "type": "object",
+    "properties": {
+      "meeting_id": {
+        "type": "string",
+        "pattern": "^meeting-[0-9]{3}$"
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "summary": {
+        "type": "string",
+        "maxLength": 3000
+      },
+      "action_items": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 100,
+        "items": {
+          "type": "object",
+          "properties": {
+            "item_id": {
+              "type": "string",
+              "pattern": "^item-[0-9]{3}$"
+            },
+            "task": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "owner_name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "owner_email": {
+              "type": "string",
+              "format": "email",
+              "maxLength": 254
+            },
+            "due_date": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "item_id",
+            "task",
+            "owner_name",
+            "owner_email",
+            "due_date"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "meeting_id",
+      "title",
+      "summary",
+      "action_items"
+    ],
+    "additionalProperties": false
+  },
+  "views": [
+    {
+      "view_id": "internal-project",
+      "display_name": "内部项目执行视图",
+      "purpose": "创建行动项并按负责人邮箱指派",
+      "projection": [
+        "meeting_id",
+        "title",
+        "summary",
+        "action_items[*].item_id",
+        "action_items[*].task",
+        "action_items[*].owner_name",
+        "action_items[*].owner_email",
+        "action_items[*].due_date"
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "meeting_id": {
+            "type": "string",
+            "pattern": "^meeting-[0-9]{3}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 3000
+          },
+          "action_items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "properties": {
+                "item_id": {
+                  "type": "string",
+                  "pattern": "^item-[0-9]{3}$"
+                },
+                "task": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1000
+                },
+                "owner_name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "owner_email": {
+                  "type": "string",
+                  "format": "email",
+                  "maxLength": 254
+                },
+                "due_date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "item_id",
+                "task",
+                "owner_name",
+                "owner_email",
+                "due_date"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "meeting_id",
+          "title",
+          "summary",
+          "action_items"
+        ],
+        "additionalProperties": false
+      },
+      "processors": []
+    },
+    {
+      "view_id": "external-collaboration",
+      "display_name": "外部协作视图",
+      "purpose": "创建保留截止日期的待分配行动项",
+      "projection": [
+        "meeting_id",
+        "title",
+        "summary",
+        "action_items[*].item_id",
+        "action_items[*].task",
+        "action_items[*].due_date"
+      ],
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "meeting_id": {
+            "type": "string",
+            "pattern": "^meeting-[0-9]{3}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 3000
+          },
+          "action_items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "properties": {
+                "item_id": {
+                  "type": "string",
+                  "pattern": "^item-[0-9]{3}$"
+                },
+                "task": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1000
+                },
+                "due_date": {
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "item_id",
+                "task",
+                "due_date"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "meeting_id",
+          "title",
+          "summary",
+          "action_items"
+        ],
+        "additionalProperties": false
+      },
+      "processors": [
+        {
+          "processor_id": "external-email-redaction",
+          "type": "presidio_redact",
+          "paths": [
+            "title",
+            "summary",
+            "action_items[*].task"
+          ],
+          "language": "en",
+          "entities": [
+            "EMAIL_ADDRESS"
+          ],
+          "replacement": "[EMAIL]",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "policy_id": "internal-project-role",
+      "effect": "allow",
+      "view_ids": [
+        "internal-project"
+      ],
+      "principal": {
+        "organization_ids": [
+          "org-acme"
+        ],
+        "roles": [
+          "project-agent"
+        ]
+      }
+    },
+    {
+      "policy_id": "approved-partner",
+      "effect": "allow",
+      "view_ids": [
+        "external-collaboration"
+      ],
+      "principal": {
+        "organization_ids": [
+          "org-partner"
+        ],
+        "roles": [
+          "collaboration-agent"
+        ],
+        "agent_ids": [
+          "partner-agent"
+        ]
+      }
+    }
+  ],
+  "delivery": {
+    "failure_mode": "closed",
+    "audit_required": true,
+    "max_response_bytes": 5242880,
+    "total_timeout_seconds": 30
+  }
+}

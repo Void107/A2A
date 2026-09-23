@@ -1,0 +1,13 @@
+{
+  "initial": 200,
+  "missing_profile": {
+    "status": 503,
+    "body": {
+      "status": "not_ready",
+      "errors": [
+        "PROFILE_NOT_READY"
+      ]
+    }
+  },
+  "recovered": 200
+}

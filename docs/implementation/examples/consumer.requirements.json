@@ -1,0 +1,48 @@
+{
+  "consumers": [
+    {
+      "consumer_id": "internal-task-assigner",
+      "view_id": "internal-project",
+      "required_paths": [
+        "meeting_id",
+        "action_items[*].item_id",
+        "action_items[*].task",
+        "action_items[*].owner_email",
+        "action_items[*].due_date"
+      ],
+      "expected_effect": {
+        "action_item_count": 2,
+        "assignees": [
+          "alice@example.com",
+          "bob@example.com"
+        ],
+        "due_dates": [
+          "2026-09-20",
+          "2026-09-21"
+        ]
+      }
+    },
+    {
+      "consumer_id": "partner-task-importer",
+      "view_id": "external-collaboration",
+      "required_paths": [
+        "meeting_id",
+        "action_items[*].item_id",
+        "action_items[*].task",
+        "action_items[*].due_date"
+      ],
+      "forbidden_paths": [
+        "action_items[*].owner_name",
+        "action_items[*].owner_email"
+      ],
+      "expected_effect": {
+        "action_item_count": 2,
+        "assignment_state": "unassigned",
+        "due_dates": [
+          "2026-09-20",
+          "2026-09-21"
+        ]
+      }
+    }
+  ]
+}

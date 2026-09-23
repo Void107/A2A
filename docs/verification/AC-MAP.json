@@ -1,0 +1,110 @@
+{
+  "scope": "current local acceptance; hosted CI and human trial not executed",
+  "mapping": {
+    "AC-01": [
+      "tests/contracts/test_loader.py",
+      "scripts/verify_api_matrix.py"
+    ],
+    "AC-02": [
+      "tests/test_auth.py",
+      "tests/hacker_agent.py",
+      "scripts/verify_security.py",
+      "scripts/verify_api_matrix.py"
+    ],
+    "AC-03": [
+      "tests/test_broadcast_sse.py",
+      "scripts/verify_security.py",
+      "scripts/verify_api_matrix.py",
+      "scripts/verify_delivery.py"
+    ],
+    "AC-04": [
+      "scripts/verify_upstream.py",
+      "scripts/verify_tls.py"
+    ],
+    "AC-05": [
+      "scripts/verify_opa.py",
+      "scripts/verify_delivery.py"
+    ],
+    "AC-06": [
+      "scripts/verify_boundaries.py",
+      "scripts/verify_delivery.py"
+    ],
+    "AC-07": [
+      "scripts/verify_processing.py",
+      "scripts/verify_delivery.py"
+    ],
+    "AC-08": [
+      "scripts/verify_processing.py"
+    ],
+    "AC-09": [
+      "scripts/presidio_quality.py"
+    ],
+    "AC-10": [
+      "scripts/verify_processing.py",
+      "scripts/verify_delivery.py"
+    ],
+    "AC-11": [
+      "tests/contracts/test_delivery_faults.py",
+      "scripts/verify_processing.py"
+    ],
+    "AC-12": [
+      "tests/contracts/test_consumers.py",
+      "scripts/verify_delivery.py",
+      "examples/meeting_views/demo.py"
+    ],
+    "AC-13": [
+      "scripts/verify_boundaries.py",
+      "scripts/verify_upstream.py",
+      "scripts/verify_delivery.py"
+    ],
+    "AC-14": [
+      "scripts/verify_receipts.py",
+      "scripts/verify_delivery.py"
+    ],
+    "AC-15": [
+      "scripts/verify_receipts.py",
+      "scripts/verify_process_failures.py",
+      "scripts/verify_delivery.py"
+    ],
+    "AC-16": [
+      "scripts/verify_receipts.py",
+      "scripts/verify_process_failures.py"
+    ],
+    "AC-17": [
+      "tests/contracts/test_failure_diagnostics.py",
+      "scripts/verify_delivery.py"
+    ],
+    "AC-18": [
+      "scripts/verify_delivery.py"
+    ],
+    "AC-19": [
+      "tests/contracts/test_changes.py",
+      "scripts/verify_delivery.py"
+    ],
+    "AC-20": [
+      "tests/contracts/test_consumers.py",
+      "scripts/verify_delivery.py",
+      "app/contracts/migrate.py"
+    ],
+    "AC-21": [
+      "scripts/verify_unmigrated.py",
+      "scripts/verify_clean_install.py"
+    ],
+    "AC-22": [
+      "docs/verification/trial/START_HERE.md",
+      "docs/verification/trial/observation.template.json"
+    ],
+    "AC-23": [
+      "scripts/measure_local.py",
+      "scripts/verify_clean_install.py",
+      "compose.acceptance.yaml"
+    ],
+    "AC-24": [
+      "scripts/verify_all.py",
+      "scripts/verify_release.py",
+      ".github/workflows/verify.yml"
+    ]
+  },
+  "local_ci_results": "docs/verification/ci-run-a5edbe801e/ci-results.json",
+  "installation_results": "docs/verification/accept-31d3cd5f97/results.json"
+}

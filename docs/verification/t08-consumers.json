@@ -1,0 +1,34 @@
+{
+  "external-collaboration": [
+    {
+      "item_id": "item-001",
+      "task": "Send the checklist to [EMAIL].",
+      "due_date": "2026-09-20",
+      "assignee": null,
+      "assignment_state": "unassigned"
+    },
+    {
+      "item_id": "item-002",
+      "task": "Prepare the test report.",
+      "due_date": "2026-09-21",
+      "assignee": null,
+      "assignment_state": "unassigned"
+    }
+  ],
+  "internal-project": [
+    {
+      "item_id": "item-001",
+      "task": "Send the checklist to review@example.com.",
+      "due_date": "2026-09-20",
+      "assignee": "alice@example.com",
+      "assignment_state": "assigned"
+    },
+    {
+      "item_id": "item-002",
+      "task": "Prepare the test report.",
+      "due_date": "2026-09-21",
+      "assignee": "bob@example.com",
+      "assignment_state": "assigned"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "project": "a2a-accept-dfbfebe825",
+  "host": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "logical_cpus": 10
+  },
+  "steps": [
+    {
+      "name": "fresh-dependencies",
+      "command": [
+        "/Users/jeremysie/Desktop/A2A\u9879\u76ee/a2a-contract-hub/.venv/bin/python",
+        "scripts/prepare_wheels.py",
+        "--destination",
+        "/var/folders/hb/3l_mf8zx7zdgf7cy_fymg50r0000gn/T/a2a-install-8keeua0t/wheels",
+        "--no-cache"
+      ],
+      "started_unix": 1790079095.585876,
+      "seconds": 16.00705599784851,
+      "exit_code": 1
+    }
+  ],
+  "external_deployment": false
+}

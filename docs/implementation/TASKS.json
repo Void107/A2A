@@ -1,0 +1,1011 @@
+{
+  "plan_version": "1.0",
+  "created_at": "2026-09-13",
+  "implementation_status": "in_progress",
+  "target": "verifiable_open_source_alpha",
+  "entrypoint": "README.md",
+  "contract_spec_version": "0.3.0-draft.1",
+  "status_values": [
+    "todo",
+    "in_progress",
+    "done",
+    "blocked",
+    "awaiting_external_validation"
+  ],
+  "status_rules": {
+    "done": "Deliverables plus task-scoped evidence are required; referenced AC may need later integration revalidation. Do not globally mark an AC PASS from a partial spike.",
+    "blocked": "Record concrete dependency/input/environment restriction; proceed with independent work.",
+    "awaiting_external_validation": "For actual human trial or outside evidence only; not equivalent to done.",
+    "dependencies": "All depends_on tasks must be done before marking a dependent task done. Independent preparation may proceed with its actual limitations recorded."
+  },
+  "milestones": [
+    {
+      "id": "M1",
+      "title": "契约与接口基础",
+      "task_ids": [
+        "T00",
+        "T01",
+        "T05"
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "安全及审计基础",
+      "task_ids": [
+        "T02",
+        "T03",
+        "T04"
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "可用交付闭环",
+      "task_ids": [
+        "T06",
+        "T07",
+        "T08",
+        "T09",
+        "T10"
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "接入体验",
+      "task_ids": [
+        "T12"
+      ]
+    },
+    {
+      "id": "M5",
+      "title": "变更故障与工程候选",
+      "task_ids": [
+        "T11",
+        "T13",
+        "T14"
+      ]
+    },
+    {
+      "id": "M6",
+      "title": "独立使用验证",
+      "task_ids": [
+        "T15"
+      ]
+    }
+  ],
+  "acceptance_results": [
+    {
+      "id": "AC-01",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json"
+      ]
+    },
+    {
+      "id": "AC-02",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json"
+      ]
+    },
+    {
+      "id": "AC-03",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json"
+      ]
+    },
+    {
+      "id": "AC-04",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json"
+      ]
+    },
+    {
+      "id": "AC-05",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_opa.log",
+        "docs/verification/ci-verify_delivery.log"
+      ]
+    },
+    {
+      "id": "AC-06",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json"
+      ]
+    },
+    {
+      "id": "AC-07",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_delivery.log"
+      ]
+    },
+    {
+      "id": "AC-08",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_processing.log",
+        "docs/verification/ci-verify_delivery.log"
+      ]
+    },
+    {
+      "id": "AC-09",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/t07-quality.json",
+        "docs/verification/ci-presidio_quality.log"
+      ]
+    },
+    {
+      "id": "AC-10",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_processing.log",
+        "docs/verification/ci-verify_delivery.log"
+      ]
+    },
+    {
+      "id": "AC-11",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/resume-output-faults.log"
+      ]
+    },
+    {
+      "id": "AC-12",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/t08-consumers.json",
+        "docs/verification/resume-consumer-negative.log",
+        "docs/verification/ci-verify_delivery.log"
+      ]
+    },
+    {
+      "id": "AC-13",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json"
+      ]
+    },
+    {
+      "id": "AC-14",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_receipts.log",
+        "docs/verification/ci-verify_delivery.log"
+      ]
+    },
+    {
+      "id": "AC-15",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_receipts.log",
+        "docs/verification/resume-process-failures.log",
+        "docs/verification/resume-disconnect-stack.log"
+      ]
+    },
+    {
+      "id": "AC-16",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_receipts.log",
+        "docs/verification/resume-process-failures.log",
+        "docs/verification/resume-disconnect-stack.log"
+      ]
+    },
+    {
+      "id": "AC-17",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/20260922-DIAGNOSTICS.md",
+        "docs/verification/20260922-diagnostics-final-unit.log",
+        "docs/verification/20260922-diagnostics-final-stack.log",
+        "tests/contracts/test_failure_diagnostics.py",
+        "alembic/versions/20260922_diagnostics.py"
+      ]
+    },
+    {
+      "id": "AC-18",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_delivery.log"
+      ]
+    },
+    {
+      "id": "AC-19",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_delivery.log",
+        "docs/verification/resume-final-110-tests.log"
+      ]
+    },
+    {
+      "id": "AC-20",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_delivery.log",
+        "docs/verification/resume-final-110-tests.log"
+      ]
+    },
+    {
+      "id": "AC-21",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json",
+        "docs/verification/accept-31d3cd5f97/results.json",
+        "docs/verification/accept-31d3cd5f97/requests.json"
+      ]
+    },
+    {
+      "id": "AC-22",
+      "status": "NOT_RUN",
+      "kind": "human",
+      "evidence": [
+        "docs/verification/RESUME.md"
+      ]
+    },
+    {
+      "id": "AC-23",
+      "status": "PASS",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json",
+        "docs/verification/accept-31d3cd5f97/results.json",
+        "docs/verification/accept-31d3cd5f97/requests.json"
+      ]
+    },
+    {
+      "id": "AC-24",
+      "status": "BLOCKED",
+      "kind": "automated",
+      "evidence": [
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json",
+        ".github/workflows/verify.yml"
+      ],
+      "blocked_reason": "Local CI and mapping passed; hosted CI has not been executed. Current authorization excludes push/deploy; private security report channel/owner also pending."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T00",
+      "title": "建立可复现基线",
+      "phase": "foundation",
+      "status": "done",
+      "depends_on": [],
+      "suggested_paths": [
+        "app/",
+        "tests/",
+        "requirements.txt",
+        "alembic/"
+      ],
+      "acceptance_ids": [
+        "AC-21",
+        "AC-24"
+      ],
+      "deliverables": [
+        "记录旧测试收集与运行结果；保留已知失败证据",
+        "创建新隔离开发/测试环境和明确指向测试实例的PG/Redis基础设施",
+        "固定兼容依赖并区分运行依赖与测试依赖",
+        "将已知安全反例转为回归用例，不要求未修复的安全期望预先通过"
+      ],
+      "definition_of_done": [
+        "基线报告含实际环境、版本、成功/失败/未运行及原因",
+        "默认未收集测试的处理已明确，未删除原有有效测试",
+        "未触碰真实数据库或删除旧虚拟环境"
+      ],
+      "evidence": [
+        "docs/verification/T00-T01.md",
+        "docs/verification/t00-baseline.log",
+        "docs/verification/t00-security-regressions.log",
+        "compose.test.yaml",
+        "requirements-test.lock",
+        "scripts/verify_real_baseline.py",
+        "docs/verification/t00-real-baseline.log"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T01",
+      "title": "实现有限契约校验",
+      "phase": "contract",
+      "status": "done",
+      "depends_on": [],
+      "suggested_paths": [
+        "app/contracts/",
+        "docs/implementation/CONTRACT_SPEC.md",
+        "docs/implementation/examples/"
+      ],
+      "acceptance_ids": [
+        "AC-01"
+      ],
+      "deliverables": [
+        "实现draft契约schema、嵌套严格校验、路径/引用/类型验证",
+        "实现AND/OR、deny优先和固定视图处理的唯一语义",
+        "验证spec_version与contract_version分别管理"
+      ],
+      "definition_of_done": [
+        "正例契约通过；未知规则、字段、版本和非法引用被明确拒绝",
+        "原始/输出schema与示例一致，未知conditions不能静默忽略"
+      ],
+      "evidence": [
+        "app/contracts/",
+        "policies/contract.rego",
+        "docs/verification/T00-T01.md",
+        "docs/verification/t01-tests.log",
+        "docs/verification/t01-opa.log",
+        "docs/verification/run-results.json"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T02",
+      "title": "可信身份与接口授权",
+      "phase": "security",
+      "status": "done",
+      "depends_on": [
+        "T00",
+        "T01"
+      ],
+      "suggested_paths": [
+        "app/api/auth.py",
+        "app/api/agents.py",
+        "app/api/audit.py",
+        "app/api/topics.py",
+        "app/core/security.py",
+        "app/models/schemas.py"
+      ],
+      "acceptance_ids": [
+        "AC-02",
+        "AC-03",
+        "AC-14"
+      ],
+      "deliverables": [
+        "受控注册/管理员预置组织角色，检查当前有效身份与scope",
+        "限制审计和发现可见范围，停用和撤权作用于既有token",
+        "配置凭据轮换撤销与受控速率/并发边界",
+        "公开通知限制为批准事件与可公开资源的ID/版本，拒绝任意content和自由文本",
+        "独立于契约版本的当前视图/会议资源grant及修订，撤销视图不必改变主体角色"
+      ],
+      "definition_of_done": [
+        "自行声明组织不能获得权限",
+        "最小scope、其他主体日志不可见与停用后拒绝的验证通过"
+      ],
+      "evidence": [
+        "app/api/auth.py",
+        "app/api/admin.py",
+        "alembic/versions/20260913_security_foundation.py",
+        "scripts/verify_security.py",
+        "docs/verification/t02-security.log"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T03",
+      "title": "可信上游与资源边界",
+      "phase": "security",
+      "status": "done",
+      "depends_on": [
+        "T00"
+      ],
+      "suggested_paths": [
+        "app/core/security.py",
+        "app/api/query.py",
+        "app/config.py",
+        "tests/"
+      ],
+      "acceptance_ids": [
+        "AC-04",
+        "AC-13"
+      ],
+      "deliverables": [
+        "选择并实现可实际验签的密钥方案，绑定实际字节/方法/路径/时间/nonce",
+        "管理员批准的回调目标与解析后地址验证，处理重定向和再绑定",
+        "复用受限连接池、总时限、体积/深度/并发边界及安全JSON错误"
+      ],
+      "definition_of_done": [
+        "正常签名成功，篡改/过期/重放失败",
+        "未批准目标阻止且开发例外不影响生产默认",
+        "慢响应/超大/非法JSON受控失败"
+      ],
+      "evidence": [
+        "app/core/signing.py",
+        "app/adapters/upstream.py",
+        "scripts/verify_upstream.py",
+        "docs/verification/t03-upstream.log"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T04",
+      "title": "可靠receipt与outbox",
+      "phase": "audit",
+      "status": "done",
+      "depends_on": [
+        "T00",
+        "T02"
+      ],
+      "suggested_paths": [
+        "app/models/schemas.py",
+        "alembic/versions/",
+        "app/services/audit_writer.py",
+        "app/api/audit.py"
+      ],
+      "acceptance_ids": [
+        "AC-15",
+        "AC-16",
+        "AC-17"
+      ],
+      "deliverables": [
+        "新增PG事务内receipt/outbox，交付前提交",
+        "实现消费者领取/重试/幂等/恢复轮询，Redis仅可选唤醒",
+        "区分准备发送和真正收件，不写原始payload"
+      ],
+      "definition_of_done": [
+        "写库失败不返回成功数据；队列处理失败不丢事件",
+        "重启、双消费者、重复消息和Redis故障恢复验证通过",
+        "无exactly-once网络交付或全量日志不丢失的过度承诺"
+      ],
+      "evidence": [
+        "app/services/receipts.py",
+        "app/api/receipts.py",
+        "alembic/versions/20260913_receipts.py",
+        "scripts/verify_receipts.py",
+        "docs/verification/t04-receipts.log"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T05",
+      "title": "官方A2A最小适配验证",
+      "phase": "protocol",
+      "status": "done",
+      "depends_on": [
+        "T00",
+        "T01"
+      ],
+      "suggested_paths": [
+        "examples/a2a_spike/",
+        "docs/implementation/decisions/",
+        "requirements.txt"
+      ],
+      "acceptance_ids": [
+        "AC-18"
+      ],
+      "deliverables": [
+        "核实固定官方SDK及协议版本",
+        "真实SDK最小发现、扩展与请求/结果样例",
+        "记录新接口/扩展命名空间/错误映射"
+      ],
+      "definition_of_done": [
+        "用官方类型与客户端证明最小协议形状可用",
+        "API决定已记录；不得把此spike当作完整安全互通验收完成"
+      ],
+      "evidence": [
+        "app/adapters/a2a_transport.py",
+        "examples/a2a_spike/",
+        "docs/implementation/decisions/0001-a2a-profile.md",
+        "docs/verification/t05-a2a-spike.log"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T06",
+      "title": "OPA策略决策适配",
+      "phase": "policy",
+      "status": "done",
+      "depends_on": [
+        "T01",
+        "T02"
+      ],
+      "suggested_paths": [
+        "app/adapters/",
+        "app/core/interceptor.py",
+        "policies/",
+        "tests/"
+      ],
+      "acceptance_ids": [
+        "AC-05",
+        "AC-06"
+      ],
+      "deliverables": [
+        "固定Rego模板读取严格契约数据",
+        "可信上下文与视图/契约/策略修订绑定",
+        "验证OPA结果结构，缺失/错误/超时失败关闭"
+      ],
+      "definition_of_done": [
+        "单元与真实OPA用例通过，HTTP200空result被拒绝",
+        "只有一个结果负责放行，旧引擎不能作为宽松fallback"
+      ],
+      "evidence": [
+        "app/adapters/opa.py",
+        "scripts/verify_opa.py",
+        "docs/verification/t06-opa-http.log",
+        "policies/contract.rego"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T07",
+      "title": "字段投影与Presidio处理",
+      "phase": "processing",
+      "status": "done",
+      "depends_on": [
+        "T00",
+        "T01"
+      ],
+      "suggested_paths": [
+        "app/services/transform.py",
+        "app/adapters/",
+        "app/contracts/",
+        "tests/"
+      ],
+      "acceptance_ids": [
+        "AC-07",
+        "AC-08",
+        "AC-09",
+        "AC-10",
+        "AC-11"
+      ],
+      "deliverables": [
+        "单一真实入口，独立数据副本与严格源/输出校验",
+        "确定性投影先执行，再扫title/summary/action_items[*].task",
+        "固定en/EMAIL_ADDRESS/[EMAIL]与profile版本，必需处理失败关闭",
+        "质量样本与误检漏检分开报告"
+      ],
+      "definition_of_done": [
+        "黄金样例输出一致，原始输入不被污染",
+        "不支持的profile和必需处理故障不能no-op",
+        "质量报告只覆盖已测范围"
+      ],
+      "evidence": [
+        "app/services/view_processing.py",
+        "examples/presidio/service.py",
+        "docs/verification/t07-processing-fixed-profile.log",
+        "docs/verification/t07-quality.json",
+        "docs/verification/t07-consumer-results.json"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T08",
+      "title": "完整交付核心与双视图",
+      "phase": "delivery",
+      "status": "done",
+      "depends_on": [
+        "T02",
+        "T03",
+        "T04",
+        "T06",
+        "T07",
+        "T05",
+        "T09"
+      ],
+      "suggested_paths": [
+        "app/services/delivery.py",
+        "app/api/query.py",
+        "tests/",
+        "examples/meeting_views/"
+      ],
+      "acceptance_ids": [
+        "AC-07",
+        "AC-10",
+        "AC-11",
+        "AC-12",
+        "AC-13",
+        "AC-14",
+        "AC-15",
+        "AC-17"
+      ],
+      "deliverables": [
+        "串联授权、可信上游、源校验、投影检测、输出校验、交付前当前撤权重验、PG提交",
+        "同请求绑定契约/策略/识别配置快照",
+        "真实API跑EX-01..EX-10及两个无外部副作用消费样例",
+        "旧接口统一安全核心或默认关闭",
+        "query资源必须获当前grant批准；源响应meeting_id必须与请求一致，target绑定注册提供方"
+      ],
+      "definition_of_done": [
+        "内部自动指派、外部待分配任务的实际效果正确",
+        "全部必要环节完成前无数据返回，撤权不被快照绕过",
+        "依赖失败无旧路径或原文fallback",
+        "最终当前授权检查与receipt许可提交有原子并发顺序，撤权竞态验证通过"
+      ],
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_delivery.log",
+        "docs/verification/resume-final-110-tests.log",
+        "docs/verification/t08-consumers.json",
+        "app/services/delivery.py"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T09",
+      "title": "不可变版本与视图发现",
+      "phase": "registry",
+      "status": "done",
+      "depends_on": [
+        "T01",
+        "T02",
+        "T06"
+      ],
+      "suggested_paths": [
+        "app/api/agents.py",
+        "app/contracts/",
+        "app/models/schemas.py",
+        "alembic/versions/"
+      ],
+      "acceptance_ids": [
+        "AC-03",
+        "AC-14",
+        "AC-19"
+      ],
+      "deliverables": [
+        "draft/validated/active/retired生命周期与所有者管理",
+        "不可变版本、明确请求版本与按当前身份发现",
+        "缓存/旧版/回滚不恢复撤权，防跨所有者引用"
+      ],
+      "definition_of_done": [
+        "发布重新校验且不能覆盖活动版本",
+        "发现非授权承诺，实际请求重新授权",
+        "当前身份可见范围与版本选择测试通过"
+      ],
+      "evidence": [
+        "app/api/contracts.py",
+        "alembic/versions/20260914_contract_versions.py",
+        "scripts/verify_delivery.py",
+        "docs/verification/t08-full-stack.log"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T10",
+      "title": "A2A完整互通",
+      "phase": "protocol",
+      "status": "done",
+      "depends_on": [
+        "T05",
+        "T08",
+        "T09"
+      ],
+      "suggested_paths": [
+        "app/adapters/",
+        "examples/meeting_views/",
+        "tests/"
+      ],
+      "acceptance_ids": [
+        "AC-18",
+        "AC-12",
+        "AC-14"
+      ],
+      "deliverables": [
+        "正式SDK入口复用交付核心",
+        "发现、必需扩展协商、双视图、拒绝/依赖故障映射",
+        "REST和A2A交付语义一致"
+      ],
+      "definition_of_done": [
+        "真实官方客户端端到端成功且失败路径不绕过安全核心",
+        "协议版本和扩展边界被明确记录"
+      ],
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_delivery.log",
+        "docs/verification/resume-final-110-tests.log",
+        "app/adapters/a2a_transport.py"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T11",
+      "title": "变更检查与旧契约迁移",
+      "phase": "change",
+      "status": "done",
+      "depends_on": [
+        "T08",
+        "T09"
+      ],
+      "suggested_paths": [
+        "app/contracts/",
+        "tests/",
+        "docs/implementation/examples/consumer.requirements.json",
+        "docs/"
+      ],
+      "acceptance_ids": [
+        "AC-19",
+        "AC-20",
+        "AC-14"
+      ],
+      "deliverables": [
+        "受限schema/投影diff，登记消费者业务样例检查",
+        "权限扩张收紧独立报告，未知比较返回review_required",
+        "旧0.2离线迁移草案与不可迁移错误清单",
+        "按分类控制保存/激活/默认切换，breaking须新主版本迁移验证，review_required禁止激活"
+      ],
+      "definition_of_done": [
+        "兼容升级有正例，不兼容删除/类型变更被指出",
+        "未登记消费者不声称完全影响分析",
+        "不忽略conditions、不自动激活迁移或双引擎放行"
+      ],
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "docs/verification/ci-verify_delivery.log",
+        "docs/verification/resume-final-110-tests.log",
+        "app/contracts/changes.py",
+        "app/contracts/publication.py",
+        "app/contracts/migrate.py",
+        "alembic/versions/20260914_publication.py"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T12",
+      "title": "开发者启动与接入包",
+      "phase": "experience",
+      "status": "done",
+      "depends_on": [
+        "T10"
+      ],
+      "suggested_paths": [
+        "examples/meeting_views/",
+        "sdk/",
+        "compose.yaml",
+        "Dockerfile",
+        "README.md",
+        "docs/"
+      ],
+      "acceptance_ids": [
+        "AC-21",
+        "AC-12"
+      ],
+      "deliverables": [
+        "固定依赖和模型的完整本地启动方案",
+        "轻量Python客户端、契约检查、结果预览与两个消费样例",
+        "文档包含安装冷启动/稳定运行区别和稳定错误码"
+      ],
+      "definition_of_done": [
+        "全新隔离环境按文档运行双视图无需改Hub内部代码",
+        "不依赖付费模型或真实外部任务系统",
+        "示例和公开接口名称与实际实现一致"
+      ],
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "compose.yaml",
+        "compose.offline.yaml",
+        "sdk/client.py",
+        "examples/meeting_views/demo.py",
+        "docs/verification/resume-clean-cached-build.log",
+        "docs/verification/resume-offline-repaired-build.log",
+        "docs/verification/resume-offline-repaired-start.log",
+        "docs/verification/resume-clean-demo-retry.log",
+        "docs/verification/resume-clean-before-restart.log",
+        "docs/verification/resume-clean-after-restart.log",
+        "docs/verification/resume-clean-demo-after-restart.log",
+        "docs/verification/resume-clean-readiness.json"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T13",
+      "title": "真实故障集成与性能验证",
+      "phase": "verification",
+      "status": "in_progress",
+      "depends_on": [
+        "T08",
+        "T09",
+        "T10",
+        "T11",
+        "T12"
+      ],
+      "suggested_paths": [
+        "tests/",
+        ".github/workflows/",
+        "docs/verification/"
+      ],
+      "acceptance_ids": [
+        "AC-01",
+        "AC-02",
+        "AC-03",
+        "AC-04",
+        "AC-05",
+        "AC-06",
+        "AC-07",
+        "AC-08",
+        "AC-09",
+        "AC-10",
+        "AC-11",
+        "AC-12",
+        "AC-13",
+        "AC-14",
+        "AC-15",
+        "AC-16",
+        "AC-17",
+        "AC-18",
+        "AC-19",
+        "AC-20",
+        "AC-21",
+        "AC-23",
+        "AC-24"
+      ],
+      "deliverables": [
+        "真实PG/Redis/OPA/Presidio与lifespan/迁移集成验证",
+        "执行自动安全/结构/故障/恢复/撤权/版本验收",
+        "测量冷启动和稳定运行延迟错误率资源审计积压",
+        "CI保证测试实际收集且按范围运行"
+      ],
+      "definition_of_done": [
+        "每项自动AC都有结果和证据；没有静默跳过关键测试",
+        "结果标明环境、版本、负载和样本量，无虚构并发SLO",
+        "失败修复后只重复受影响验证并完成必要整体集成"
+      ],
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "scripts/verify_all.py",
+        ".github/workflows/verify.yml",
+        "docs/verification/ci-results.json",
+        "docs/verification/resume-performance.json",
+        "docs/verification/resume-performance-phases.json",
+        "docs/verification/resume-process-failures.log",
+        "docs/verification/resume-disconnect-stack.log",
+        "docs/verification/resume-output-faults.log",
+        "docs/verification/resume-final-suite.log",
+        "docs/verification/20260922-DIAGNOSTICS.md",
+        "docs/verification/20260922-diagnostics-final-unit.log",
+        "docs/verification/20260922-diagnostics-final-stack.log",
+        "tests/contracts/test_failure_diagnostics.py",
+        "alembic/versions/20260922_diagnostics.py",
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json",
+        "docs/verification/accept-31d3cd5f97/results.json"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T14",
+      "title": "开源alpha候选包",
+      "phase": "release",
+      "status": "in_progress",
+      "depends_on": [
+        "T13"
+      ],
+      "suggested_paths": [
+        "README.md",
+        "产品说明_A2A_Contract_Hub.md",
+        "LICENSE",
+        "CONTRIBUTING.md",
+        "SECURITY.md",
+        "CHANGELOG.md",
+        "docs/"
+      ],
+      "acceptance_ids": [
+        "AC-24"
+      ],
+      "deliverables": [
+        "校准旧文档、许可与贡献/安全报告流程",
+        "汇总版本锁定、升级步骤、限制和AC证据",
+        "准备本地alpha候选说明；发布须符合当前会话授权"
+      ],
+      "definition_of_done": [
+        "所有自动门槛通过且可复现",
+        "真人试用/长期稳定性等未验证事项单列",
+        "产品不会被宣称已成熟或获得官方A2A扩展认证"
+      ],
+      "evidence": [
+        "docs/verification/RESUME.md",
+        "README.md",
+        "LICENSE",
+        "SECURITY.md",
+        "CONTRIBUTING.md",
+        "CHANGELOG.md",
+        "scripts/verify_release.py",
+        "docs/verification/20260922-FOUR-STEPS.md",
+        "docs/verification/AC-MAP.json",
+        "docs/verification/ci-run-a5edbe801e/ci-results.json",
+        "docs/verification/accept-31d3cd5f97/results.json"
+      ],
+      "blocked_reason": null,
+      "owner": null
+    },
+    {
+      "id": "T15",
+      "title": "独立用户试用与修正",
+      "phase": "external_validation",
+      "status": "awaiting_external_validation",
+      "depends_on": [
+        "T14"
+      ],
+      "suggested_paths": [
+        "docs/verification/",
+        "README.md"
+      ],
+      "acceptance_ids": [
+        "AC-22"
+      ],
+      "deliverables": [
+        "准备试用任务与记录模板",
+        "经用户授权安排未参与开发的真实使用者",
+        "记录接入耗时、求助、业务代码量、消费效果与卡点并修正"
+      ],
+      "definition_of_done": [
+        "有真实参与者证据才能完成，AI自测不能代替",
+        "无参与者使用awaiting_external_validation",
+        "试用导致修改时重跑受影响自动验收"
+      ],
+      "evidence": [
+        "docs/verification/USER_TRIAL.md",
+        "docs/verification/trial/START_HERE.md",
+        "docs/verification/trial/observation.template.json"
+      ],
+      "blocked_reason": "无独立真人参与者；T14 的完整自动验收门槛尚未就绪。未联系第三方。",
+      "owner": null
+    }
+  ]
+}

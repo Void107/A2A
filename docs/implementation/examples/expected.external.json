@@ -1,0 +1,17 @@
+{
+  "meeting_id": "meeting-001",
+  "title": "Launch readiness",
+  "summary": "Review completed. Contact [EMAIL] for the checklist.",
+  "action_items": [
+    {
+      "item_id": "item-001",
+      "task": "Send the checklist to [EMAIL].",
+      "due_date": "2026-09-20"
+    },
+    {
+      "item_id": "item-002",
+      "task": "Prepare the test report.",
+      "due_date": "2026-09-21"
+    }
+  ]
+}

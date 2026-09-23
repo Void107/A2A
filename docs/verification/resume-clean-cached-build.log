@@ -1,0 +1,115 @@
+ Image a2a-alpha-local-presidio Building 
+ Image a2a-alpha-local-provider Building 
+ Image a2a-alpha-local-hub Building 
+ Image a2a-alpha-local-init Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.03kB done
+#1 DONE 0.0s
+
+#2 [hub internal] load build definition from Dockerfile
+#2 transferring dockerfile: 613B done
+#2 DONE 0.0s
+
+#3 [presidio internal] load build definition from Dockerfile
+#3 transferring dockerfile: 448B done
+#3 DONE 0.0s
+
+#4 [presidio internal] load metadata for docker.io/library/python:3.12.14-slim
+#4 DONE 0.0s
+
+#5 [init internal] load .dockerignore
+#5 transferring context: 108B done
+#5 DONE 0.0s
+
+#6 [presidio internal] load build context
+#6 transferring context: 629B done
+#6 DONE 0.0s
+
+#7 [hub internal] load build context
+#7 transferring context: 31.42kB done
+#7 DONE 0.0s
+
+#8 [hub stage-0  1/12] FROM docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#8 resolve docker.io/library/python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.0s done
+#8 DONE 0.0s
+
+#9 [presidio stage-0  2/12] WORKDIR /hub
+#9 CACHED
+
+#10 [presidio stage-0 3/5] COPY requirements-presidio.lock ./
+#10 CACHED
+
+#11 [hub stage-0  3/12] COPY requirements-hub.lock ./
+#11 CACHED
+
+#12 [init stage-0  4/12] RUN --mount=type=cache,id=a2a-hub-pip,target=/root/.cache/pip pip install --retries 8 --disable-pip-version-check -r requirements-hub.lock
+#12 1.321 Collecting a2a-sdk==0.3.0 (from -r requirements-hub.lock (line 1))
+#12 1.725   Downloading a2a_sdk-0.3.0-py3-none-any.whl.metadata (5.4 kB)
+#12 2.310 Collecting alembic==1.16.5 (from -r requirements-hub.lock (line 2))
+#12 2.434   Downloading alembic-1.16.5-py3-none-any.whl.metadata (7.3 kB)
+#12 2.778 Collecting annotated-doc==0.0.4 (from -r requirements-hub.lock (line 3))
+#12 2.924   Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+#12 3.147 Collecting annotated-types==0.7.0 (from -r requirements-hub.lock (line 4))
+#12 3.280   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#12 3.520 Collecting anyio==4.12.1 (from -r requirements-hub.lock (line 5))
+#12 3.701   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+#12 3.942 Collecting async-timeout==5.0.1 (from -r requirements-hub.lock (line 6))
+#12 4.122   Downloading async_timeout-5.0.1-py3-none-any.whl.metadata (5.1 kB)
+#12 4.787 Collecting asyncpg==0.31.0 (from -r requirements-hub.lock (line 7))
+#12 4.945   Downloading asyncpg-0.31.0-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (4.4 kB)
+#12 ...
+
+#13 [presidio stage-0 4/5] RUN --mount=type=cache,id=a2a-presidio-pip,target=/root/.cache/pip pip install --retries 8 --disable-pip-version-check -r requirements-presidio.lock
+#13 0.695 Ignoring click: markers 'python_version < "3.10"' don't match your environment
+#13 1.498 Collecting annotated-doc==0.0.5 (from -r requirements-presidio.lock (line 1))
+#13 2.236   Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+#13 2.347 Collecting annotated-types==0.7.0 (from -r requirements-presidio.lock (line 2))
+#13 2.484   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#13 2.879 Collecting anyio==4.12.1 (from -r requirements-presidio.lock (line 3))
+#13 3.030   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+#13 3.478 Collecting blis==0.7.11 (from -r requirements-presidio.lock (line 4))
+#13 3.625   Downloading blis-0.7.11-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (7.4 kB)
+#13 4.476 Collecting catalogue==2.0.10 (from -r requirements-presidio.lock (line 5))
+#13 4.923   Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+#13 5.657 Collecting certifi==2026.7.22 (from -r requirements-presidio.lock (line 6))
+#13 5.933   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+#13 ...
+
+#12 [init stage-0  4/12] RUN --mount=type=cache,id=a2a-hub-pip,target=/root/.cache/pip pip install --retries 8 --disable-pip-version-check -r requirements-hub.lock
+#12 20.48 ERROR: Could not find a version that satisfies the requirement attrs==26.1.0 (from versions: none)
+#12 20.48 ERROR: No matching distribution found for attrs==26.1.0
+#12 ERROR: process "/bin/sh -c pip install --retries 8 --disable-pip-version-check -r requirements-hub.lock" did not complete successfully: exit code: 1
+
+#13 [presidio stage-0 4/5] RUN --mount=type=cache,id=a2a-presidio-pip,target=/root/.cache/pip pip install --retries 8 --disable-pip-version-check -r requirements-presidio.lock
+#13 CANCELED
+------
+ > [provider stage-0  4/12] RUN --mount=type=cache,id=a2a-hub-pip,target=/root/.cache/pip pip install --retries 8 --disable-pip-version-check -r requirements-hub.lock:
+3.147 Collecting annotated-types==0.7.0 (from -r requirements-hub.lock (line 4))
+3.280   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+3.520 Collecting anyio==4.12.1 (from -r requirements-hub.lock (line 5))
+3.701   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+3.942 Collecting async-timeout==5.0.1 (from -r requirements-hub.lock (line 6))
+4.122   Downloading async_timeout-5.0.1-py3-none-any.whl.metadata (5.1 kB)
+4.787 Collecting asyncpg==0.31.0 (from -r requirements-hub.lock (line 7))
+4.945   Downloading asyncpg-0.31.0-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (4.4 kB)
+20.48 ERROR: Could not find a version that satisfies the requirement attrs==26.1.0 (from versions: none)
+20.48 ERROR: No matching distribution found for attrs==26.1.0
+------
+Dockerfile:4
+
+--------------------
+
+   2 |     WORKDIR /hub
+
+   3 |     COPY requirements-hub.lock ./
+
+   4 | >>> RUN --mount=type=cache,id=a2a-hub-pip,target=/root/.cache/pip pip install --retries 8 --disable-pip-version-check -r requirements-hub.lock
+
+   5 |     COPY app app
+
+   6 |     COPY sdk sdk
+
+--------------------
+
+target provider: failed to solve: process "/bin/sh -c pip install --retries 8 --disable-pip-version-check -r requirements-hub.lock" did not complete successfully: exit code: 1
+

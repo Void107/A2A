@@ -1,0 +1,34 @@
+ Image openpolicyagent/opa:1.0.0-static Pulling 
+ 81d80c7e208d Pulling fs layer 0B
+ d0e3cbf0de7f Pulling fs layer 0B
+ 81d80c7e208d Downloading 1.049MB
+ 81d80c7e208d Downloading 1.049MB
+ 81d80c7e208d Downloading 2.097MB
+ 81d80c7e208d Downloading 3.146MB
+ 81d80c7e208d Downloading 3.146MB
+ 81d80c7e208d Downloading 3.146MB
+ 81d80c7e208d Downloading 6.291MB
+ 81d80c7e208d Downloading 8.389MB
+ 81d80c7e208d Downloading 10.49MB
+ 81d80c7e208d Downloading 11.53MB
+ 81d80c7e208d Downloading 12.58MB
+ 81d80c7e208d Downloading 12.58MB
+ 81d80c7e208d Downloading 13.63MB
+ 81d80c7e208d Downloading 14.68MB
+ 81d80c7e208d Downloading 14.68MB
+ 81d80c7e208d Downloading 15.73MB
+ 81d80c7e208d Downloading 18.87MB
+ 81d80c7e208d Downloading 18.87MB
+ 81d80c7e208d Download complete 0B
+ d0e3cbf0de7f Download complete 0B
+ d0e3cbf0de7f Extracting 1B
+ 81d80c7e208d Extracting 1B
+ d0e3cbf0de7f Pull complete 0B
+ 81d80c7e208d Pull complete 0B
+ Image openpolicyagent/opa:1.0.0-static Pulled 
+ Image a2a-alpha-local-hub Building 
+ Image a2a-alpha-local-presidio Building 
+ Image a2a-alpha-local-init Building 
+ Image a2a-alpha-local-provider Building 
+failed to update builder last activity time: open /Users/jeremysie/.docker/buildx/activity/.tmp-default1752853052: operation not permitted
+

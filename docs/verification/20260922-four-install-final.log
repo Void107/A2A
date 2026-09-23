@@ -1,0 +1,10 @@
+clean-build 0
+startup 1
+Traceback (most recent call last):
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_clean_install.py", line 86, in <module>
+    if __name__=='__main__':main()
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_clean_install.py", line 50, in main
+    run('startup',base+['up','-d','--wait','--wait-timeout','180'])
+  File "/Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/scripts/verify_clean_install.py", line 30, in run
+    if check and result.returncode:raise RuntimeError(name+' failed; inspect '+str(evidence))
+RuntimeError: startup failed; inspect /Users/jeremysie/Desktop/A2A项目/a2a-contract-hub/docs/verification/accept-ec0b3149f7
