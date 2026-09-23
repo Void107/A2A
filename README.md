@@ -2,6 +2,10 @@
 
 当前为本地 alpha 开发版本。使用 OPA 决策、固定 Presidio 英文邮箱识别、严格输入/输出校验与 PostgreSQL 交付记录，为同一份合成会议生成内部和外部两个视图。任务与逐项验收状态见 [STATUS](docs/implementation/STATUS.md) 和 [TASKS](docs/implementation/TASKS.json)；未完成门槛不能视为发布通过。
 
+## 第一次体验，不熟悉编程？
+
+从 [普通用户体验指南](docs/verification/trial/BEGINNER.md) 开始，或把 [AI 安装指令](docs/verification/trial/AI_INSTALL.md) 交给能操作本机的 AI 助手。无需写代码或购买 API；目前结果显示在终端，尚无图形操作界面。开发者可继续阅读下方说明。
+
 ## 本地启动
 
 需要 Docker Compose、镜像仓库及 PyPI 下载连接。镜像与 Python 依赖分别固定在 Compose、Dockerfile 和两个 `requirements-*.lock`。首次下载/构建和稳定运行是不同成本，没有五分钟部署承诺。Presidio 使用 EmailRecognizer，不下载 NLP 模型。
@@ -76,7 +80,7 @@ docker compose -f compose.yaml -f compose.offline.yaml --profile demo run --rm d
 
 ### 最新验收与独立试用
 
-最新本地工程结果、明确未验证项及 24 项验收映射见 [四项报告](docs/verification/20260922-FOUR-STEPS.md) 与 [AC 映射](docs/verification/AC-MAP.json)。本地自动验证成功，不代表托管 CI、真人试用或对外发布已完成。
+最新本地工程结果、明确未验证项及 24 项验收映射见 [四项报告](docs/verification/20260922-FOUR-STEPS.md) 与 [AC 映射](docs/verification/AC-MAP.json)。本地及 [托管 CI](https://github.com/Void107/A2A/actions/runs/35815716142) 已通过；真人试用、长期稳定性和生产部署仍未验证。
 
 如果 pip 下载出现 TLS/索引或摘要问题，保持固定版本并使用官方元数据逐包校验路径：
 
@@ -88,4 +92,4 @@ python scripts/prepare_wheels.py --downloader curl
 
 完整独立验收：`python scripts/verify_clean_install.py --downloader curl`；已有核实 wheels 时可用 `--reuse-wheels`，但不得把缓存读取时间当作下载耗时。验收使用独立项目名、127.0.0.1:58001 和 172.30.87.0/24；这些测试资源应无冲突。脚本保留专属数据卷和证据，只清理本次容器及网络，不动现有演示栈。
 
-真人试用入口：[任务卡](docs/verification/trial/START_HERE.md) 与 [空白观察表](docs/verification/trial/observation.template.json)。尚无真人结果。对外发布前需完成托管 CI 并确定私密安全报告渠道和责任人。
+真人试用入口：[任务卡](docs/verification/trial/START_HERE.md) 与 [空白观察表](docs/verification/trial/observation.template.json)。尚无真人结果。私密安全报告渠道和负责人已落实，见 [SECURITY](SECURITY.md)。

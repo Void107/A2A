@@ -1006,7 +1006,9 @@
       "evidence": [
         "docs/verification/USER_TRIAL.md",
         "docs/verification/trial/START_HERE.md",
-        "docs/verification/trial/observation.template.json"
+        "docs/verification/trial/observation.template.json",
+        "docs/verification/trial/BEGINNER.md",
+        "docs/verification/trial/AI_INSTALL.md"
       ],
       "blocked_reason": "无独立真人参与者；T14 的完整自动验收门槛尚未就绪。未联系第三方。",
       "owner": null
