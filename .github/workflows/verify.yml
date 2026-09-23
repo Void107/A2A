@@ -36,8 +36,9 @@ jobs:
           docker compose up -d --wait
           docker compose --profile demo run --rm demo
       - name: Check release evidence (separate from test success)
+        shell: bash
         if: always()
-        run: .venv-ci/bin/python scripts/verify_release.py > docs/verification/ci-release-gate.json
+        run: .venv-ci/bin/python scripts/verify_release.py | tee docs/verification/ci-release-gate.json
       - name: Preserve results including failures
         if: always()
         uses: actions/upload-artifact@v4

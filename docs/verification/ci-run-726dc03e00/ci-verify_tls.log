@@ -1,0 +1,1 @@
+PASS AC-04: actual verified TLS, untrusted certificate and hostname mismatch rejected before HTTP; original Host/SNI retained with IP pinning

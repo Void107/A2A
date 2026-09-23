@@ -1,0 +1,136 @@
+[
+  {
+    "name": "unit",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134101.6954627,
+    "seconds": 22.146751403808594,
+    "log": "docs/verification/ci-run-726dc03e00/ci-unit.log"
+  },
+  {
+    "name": "verify_real_baseline",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "scripts/verify_real_baseline.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134123.8426154,
+    "seconds": 2.015486717224121,
+    "log": "docs/verification/ci-run-726dc03e00/ci-verify_real_baseline.log"
+  },
+  {
+    "name": "verify_unmigrated",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "scripts/verify_unmigrated.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134125.8585222,
+    "seconds": 1.5034065246582031,
+    "log": "docs/verification/ci-run-726dc03e00/ci-verify_unmigrated.log"
+  },
+  {
+    "name": "verify_security",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "scripts/verify_security.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134127.3623943,
+    "seconds": 4.431920051574707,
+    "log": "docs/verification/ci-run-726dc03e00/ci-verify_security.log"
+  },
+  {
+    "name": "verify_upstream",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "scripts/verify_upstream.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134131.7947545,
+    "seconds": 0.39640092849731445,
+    "log": "docs/verification/ci-run-726dc03e00/ci-verify_upstream.log"
+  },
+  {
+    "name": "verify_tls",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "scripts/verify_tls.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134132.1915863,
+    "seconds": 0.33175063133239746,
+    "log": "docs/verification/ci-run-726dc03e00/ci-verify_tls.log"
+  },
+  {
+    "name": "verify_receipts",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "scripts/verify_receipts.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134132.523854,
+    "seconds": 5.06558895111084,
+    "log": "docs/verification/ci-run-726dc03e00/ci-verify_receipts.log"
+  },
+  {
+    "name": "verify_process_failures",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "scripts/verify_process_failures.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134137.5899138,
+    "seconds": 2.839193820953369,
+    "log": "docs/verification/ci-run-726dc03e00/ci-verify_process_failures.log"
+  },
+  {
+    "name": "verify_opa",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "scripts/verify_opa.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134140.4297035,
+    "seconds": 1.6539514064788818,
+    "log": "docs/verification/ci-run-726dc03e00/ci-verify_opa.log"
+  },
+  {
+    "name": "verify_processing",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "scripts/verify_processing.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134142.084231,
+    "seconds": 2.718761682510376,
+    "log": "docs/verification/ci-run-726dc03e00/ci-verify_processing.log"
+  },
+  {
+    "name": "verify_delivery",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-ci/bin/python",
+      "scripts/verify_delivery.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134144.8035805,
+    "seconds": 72.0007050037384,
+    "log": "docs/verification/ci-run-726dc03e00/ci-verify_delivery.log"
+  },
+  {
+    "name": "presidio_quality",
+    "command": [
+      "/home/runner/work/A2A/A2A/.venv-presidio/bin/python",
+      "scripts/presidio_quality.py"
+    ],
+    "exit_code": 0,
+    "started_unix": 1790134216.8047652,
+    "seconds": 1.2407984733581543,
+    "log": "docs/verification/ci-run-726dc03e00/ci-presidio_quality.log"
+  }
+]

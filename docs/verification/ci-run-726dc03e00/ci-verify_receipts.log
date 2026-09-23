@@ -1,0 +1,13 @@
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+/home/runner/work/A2A/A2A/scripts/verify_receipts.py:69: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  await db.execute(update(OutboxEvent).where(OutboxEvent.event_id == event_id).values(next_attempt=datetime.utcnow()))
+ Container a2a-contract-test-redis-1  Stopping
+ Container a2a-contract-test-redis-1  Stopped
+ Container a2a-contract-test-redis-1  Starting
+ Container a2a-contract-test-redis-1  Started
+ Container a2a-contract-test-redis-1  Waiting
+ Container a2a-contract-test-redis-1  Healthy
+PostgreSQL: 17.6 (Debian 17.6-2.pgdg13+1)
+Redis: 7.4.5
+PASS: process restart and Redis outage; PG receipt/outbox atomicity, DB failure retention, retry, two-consumer idempotency, current grant revocation, ready_to_send semantics

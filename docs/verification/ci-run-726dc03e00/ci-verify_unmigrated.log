@@ -1,0 +1,3 @@
+PASS AC-21: fresh unmigrated database and missing profile reject readiness with safe error codes
+PostgreSQL: 17.6 (Debian 17.6-2.pgdg13+1)
+Redis: 7.4.5

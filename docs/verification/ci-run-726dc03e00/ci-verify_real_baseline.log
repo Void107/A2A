@@ -1,0 +1,13 @@
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 4e303a674a86, init: create agents, contract_history, audit_logs
+INFO  [alembic.runtime.migration] Running upgrade 4e303a674a86 -> 20260913_security, Trusted identity and independent grants. Legacy identities require reapproval.
+INFO  [alembic.runtime.migration] Running upgrade 20260913_security -> 20260913_receipts, Transactional receipt, durable outbox and idempotent audit index.
+INFO  [alembic.runtime.migration] Running upgrade 20260913_receipts -> 20260914_contracts, Immutable contract version storage.
+INFO  [alembic.runtime.migration] Running upgrade 20260914_contracts -> 20260914_failures, Safe failure records and PG-backed replay protection.
+INFO  [alembic.runtime.migration] Running upgrade 20260914_failures -> 20260914_publication, Version-scoped consumer evidence; does not alter immutable contract documents.
+INFO  [alembic.runtime.migration] Running upgrade 20260914_publication -> 20260922_diagnostics, Add optional bounded failure metadata; historical rows remain unknown.
+PostgreSQL: 17.6 (Debian 17.6-2.pgdg13+1)
+Redis: 7.4.5
+control-plane lifespan; unconfigured delivery correctly not ready; cycle 1 PASS; migration 20260922_diagnostics
+control-plane lifespan; unconfigured delivery correctly not ready; cycle 2 PASS; migration 20260922_diagnostics
