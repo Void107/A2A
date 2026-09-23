@@ -6,6 +6,33 @@ You do not need to know how to code. This demo uses a fictional meeting included
 
 This is a local demo, with no graphical product interface yet. Results appear in a terminal: the window where you enter commands and read their output. An AI assistant can help you install the demo and explain the results.
 
+## What problem does this solve?
+
+**When several AI assistants need the same source data, how do you give each one the information it is allowed to see—and enough information to do its job?**
+
+Imagine a project meeting with two assistants handling the action items. The internal assistant needs assignee email addresses to assign tasks. The external partner's assistant needs the tasks and due dates, but should not receive internal assignee names or emails.
+
+Sending the whole document may expose unnecessary information. Removing too much may make the result unusable. A change in the source format can also break a workflow that used to work.
+
+### Think of a document handover desk with a checklist
+
+You give the desk a checklist: who can collect the data, which fields they may receive, what processing is required, and what the finished result must look like. That checklist is the “contract.” The version prepared for a particular recipient is a “view.”
+
+For each request, the desk checks access, prepares the data according to the rules, checks the result, and saves a delivery record. If permission is missing, required processing fails, the result does not meet the contract, or the record cannot be saved, it stops delivery and returns an error. It follows configured rules; it does not decide for itself whether every piece of information is sensitive.
+
+| Everyday problem | How the project helps | Example in this demo |
+| --- | --- | --- |
+| Different recipients need different information | Provides predefined views based on current identity and access grants | Internal tasks keep assignee emails; external tasks omit assignee name and email fields |
+| Processed data loses fields needed to do the job | Checks input/output structure and tests task outcomes against registered examples | Internal tasks can be assigned by email; external tasks retain due dates and remain unassigned |
+| A field change breaks an existing connection | Checks structure during delivery and declared compatibility and registered examples before contract activation | An internal workflow that requires email addresses cannot silently switch to a contract without them |
+| A failed request is hard to investigate | Returns an error category and request ID for authorized diagnosis | Distinguishes access denied, invalid data structure, and unavailable processing services |
+
+### What can you try today?
+
+Run the included fictional meeting to produce two local task lists: an internal list with assignees and an external list with unassigned tasks. This demonstrates how the same source data reaches different assistants under different rules. Developers can reuse the delivery checks when integrating their own systems.
+
+There is no graphical interface, arbitrary meeting-file upload, recording summarization, or connection to a real task platform yet. Content detection covers the declared English email baseline and predefined field processing, not comprehensive anonymization. A delivery record means the system permits an attempted delivery; it does not prove receipt or control what the recipient does later. Trials with nontechnical users remain unverified.
+
 ## Option A: ask an AI assistant to help (recommended)
 
 1. Use an AI assistant that can read local files and run terminal commands. Open a new, empty folder. A chat-only assistant can guide you, but cannot install the project for you.
