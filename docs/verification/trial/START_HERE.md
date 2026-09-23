@@ -1,6 +1,7 @@
 # 试用入口
 
 - 不熟悉编程：先看 [普通用户体验指南](BEGINNER.md)，可复制 [AI 安装指令](AI_INSTALL.md)。
+- English: [Beginner guide](BEGINNER.en.md) · [AI installation prompt](AI_INSTALL.en.md).
 - 希望验证开发接入：继续下面的完整任务。
 
 两条路线分开记录；AI 辅助演示不能替代完整 AC-22 验收。
